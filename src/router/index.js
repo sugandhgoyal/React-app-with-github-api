@@ -4,10 +4,16 @@ import {
     Route
 } from 'react-router-dom';
 
-import ArticleHome from '../containers/article/article.home';
 
-export default(
+// import Addarticle from '../components/addNewArticle';
+import Article from '../containers/article/article.container';
+
+export default (
     <Router>
-        <Route path="/" component={ArticleHome}/>
+        <div>
+            <Route path="/" component={Article} />
+            {/* <Route exact path="/addarticle" component={Addarticle} /> */}
+        </div>
+
     </Router>
 )
