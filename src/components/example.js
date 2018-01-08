@@ -1,5 +1,6 @@
 import React from 'react';
 import CKEditor from "react-ckeditor-component";
+import '../App.css';
 
 class Example extends React.Component {
     constructor(props) {
@@ -35,9 +36,9 @@ class Example extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="editor">
                 <CKEditor
-                    activeClass="p10"
+                    activeclass="p10"
                     content={this.state.content}
                     events={{
                         "blur": this.onBlur,
@@ -45,8 +46,8 @@ class Example extends React.Component {
                         "change": this.onChange
                     }}
                 />
-                <button type="submit">SAVE</button>
-                <button type="submit">CANCEL</button>
+                <button className="submit" type="submit">SAVE</button>
+                <button className="cancel" type="submit">CANCEL</button>
             </div>
 
         )

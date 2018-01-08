@@ -1,18 +1,70 @@
 import React from 'react';
 import '../App.css';
+import Searchbox from './searchbox';
 import logo from '../images/logo.png';
+import Feedtable from './tableFeed';
 import Feeds from '../containers/feed/feed.container';
 
-class Navigationbar extends React.Component {
+class Navigation extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-        };
+        this.state = {};
+        this.state.moveaside = false,
+            this.state.searching = false,
+            this.state.products = [
+                {
+                    Title: "Suryaveer's Live Gig + Unlimited Booze @ Farzi Cafe & More AWESOME ",
+                    PubAllFeed: "0",
+                    Publisher: "so delhi",
+                    Rss: "0",
+                    AMP: "1",
+                    Delete: "del",
+                    Publish: "icon",
+
+                }, {
+                    Title: "Suryaveer's Live Gig + Unlimited Booze @ Farzi Cafe & More AWESOME NYE Deal",
+                    PubAllFeed: "0",
+                    Publisher: "so delhi",
+                    Rss: "0",
+                    AMP: "1",
+                    Delete: "del",
+                    Publish: "icon",
+                }, {
+                    Title: "Suryaveer's Live Gig + Unlimited Booze @ Farzi Cafe & M Deals From nearbuy.com",
+                    PubAllFeed: "0",
+                    Publisher: "so delhi",
+                    Rss: "0",
+                    AMP: "1",
+                    Delete: "del",
+                    Publish: "icon",
+                }, {
+                    Title: "Suryaveer's Live Gig + Unlimited Booze @ FaESOME NYE Deals From nearbuy",
+                    PubAllFeed: "0",
+                    Publisher: "so delhi",
+                    Rss: "0",
+                    AMP: "1",
+                    Delete: "del",
+                    Publish: "icon",
+                }, {
+                    Title: "Suryaveer's Live Gig + Unlimited Booze @ Farzi Cafe & More AWESOME NYE Deals",
+                    PubAllFeed: "0",
+                    Publisher: "so delhi",
+                    Rss: "0",
+                    AMP: "1",
+                    Delete: "del",
+                    Publish: "icon",
+                }
+            ];
+        this.openNav = this.openNav.bind(this);
+    }
+    openNav() {
+        const currentState = this.state.moveaside;
+        this.setState({ moveaside: !currentState });
     }
     render() {
         return (
             <div>
-                <nav id={this.props.moveasideProp ? "openNavbar" : "sidebar-wrapper"} className="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                <nav id={this.state.moveaside ? "openNavbar" : "sidebar-wrapper"} className="navbar navbar-inverse navbar-fixed-top" role="navigation">
                     <ul className="nav sidebar-nav">
                         <li>
                             <a href="#" id="title">So Dashboard</a>
@@ -82,8 +134,16 @@ class Navigationbar extends React.Component {
                         </li>
                     </ul>
                 </nav>
+                <div className={this.state.moveaside ? "mainMove" : "main"} id="mainId">
+                    <span className="openButton" onClick={this.openNav}>&#9776; </span>
+                    <Searchbox />
+                    <i className="fa fa-user-circle-o user" aria-hidden="true"></i>
+                </div>
+                <div className={this.state.moveaside ? "mainMove" : "main"}>
+                    <Feedtable products={this.state.products} />
+                </div>
             </div >)
     }
 }
 
-export default Navigationbar;
+export default Navigation;

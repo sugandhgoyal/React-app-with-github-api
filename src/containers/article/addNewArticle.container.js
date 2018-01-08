@@ -1,21 +1,32 @@
 import React from 'react';
-import Navigationbar from './navbar';
-import Searchbox from './searchbox';
-import Table from './table';
 import { connect } from 'react-redux';
+import '../../App.css';
+import {
+    loadArticleDataApi
+} from "../../action/index";
+import Navigationbar from '../../components/navbar';
+import Searchbox from '../../components/searchbox';
+import Table from '../../components/table';
+import Addarticleform from '../../components/articleForm';
 
-class ArticleHome extends React.Component {
-
+class Newarticle extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            article_items: [],
             moveaside: false,
-        };
+        }
         this.openNav = this.openNav.bind(this);
     }
     openNav() {
         const currentState = this.state.moveaside;
         this.setState({ moveaside: !currentState });
+    }
+
+    componentWillReceiveProps(nextProps) {
+        this.setState({
+            article_items: nextProps.articleReducer.article_data
+        })
     }
     render() {
         return (
@@ -26,20 +37,18 @@ class ArticleHome extends React.Component {
                     <i className="fa fa-user-circle-o user" aria-hidden="true"></i>
                 </div>
                 <div className={this.state.moveaside ? "mainMove" : "main"}>
-                    <Table products={this.props.data} />
+                    <Addarticleform />
                 </div>
-                <Navigationbar products={this.props.data} moveasideProp={this.state.moveaside} />
+                <Navigationbar moveasideProp={this.state.moveaside} />
             </div>
-
-        );
+        )
     }
-
 }
-
 const mapDispatchToProps = (dispatch) => {
     return {
         dispatch
-    }
+    };
 }
 
-export default connect((state) => state, mapDispatchToProps)(ArticleHome);
+
+export default connect(state => state, mapDispatchToProps)(Newarticle);

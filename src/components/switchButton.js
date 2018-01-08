@@ -18,14 +18,14 @@ class SwitchButton extends React.Component {
         return (
             <div>
                 {
-                    this.props.checkedProp == 0 &&
+                    this.props.checkedProp === 0 &&
                     < label className="switch" >
                         <input type="checkbox" />
                         <span className="slider round"></span>
                     </label>
                 }
                 {
-                    this.props.checkedProp == 1 &&
+                    this.props.checkedProp === 1 &&
                     < label className="switch" >
                         <input type="checkbox" defaultChecked />
                         <span className="slider round"></span>
