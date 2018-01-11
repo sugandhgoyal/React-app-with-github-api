@@ -11,7 +11,7 @@ class Table extends React.Component {
     render() {
         return (
             <div>
-                <div className="pageTitle">Articles</div>
+                <div className="pageTitle"></div>
                 <div className="table" >
                     <div className="container " >
                         <div className="show-grid row">

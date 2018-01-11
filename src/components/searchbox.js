@@ -13,15 +13,7 @@ class Searchbox extends React.Component {
         this.setState({ searching: !this.state.searching });
     }
     render() {
-        if (this.state.searching === false) {
-            return (
-                <i className="fa fa-search search-icon" aria-hidden="true" onClick={this.search}></i>
-            )
-        }
-        else {
-            return (<input className="searchInput" type="text" placeholder="Search..." />)
-        }
-
+        return (<input className="searchInput" type="text" placeholder="Search..." />)
     }
 }
 

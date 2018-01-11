@@ -1,12 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import '../../App.css';
-import {
-    loadArticleDataApi
-} from "../../action/index";
-import Navigationbar from '../../components/navbar';
-import Searchbox from '../../components/searchbox';
-import Table from '../../components/table';
 import Addarticleform from '../../components/articleForm';
 
 class Newarticle extends React.Component {
@@ -16,11 +10,7 @@ class Newarticle extends React.Component {
             article_items: [],
             moveaside: false,
         }
-        this.openNav = this.openNav.bind(this);
-    }
-    openNav() {
-        const currentState = this.state.moveaside;
-        this.setState({ moveaside: !currentState });
+
     }
 
     componentWillReceiveProps(nextProps) {
@@ -30,16 +20,8 @@ class Newarticle extends React.Component {
     }
     render() {
         return (
-            <div>
-                <div className={this.state.moveaside ? "mainMove" : "main"} id="mainId">
-                    <span className="openButton" onClick={this.openNav}>&#9776; </span>
-                    <Searchbox />
-                    <i className="fa fa-user-circle-o user" aria-hidden="true"></i>
-                </div>
-                <div className={this.state.moveaside ? "mainMove" : "main"}>
-                    <Addarticleform />
-                </div>
-                <Navigationbar moveasideProp={this.state.moveaside} />
+            <div className={this.state.moveaside ? "mainMove" : "main"}>
+                <Addarticleform />
             </div>
         )
     }

@@ -15,3 +15,21 @@ export const getCallApi = (api_url) => {
         });
 
 }
+
+/**
+ * @param api_url String contains api to be called
+ * @returns {Promise<any> | * | Promise | Promise.<T>}
+ * @argument api-url
+ */
+
+export const feedCallApi = (api_url) => {
+    return fetch(api_url)
+        .then((res) => res.json())
+        .then(data => {
+            return Promise.resolve(data);
+        })
+        .catch((error) => {
+            return Promise.reject(error);
+        });
+
+}

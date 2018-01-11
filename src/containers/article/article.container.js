@@ -4,7 +4,7 @@ import '../../App.css';
 import {
     loadArticleDataApi
 } from "../../action/index";
-import ArticleHome from '../../components/article.home';
+import ArticleHome from './articlehome.container';
 
 class Article extends React.Component {
     constructor(props) {
@@ -12,11 +12,9 @@ class Article extends React.Component {
         this.state = {
             article_items: [],
         }
+       
     }
-
     componentWillMount() {
-        //const num = 0;
-      //  console.log("Article container", loadArticleDataApi());
         this.props.dispatch(loadArticleDataApi(0));
     }
 
@@ -27,7 +25,7 @@ class Article extends React.Component {
     }
     render() {
         return (
-            <ArticleHome data={this.state.article_items} />
+            <ArticleHome data={this.state.article_items}  />
         )
     }
 }

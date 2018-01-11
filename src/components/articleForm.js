@@ -72,9 +72,9 @@ class Addarticleform extends React.Component {
                                 <button className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">So Delhi
                                 </button>
                                 <ul className="dropdown-menu">
-                                    <li><a href="#">HTML</a></li>
-                                    <li><a href="#">CSS</a></li>
-                                    <li><a href="#">JavaScript</a></li>
+                                    <li><a>HTML</a></li>
+                                    <li><a>CSS</a></li>
+                                    <li><a>JavaScript</a></li>
                                 </ul>
                             </div>
                             <div className="col-60"><Multidropdown /></div>

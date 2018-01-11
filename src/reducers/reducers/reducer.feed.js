@@ -1,26 +1,27 @@
-import { LOAD_ARTICLE_DATA, LOAD_ARTICLE_DATA_SUCCESS, LOAD_ARTICLE_DATA_ERROR } from '../../constants/index';
+import { LOAD_FEED_DATA, LOAD_FEED_DATA_SUCCESS, LOAD_FEED_DATA_ERROR } from '../../constants/index';
 
 const initialState = {
     state: [],
-    article_data: [],
+    feed_data: [],
     error: null,
 };
 
 
-export const articleReducer = (state = initialState, action) => {
+export const feedReducer = (state = initialState, action) => {
     switch (action.type) {
 
-        case LOAD_ARTICLE_DATA:
+        case LOAD_FEED_DATA:
             return {
                 ...state,
             }
-        case LOAD_ARTICLE_DATA_SUCCESS:
+        case LOAD_FEED_DATA_SUCCESS:
+            console.log(action)
             return {
                 ...state,
-                article_data: action.article_data,
+                feed_data: action.feed_data,
                 error: false,
             }
-        case LOAD_ARTICLE_DATA_ERROR:
+        case LOAD_FEED_DATA_ERROR:
             return {
                 ...state,
                 error: true,
