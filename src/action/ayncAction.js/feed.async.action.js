@@ -3,22 +3,24 @@ import { feedAction } from "../index";
 import {
     FEED_FETCH_API
 } from '../../constants/api';
-
 import {
     feedCallApi
 } from '../../utils/utils';
 
 /**
  * 
- * @param {*} num 
+ * @param {*} city,batchSize,publishedDate
  */
-export const loadFeedDataApi = (num, city) => {
+export const loadFeedDataApi = (city, batchSize, publishedDate) => {
     return (dispatch) => {
         dispatch(feedAction.load_feed_data());
-        return feedCallApi(FEED_FETCH_API(num, city))
+        return feedCallApi(FEED_FETCH_API, {
+            city: city,
+            batchSize: batchSize,
+            publishedDate: publishedDate,
+        })
             .then((data) => {
-                console.log(data.rows.feedArray);
-                dispatch(feedAction.load_feed_data_success(data.rows.feedArray));
+                dispatch(feedAction.load_feed_data_success(data.data));
                 return Promise.resolve(data.data);
             })
             .catch((error) => {

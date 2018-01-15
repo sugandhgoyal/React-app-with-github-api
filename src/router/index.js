@@ -7,8 +7,9 @@ import Header from '../containers/header/header.container';
 import Feed from '../containers/feed/feed.container';
 import Newarticle from '../containers/article/addNewArticle.container';
 import Listing from '../containers/listing/listing.container';
-import Mapp from '../containers/listing/mapp';
+import Mapp from '../components/mapComponent';
 import Article from '../containers/article/article.container';
+import Appp from '../components/dt';
 
 export default (
     <Router>
@@ -19,6 +20,7 @@ export default (
             <Route path="/addarticle" component={Newarticle} />
             <Route path="/aa" component={Listing} />
             <Route path="/bb" component={Mapp} />
+            <Route path="/cc" component={Appp} />
         </div>
 
     </Router>

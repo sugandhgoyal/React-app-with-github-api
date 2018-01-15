@@ -1,3 +1,4 @@
+import LazyLoad from 'react-lazyload';
 import React from 'react';
 import { connect } from 'react-redux';
 import '../../App.css';
@@ -5,6 +6,7 @@ import {
     loadFeedDataApi
 } from "../../action/index";
 import Feedcard from '../../components/feedCard';
+import _ from 'lodash';
 
 class Feed extends React.Component {
     constructor(props) {
@@ -12,29 +14,37 @@ class Feed extends React.Component {
         this.state = {
             moveaside: false,
             feed_items: [],
+            publisher_items: [],
             defaultSelected: 'Featured',
         };
         this.selected = this.selected.bind(this);
+        this.getPublisherImage = this.getPublisherImage.bind(this);
     }
     selected() {
         console.log("selected");
     }
 
     componentWillMount() {
-        this.props.dispatch(loadFeedDataApi(2, 'delhi'));
+        this.props.dispatch(loadFeedDataApi('delhi', 50, "1513154868810"));
     }
     componentWillReceiveProps(nextProps) {
         this.setState({
-            feed_items: nextProps.feedReducer.feed_data
+            feed_items: nextProps.feedReducer.feed_data,
+            publisher_items: nextProps.feedReducer.publisher_data
         })
     }
+
+    getPublisherImage(username) {
+        return _.find(this.state.publisher_items, { 'username': username });
+    }
+
     render() {
         return (
             <div>
                 <div className={this.state.moveaside ? "mainMove" : "main"}>
-                    <div class="dropdown">
+                    <div className="dropdown">
                         <button>City</button>
-                        <div class="dropdown-content">
+                        <div className="dropdown-content">
                             <p>Delhi</p>
                             <p>Andaman</p>
                             <p>Amritsar</p>
@@ -60,16 +70,20 @@ class Feed extends React.Component {
                         </div>
 
                     </div>
-                    <div class="dropdown">
+                    <div className="dropdown">
                         <button>{this.state.defaultSelected}</button>
-                        <div class="dropdown-content">
+                        <div className="dropdown-content">
                             <p onClick={this.state.selected}>Featured</p>
                             <p>Not Featured</p>
                         </div>
 
                     </div>
                     {this.state.feed_items.map((ele) => {
-                        return (<Feedcard data={this.state.feed_items} eachFeed={ele} />);
+                        var imageUrl = this.getPublisherImage(ele.createdBy);
+                        return (
+                            <Feedcard key={ele._id} data={this.state.feed_items} publisherData={this.props.feedReducer.publisher_data} eachFeed={ele}
+                                imageLink={imageUrl.profilePicture} />
+                        );
                     })}
 
                 </div>

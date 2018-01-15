@@ -19,7 +19,7 @@
 }
 
 body {
-  font-family: 'Lato', sans-serif;
+  font-family: 'Merriweather', serif;
 }
 
 body {
@@ -225,8 +225,31 @@ body, html {
   color: blue;
 }
 
+.eyee {
+  margin-left: 24%;
+}
+
 .fa-eye-slash {
   color: grey;
+  margin-left: 24%;
+}
+
+@media screen and (max-height: 640px) {
+  .rowData {
+    font-size: 11px;
+  }
+  /* .switch {
+    position: relative;
+    display: inline-block;
+    width: 45px;
+    height: 25px;
+  }
+  .slider:before {
+    height: 14px;
+    width: 14px;
+    left: 8px;
+    bottom: 3px;
+  } */
 }
 
 /*-------------------------------*/
@@ -771,16 +794,17 @@ input[type=submit]:hover {
 
 .card {
   background-color: #f5f5f5;
-  width: 100%;
+  width: 95%;
   border-radius: 10px;
   box-shadow: 3px 3px 20px rgba(0, 0, 0, .5);
 }
 
 .card6 {
-  border-radius: 0px;
+  margin: 0 auto;
+  border-radius: 7px;
   color: #273746;
   background-color: #f5f5f5;
-  margin-top: 2Px;
+  margin-top: 3Px;
 }
 
 .card .container {
@@ -790,6 +814,10 @@ input[type=submit]:hover {
 .left-part {
   float: left;
   padding: 1%;
+}
+
+.articleImage {
+  width: 200px;
 }
 
 .middle-part {
@@ -811,6 +839,9 @@ input[type=submit]:hover {
 }
 
 .image-user {
+  width: 60px;
+  height: 60px;
+  margin-right: 1%;
   border-radius: 50%;
 }
 
@@ -819,6 +850,10 @@ input[type=submit]:hover {
   color: #273746;
   position: relative;
   opacity: 1;
+}
+
+.fa-eye:hover, .fa-share-alt:hover, .fa-calendar:hover, .fa-location-arrow:hover {
+  transform: scale(1.1);
 }
 
 .fa-share-alt {
@@ -890,6 +925,10 @@ input[type=submit]:hover {
   overflow: auto;
 }
 
+.content a {
+  cursor: pointer;
+}
+
 @media screen and (max-width: 700px) {
   .box {
     width: 70%;
@@ -929,6 +968,21 @@ input[type=submit]:hover {
   float: right;
   margin-right: -11%;
   margin-top: 5px;
+}
+
+@media only screen and (max-width: 640px) {
+  .title {
+    font-size: 12px;
+  }
+  .subtitle {
+    font-size: 12px;
+  }
+  .right-part {
+    font-size: 11px;
+  }
+  .articleImage {
+    width: 90px;
+  }
 }
 
 /*-------------------------------*/

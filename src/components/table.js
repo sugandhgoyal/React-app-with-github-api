@@ -1,5 +1,6 @@
 import React from 'react';
 import SwitchButton from './switchButton';
+import SwitchButtonPubAll from './switchButtonPubAll';
 
 class Table extends React.Component {
     constructor(props) {
@@ -29,7 +30,7 @@ class Table extends React.Component {
                                 <div className="show-grid row rowData" key={index}>
                                     <div className="col-xs-4">{ele.title}</div>
                                     <div className="col-xs-1">
-                                        <SwitchButton checkedProp={ele.allFeedPublished} />
+                                        <SwitchButtonPubAll checkedProp={ele.allFeedPublished} />
                                     </div>
                                     <div className="col-xs-3 publisher">{ele.createdBy}</div>
                                     <div className="col-xs-1">
@@ -39,7 +40,7 @@ class Table extends React.Component {
                                         <i className="fa fa-refresh" aria-hidden="true"></i> &nbsp;
                                         <a href={hreff} ><i className="fa fa-link" aria-hidden="true"></i></a>
                                     </div>
-                                    <div className="col-xs-1"><i className={ele.published === 1 ? "fa fa-eye" : "fa fa-eye-slash"} aria-hidden="true"></i></div>
+                                    <div className="col-xs-1"><i className={ele.published === 1 ? "fa fa-eye eyee" : "fa fa-eye-slash"} aria-hidden="true"></i></div>
                                 </div>
 
                             )

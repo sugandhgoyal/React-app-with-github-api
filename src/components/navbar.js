@@ -11,7 +11,6 @@ class Navigationbar extends React.Component {
     }
 
     render() {
-        console.log('navbar', this.props);
         return (
             <div>
                 <nav id={this.props.moveasideProp ? "openNavbar" : "sidebar-wrapper"} className="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -49,11 +48,21 @@ class Navigationbar extends React.Component {
                                 </li>
                             </ul>
                         </li>
-                        <li>
-                            <a ><i className="fa fa-camera-retro"></i>&nbsp;Media</a>
-                        </li>
-                        <li>
-                            <a ><i className="fa fa-smile-o" aria-hidden="true"></i>&nbsp;Memes</a>
+                        <li className="dropdown">
+                            <a className="dropdown-toggle" data-toggle="dropdown">
+                                <i className="fa fa-users"></i>&nbsp;Media
+                            </a>
+                            <ul className="dropdown-menu" role="menu">
+                                <li>
+                                    <a ><i className="fa fa-home"></i>&nbsp;Images</a>
+                                </li>
+                                <li>
+                                    <a ><i className="fa fa-plus-square"></i>&nbsp;Videos</a>
+                                </li>
+                                <li>
+                                    <a ><i className="fa fa-plus-square"></i>&nbsp;Gifs</a>
+                                </li>
+                            </ul>
                         </li>
                         <li className="dropdown">
                             <a className="dropdown-toggle" data-toggle="dropdown">
@@ -79,6 +88,56 @@ class Navigationbar extends React.Component {
                                 </li>
                                 <li>
                                     <a ><i className="fa fa-twitter" aria-hidden="true"></i>&nbsp;Twitter</a>
+                                </li>
+                                <li>
+                                    <a ><i className="fa fa-cloud-upload" aria-hidden="true"></i>&nbsp;Cloudinary</a>
+                                </li>
+                                <li>
+                                    <a ><i className="fa fa-twitter" aria-hidden="true"></i>&nbsp;Digital Ocean</a>
+                                </li>
+                                <li>
+                                    <a ><i className="fa fa-twitter" aria-hidden="true"></i>&nbsp;Mail Chimp</a>
+                                </li>
+                                <li>
+                                    <a ><i className="fa fa-twitter" aria-hidden="true"></i>&nbsp;Sms Service</a>
+                                </li>
+                                <li>
+                                    <a ><i className="fa fa-google-plus-official" aria-hidden="true"></i>&nbsp;Google+</a>
+                                </li>
+                                <li>
+                                    <a ><i className="fa fa-instagram" aria-hidden="true"></i>&nbsp;Instagram</a>
+                                </li>
+                                <li>
+                                    <a ><i className="fa fa-twitter" aria-hidden="true"></i>&nbsp;Facebook</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li className="dropdown">
+                            <a className="dropdown-toggle" data-toggle="dropdown">
+                                <i className="fa fa-users"></i>&nbsp;Monitoring
+                            </a>
+                            <ul className="dropdown-menu" role="menu">
+                                <li>
+                                    <a ><i className="fa fa-home"></i>&nbsp;page 1</a>
+                                </li>
+                                <li>
+                                    <a ><i className="fa fa-plus-square"></i>&nbsp;Page 2</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li className="dropdown">
+                            <a className="dropdown-toggle" data-toggle="dropdown">
+                                <i className="fa fa-users"></i>&nbsp;Search
+                            </a>
+                            <ul className="dropdown-menu" role="menu">
+                                <li>
+                                    <a ><i className="fa fa-home"></i>&nbsp;Manual Scheduler</a>
+                                </li>
+                                <li>
+                                    <a ><i className="fa fa-plus-square"></i>&nbsp;Search analytics</a>
+                                </li>
+                                <li>
+                                    <a ><i className="fa fa-plus-square"></i>&nbsp;Search Server Health</a>
                                 </li>
                             </ul>
                         </li>

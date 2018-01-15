@@ -15,8 +15,6 @@ class Addarticleform extends React.Component {
         }
     }
     render() {
-        console.log(this.state.showEditor);
-        console.log(this.state.num);
         for (var i = 0; i < this.state.num; i += 1) {
             this.state.showEditor.push(<Addcard key={this.state.num} />);
         };

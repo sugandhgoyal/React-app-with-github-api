@@ -7,6 +7,4 @@ export const ARTICLE_FETCH_API = (num) => {
 };
 
 
-export const FEED_FETCH_API = (num, city) => {
-    return `${API_URL}/feed/fetchfeedbackend/${num}?cities=${city}`
-};
+export const FEED_FETCH_API = `${API_URL}/feed/fetchfeedbackend`;
