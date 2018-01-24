@@ -1,4 +1,7 @@
-import { LOAD_ARTICLE_DATA, LOAD_ARTICLE_DATA_SUCCESS, LOAD_ARTICLE_DATA_ERROR } from '../../constants/index';
+import {
+    LOAD_ARTICLE_DATA, LOAD_ARTICLE_DATA_SUCCESS, LOAD_ARTICLE_DATA_ERROR,
+    ARTICLE_SEARCH_REQUESTED, ARTICLE_SEARCH_SUCCESS, ARTICLE_SEARCH_ERROR
+} from '../../constants/index';
 
 const load_article_data = () => ({
     type: LOAD_ARTICLE_DATA
@@ -14,6 +17,19 @@ const load_article_data_error = (err) => ({
     err,
 })
 
+const article_search_requested = () => ({
+    type: ARTICLE_SEARCH_REQUESTED
+})
+
+const article_search_success = (filteredData) => ({
+    type: ARTICLE_SEARCH_SUCCESS,
+    article_data: filteredData,
+})
+
+const article_search_error = (err) => ({
+    type: ARTICLE_SEARCH_ERROR,
+    err,
+})
 
 export default {
     load_article_data,

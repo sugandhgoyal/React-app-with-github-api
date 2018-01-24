@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  font-family: 'Merriweather', serif;
+  font-family: 'Lato', sans-serif;
 }
 
 .App-header {
@@ -19,7 +19,7 @@
 }
 
 body {
-  font-family: 'Merriweather', serif;
+  font-family: 'Lato', sans-serif;
 }
 
 body {
@@ -43,15 +43,18 @@ body, html {
 
 .main {
   margin-left: 0px;
-  background-color: #608199;
+  position: relative;
   transition: margin-left .5s;
 }
 
 .mainMove {
-  background-color: #608199;
   margin-left: 220px;
   transition: margin-left .5s;
   padding: 16px;
+}
+
+.mainMove .container {
+  padding: 6px;
 }
 
 #mainArticle {
@@ -65,7 +68,7 @@ body, html {
 }
 
 #mainFeed {
-  background-color: white;
+  background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
 }
 
 .container .pd {
@@ -156,6 +159,96 @@ body, html {
   border-radius: 2px;
   background-color: transparent;
   box-shadow: none;
+}
+
+/*-------------------------------*/
+
+/*           Loginpage             */
+
+/*-------------------------------*/
+
+#formheading {
+  font-size: 35px;
+  color: white;
+  z-index: 100;
+  position: absolute;
+  top: 5%;
+  left: 40%;
+}
+
+#login {
+  font-size: 28px;
+  color: white;
+  z-index: 100;
+  position: absolute;
+  top: 9%;
+  left: 48%;
+}
+
+.loginform {
+  z-index: 100;
+  font-size: 18px;
+  position: absolute;
+  top: 17%;
+  left: 32%;
+}
+
+.newcard {
+  top: 20%;
+  left: 40%;
+  border-radius: 5px;
+  position: absolute;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+  transition: 0.3s;
+  width: 22%;
+  background-color: white;
+  padding-bottom: 2%;
+}
+
+.newcard:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.8);
+}
+
+.newcard .container {
+  padding: 2px 16px;
+}
+
+.sologo {
+  margin: 7% 22% 7% 22%;
+  width: 200px;
+}
+
+.fa-facebook-square, .fa-google-plus-official {
+  font-size: 26px;
+}
+
+.fbLogin, .gLogin {
+  display: block;
+  padding: 11px 17px;
+  margin-bottom: 0;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+.fbLogin {
+  margin-top: 22%;
+}
+
+.gLogin {
+  margin-top: 2%
 }
 
 /*-------------------------------*/
@@ -339,7 +432,8 @@ input:checked+.slider:before {
   top: 0 px;
   overflow-y: auto;
   overflow-x: hidden;
-  background: #1a1a1a;
+  background: white;
+  color: grey;
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
@@ -364,7 +458,8 @@ input:checked+.slider:before {
   top: 0 px;
   overflow-y: auto;
   overflow-x: hidden;
-  background: #1a1a1a;
+  background: white;
+  color: grey;
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
@@ -403,6 +498,7 @@ input:checked+.slider:before {
 }
 
 .logo {
+  padding-top: 2%;
   width: -webkit-stretch;
   margin-left: 19%;
 }
@@ -422,19 +518,29 @@ input:checked+.slider:before {
   z-index: -1;
   height: 100%;
   width: 3px;
-  background-color: #1c1c1c;
+  background: white;
+  color: grey;
   -webkit-transition: width .2s ease-in;
   -moz-transition: width .2s ease-in;
   -ms-transition: width .2s ease-in;
   transition: width .2s ease-in;
 }
 
+.sidebar-nav li a {
+  color: grey;
+  padding: 14px 10px 11px 30px;
+  word-spacing: 8px;
+  font-weight: 700;
+  font-size: 16px;
+}
+
 .sidebar-nav li:first-child a {
-  color: #fff;
-  background-color: #1a1a1a;
+  background-color: #0fb8ad;
+  color: white;
   border-bottom: 1px solid rgba(151, 151, 151, 0.2);
 }
 
+/* 
 .sidebar-nav li:nth-child(2):before {
   background-color: white;
   line-height: 8;
@@ -485,7 +591,7 @@ input:checked+.slider:before {
   text-decoration: none;
   padding: 20px 10px 20px 30px;
   word-spacing: 5px;
-}
+} */
 
 .feed:hover {
   color: white;
@@ -493,7 +599,8 @@ input:checked+.slider:before {
 }
 
 .sidebar-nav li a:hover, .sidebar-nav li a:active, .sidebar-nav li a:focus, .sidebar-nav li.open a:hover, .sidebar-nav li.open a:active, .sidebar-nav li.open a:focus {
-  color: #fff;
+  color: grey;
+  cursor: pointer;
   text-decoration: none;
   background-color: transparent;
 }
@@ -902,7 +1009,6 @@ input[type=submit]:hover {
 .popup h2 {
   margin-top: 0;
   color: #333;
-  font-family: Tahoma, Arial, sans-serif;
 }
 
 .popup .close {

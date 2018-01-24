@@ -15,6 +15,21 @@ export const getCallApi = (api_url) => {
         });
 
 }
+/**
+ * For article search
+ * @param {*} api_url 
+ */
+export const searchArticleApi = (api_url) => {
+    return fetch(api_url)
+        .then((res) => res.json())
+        .then(data => {
+            return Promise.resolve(data);
+        })
+        .catch((error) => {
+            return Promise.reject(error);
+        });
+
+}
 
 /**
  * @param api_url String contains api to be called

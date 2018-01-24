@@ -12,7 +12,6 @@ class Article extends React.Component {
         this.state = {
             article_items: [],
         }
-       
     }
     componentWillMount() {
         this.props.dispatch(loadArticleDataApi(0));
@@ -24,8 +23,10 @@ class Article extends React.Component {
         })
     }
     render() {
+        console.log("article container");
+        console.log(this.props);
         return (
-            <ArticleHome data={this.state.article_items}  />
+            <ArticleHome data={this.state.article_items} />
         )
     }
 }

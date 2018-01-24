@@ -1,11 +1,11 @@
 import { articleAction } from "../index";
 
 import {
-    ARTICLE_FETCH_API
+    ARTICLE_SEARCH_API, ARTICLE_FETCH_API
 } from '../../constants/api';
 
 import {
-    getCallApi
+    getCallApi, searchArticleApi
 } from '../../utils/utils';
 
 /**
@@ -22,6 +22,26 @@ export const loadArticleDataApi = (num) => {
             })
             .catch((error) => {
                 dispatch(articleAction.load_article_data_error(error));
+                return Promise.reject(error);
+            })
+    }
+}
+/**
+ * 
+ * @param {*} searchString 
+ */
+export const searchArticleDataApi = (searchString) => {
+    console.log("yo");
+    return (dispatch) => {
+        dispatch(articleAction.article_search_requested());
+        return searchArticleApi(ARTICLE_SEARCH_API(searchString))
+            .then((data) => {
+                console.log("api", data);
+                dispatch(articleAction.article_search_success(data));
+                return Promise.resolve(data);
+            })
+            .catch((error) => {
+                dispatch(articleAction.article_search_error(error));
                 return Promise.reject(error);
             })
     }
