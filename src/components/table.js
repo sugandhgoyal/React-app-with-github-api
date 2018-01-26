@@ -12,14 +12,13 @@ class Table extends React.Component {
     render() {
         return (
             <div>
-                <div className="pageTitle"></div>
                 <div className="table" >
                     <div className="container " >
                         <div className="show-grid row">
                             <div className="col-xs-4 head1">Title</div>
-                            <div className="col-xs-1 head2">Pub All</div>
-                            <div className="col-xs-3 head3">Publisher</div>
-                            <div className="col-xs-1 head4">Rss</div>
+                            <div className="col-xs-2 head2">Pub All</div>
+                            <div className="col-xs-2 head3">Publisher</div>
+                            <div className="col-xs-2 head4">Rss</div>
                             <div className="col-xs-1 head5">AMP</div>
                             <div className="col-xs-1 head7">Publish</div>
                         </div>
@@ -29,11 +28,11 @@ class Table extends React.Component {
 
                                 <div className="show-grid row rowData" key={index}>
                                     <div className="col-xs-4">{ele.title}</div>
-                                    <div className="col-xs-1">
+                                    <div className="col-xs-2">
                                         <SwitchButtonPubAll checkedProp={ele.allFeedPublished} />
                                     </div>
-                                    <div className="col-xs-3 publisher">{ele.createdBy}</div>
-                                    <div className="col-xs-1">
+                                    <div className="col-xs-2 publisher">{ele.createdBy}</div>
+                                    <div className="col-xs-2">
                                         <SwitchButton checkedProp={ele.rssCreated} />
                                     </div>
                                     <div className="col-xs-1 amp">

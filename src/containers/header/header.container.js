@@ -33,8 +33,9 @@ class Header extends React.Component {
                         <div className="container no-pd">
                             <span className="openButton" onClick={this.openNav}>&#9776; </span>
                             {/* <div className="pageTitle">Feed</div> */}
+                            <Searchbox />
                             <div id="floatRight">
-                                <Searchbox />
+
                                 <i className="fa fa-user-circle-o user" aria-hidden="true"></i>
                             </div>
                         </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import '../App.css';
-import logo from '../images/logo.png';
+import logo from '../images/socitybg.svg';
 
 class Navigationbar extends React.Component {
     constructor(props) {
@@ -14,8 +14,8 @@ class Navigationbar extends React.Component {
             <div>
                 <nav id={this.props.moveasideProp ? "openNavbar" : "sidebar-wrapper"} className="navbar navbar-inverse navbar-fixed-top" role="navigation">
                     <ul className="nav sidebar-nav">
-                        <li>
-                            <a id="title">So Dashboard</a>
+                        <li className="dashboard">
+                            <span id="title">Dashboard</span>
                         </li>
                         <li>
                             <img alt="so delhi logo" src={logo} className="logo" />

@@ -59,6 +59,7 @@ const MapWithASearchBox = compose(
                         center: nextCenter,
                         markers: nextMarkers,
                     });
+                    this.props.getPlace(refs.searchBox.getPlaces()[0].name);
                 },
             })
         },
@@ -95,7 +96,7 @@ const MapWithASearchBox = compose(
                     textOverflow: `ellipses`,
                 }}
             />
-        </SearchBox>
+        </SearchBox >
         <button>Save Location</button>
         {props.markers.map((marker, index) =>
             <Marker key={index} position={marker.position} />
