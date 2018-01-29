@@ -12,8 +12,7 @@ class Datetimepicker extends React.Component {
     }
     updateState(date) {
         // This function gives you the moment object of date selected. 
-        console.log(date._d);
-        this.props.displaydt(date._d);
+        this.props.getDate(date._d);
     }
     render() {
         return (

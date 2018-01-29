@@ -21,6 +21,7 @@ class Newarticle extends React.Component {
     render() {
         return (
             <div className={this.state.moveaside ? "mainMove" : "main"}>
+                <h2>Add new article</h2>
                 <Addarticleform />
             </div>
         )

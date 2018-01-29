@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import '../../App.css';
-import MyMapComponent from '../../components/mapComponent';
+import Listingcard from '../../components/listingCard';
 
 class Listing extends React.Component {
     constructor(props) {
@@ -14,7 +14,7 @@ class Listing extends React.Component {
     render() {
         return (
             <div>
-                <MyMapComponent isMarkerShown />
+                <Listingcard />
             </div>
         )
     }

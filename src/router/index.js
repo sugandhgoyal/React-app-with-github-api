@@ -20,7 +20,7 @@ export default (
             <Route path="/articlehome" component={Article} />
             <Route path="/feed" component={Feed} />
             <Route path="/addarticle" component={Newarticle} />
-            <Route path="/aa" component={Listing} />
+            <Route path="/listing" component={Listing} />
             <Route path="/bb" component={Mapp} />
             <Route path="/cc" component={Appp} />
         </div>

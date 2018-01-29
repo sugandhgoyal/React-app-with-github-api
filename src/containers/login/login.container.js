@@ -12,9 +12,10 @@ class Login extends React.Component {
             feed_items: [],
         };
     }
+   
     render() {
         return (
-            <div className={this.state.moveaside ? "mainMove" : "main"}>
+            <div className={this.state.moveaside ? "mainMove" : "main loginBackground"}>
                 <Particles className="particles" params={{
                     particles: {
                         number: {
@@ -77,7 +78,7 @@ class Login extends React.Component {
                     "retina_detect": true
                 }}
                 />
-                <Loginform />
+                <Loginform facebook={this.facebook} google={this.google} />
             </div>
         )
     }
