@@ -811,7 +811,23 @@ input[type=submit]:hover {
 }
 
 #select1 {
-  text-align: center;
+  margin-left: 0 37%;
+  font-size: 28px;
+}
+
+#select2 {
+  margin-left: 0 39%;
+  font-size: 28px;
+}
+
+.interests {
+  display: inline-block;
+  margin: 5px;
+}
+
+.city {
+  display: inline-block;
+  margin: 5px;
 }
 
 /*-------------------------------*/
@@ -1386,4 +1402,73 @@ td.rdtMonth:hover, td.rdtYear:hover {
 
 .rdtDayPart {
   margin-top: 43px;
+}
+
+/*-------------------------------*/
+
+/*           Listing Card        */
+
+/*-------------------------------*/
+
+.card1 {
+  background-color: #f5f5f5;
+  float: left;
+}
+
+.card {
+  margin-top: 5%;
+  margin-left: 3%;
+  width: 40%;
+  background-color: #f5f5f5;
+  border: 0px;
+  border-radius: 0px;
+}
+
+.card .container {
+  width: 100%;
+}
+
+.row {
+  color: black;
+}
+
+.firstRow {
+  padding: 1%;
+}
+
+.secondRow {
+  border: 1px solid rgb(207, 203, 203);
+  padding: 1%;
+  margin-top: 0px;
+  margin-bottom: -5px;
+  margin-left: -5px;
+  margin-right: -4px;
+}
+
+.listImage {
+  height: 90px;
+  width: 100%;
+  object-fit: contain;
+  padding-right: 32%;
+  border-radius: 50%;
+}
+
+.titleContainer, .sideContainer {
+  padding-left: 0%;
+}
+
+li {
+  list-style-type: none;
+}
+
+.listTitle {
+  color: black;
+  font-size: 26px;
+  font-weight: 500;
+}
+
+.fa-paperclip {
+  font-size: 22px;
+  color: grey;
+  padding-left: 19%;
 }
