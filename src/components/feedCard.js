@@ -18,7 +18,6 @@ class Feedcard extends React.Component {
         this.getPlace = this.getPlace.bind(this);
     }
     componentWillMount() {
-        // let pubdate = this.props.eachFeed.publishDate.toUTCString();
         this.setState({
             newDate: new Date(this.props.eachFeed.publishDate).toUTCString()
         })

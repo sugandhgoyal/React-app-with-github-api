@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import '../../App.css';
 import Navigationbar from '../../components/navbar';
 import Searchbox from '../../components/searchbox';
+import { getPropsFromHeader } from '../../action/index';
+import { setTimeout } from 'timers';
 
 class Header extends React.Component {
     constructor(props) {
@@ -15,8 +17,13 @@ class Header extends React.Component {
         this.openNav = this.openNav.bind(this);
     }
     openNav() {
-        const currentState = this.state.moveaside;
+        let currentState = this.state.moveaside;
         this.setState({ moveaside: !currentState });
+        console.log("curr", currentState);
+        console.log("open", this.state.moveaside);
+        setTimeout(() => {
+            this.props.dispatch(getPropsFromHeader(this.state.moveaside));
+        }, 200);
     }
     changeUrl(endpoint) {
         console.log('function called');
@@ -32,10 +39,8 @@ class Header extends React.Component {
                     <div className={this.state.moveaside ? "mainMove" : "main"} id="mainFeed">
                         <div className="container no-pd">
                             <span className="openButton" onClick={this.openNav}>&#9776; </span>
-                            {/* <div className="pageTitle">Feed</div> */}
                             <Searchbox />
                             <div id="floatRight">
-
                                 <i className="fa fa-user-circle-o user" aria-hidden="true"></i>
                             </div>
                         </div>

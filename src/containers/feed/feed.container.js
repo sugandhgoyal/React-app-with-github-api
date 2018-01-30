@@ -12,7 +12,7 @@ class Feed extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            moveaside: false,
+            header_items: false,
             feed_items: [],
             publisher_items: [],
             defaultSelected: 'Featured',
@@ -30,18 +30,19 @@ class Feed extends React.Component {
     componentWillReceiveProps(nextProps) {
         this.setState({
             feed_items: nextProps.feedReducer.feed_data,
-            publisher_items: nextProps.feedReducer.publisher_data
+            publisher_items: nextProps.feedReducer.publisher_data,
+            header_items: nextProps.headerReducer.header_data
         })
     }
 
     getPublisherImage(username) {
         return _.find(this.state.publisher_items, { 'username': username });
     }
-
     render() {
+        console.log(this.state.header_items);
         return (
             <div>
-                <div className={this.state.moveaside ? "mainMove" : "main"}>
+                <div className={this.state.header_items ? "mainMove" : "main"}>
                     <div className="dropdown">
                         <button>City</button>
                         <div className="dropdown-content">

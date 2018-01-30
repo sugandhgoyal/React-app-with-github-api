@@ -22,7 +22,7 @@ class Navigationbar extends React.Component {
                         </li>
                         <li className="dropdown">
                             <a className="dropdown-toggle" data-toggle="dropdown">
-                                <i class="fa fa-building-o" aria-hidden="true"></i>&nbsp;City
+                                <i className="fa fa-building-o" aria-hidden="true"></i>&nbsp;City
                             </a>
                             <ul className="dropdown-menu" role="menu">
                                 <li className="feed">
@@ -49,17 +49,17 @@ class Navigationbar extends React.Component {
                         </li>
                         <li className="dropdown">
                             <a className="dropdown-toggle" data-toggle="dropdown">
-                                <i class="fa fa-camera-retro" aria-hidden="true"></i>&nbsp;Media
+                                <i className="fa fa-camera-retro" aria-hidden="true"></i>&nbsp;Media
                             </a>
                             <ul className="dropdown-menu" role="menu">
                                 <li>
-                                    <a><i class="fa fa-picture-o" aria-hidden="true"></i>&nbsp;Images</a>
+                                    <a><i className="fa fa-picture-o" aria-hidden="true"></i>&nbsp;Images</a>
                                 </li>
                                 <li>
-                                    <a><i class="fa fa-video-camera" aria-hidden="true"></i>&nbsp;Videos</a>
+                                    <a><i className="fa fa-video-camera" aria-hidden="true"></i>&nbsp;Videos</a>
                                 </li>
                                 <li>
-                                    <a ><i class="fa fa-file-video-o" aria-hidden="true"></i>&nbsp;Gifs</a>
+                                    <a ><i className="fa fa-file-video-o" aria-hidden="true"></i>&nbsp;Gifs</a>
                                 </li>
                             </ul>
                         </li>
@@ -126,7 +126,7 @@ class Navigationbar extends React.Component {
                         </li>
                         <li className="dropdown">
                             <a className="dropdown-toggle" data-toggle="dropdown">
-                                <i class="fa fa-search" aria-hidden="true"></i>&nbsp;Search
+                                <i className="fa fa-search" aria-hidden="true"></i>&nbsp;Search
                             </a>
                             <ul className="dropdown-menu" role="menu">
                                 <li>

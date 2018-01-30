@@ -31,12 +31,10 @@ export const loadArticleDataApi = (num) => {
  * @param {*} searchString 
  */
 export const searchArticleDataApi = (searchString) => {
-    console.log("yo");
     return (dispatch) => {
         dispatch(articleAction.article_search_requested());
         return searchArticleApi(ARTICLE_SEARCH_API(searchString))
             .then((data) => {
-                console.log("api", data);
                 dispatch(articleAction.article_search_success(data));
                 return Promise.resolve(data);
             })
