@@ -27,12 +27,21 @@ body {
   overflow-x: hidden;
 }
 
-body, html {
+body,
+html {
   height: 100%;
 }
 
-.nav .open>a, .nav .open>a:hover, .nav .open>a:focus {
+.nav .open>a,
+.nav .open>a:hover,
+.nav .open>a:focus {
   background-color: transparent;
+}
+
+h3 {
+  margin-left: 1%;
+  color: #8a6d3b;
+  letter-spacing: 2px;
 }
 
 /*-------------------------------*/
@@ -49,6 +58,8 @@ body, html {
 
 .loginBackground {
   background-color: #608199;
+  height: -webkit-fill-available;
+  width: unset;
 }
 
 .mainMove {
@@ -95,7 +106,7 @@ body, html {
 }
 
 #floatRight {
-  float: right!important;
+  float: right !important;
 }
 
 .user {
@@ -111,15 +122,15 @@ body, html {
 .dropdown button {
   margin-left: 37%;
   margin-bottom: 10%;
-  background-color: white;
-  padding: 14px 71px 1px 27px;
-  font-size: 14px;
+  background-color: #204d74;
+  padding: 5px 42px 5px 42px;
+  font-size: 18px;
   font-weight: 400;
   line-height: 2;
   text-align: center;
   white-space: nowrap;
   cursor: pointer;
-  color: grey;
+  color: white;
   border: 1px solid transparent;
   border-radius: 4px;
 }
@@ -209,27 +220,26 @@ body, html {
   transition: 0.3s;
   width: 22%;
   background-color: white;
-  padding-bottom: 2%;
+  margin-bottom: -16px;
 }
 
 .newcard:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.8);
 }
 
-.newcard .container {
-  padding: 2px 16px;
-}
-
 .sologo {
-  margin: 7% 22% 7% 22%;
+  margin: 22% 22% 4% 24%;
   width: 200px;
 }
 
-.fa-facebook-square, .fa-google-plus-official {
+.fa-facebook-square,
+.fa-google-plus-official {
   font-size: 26px;
 }
 
-.fbLogin, .gLogin {
+.fbLogin,
+.gLogin {
+  letter-spacing: 1px;
   display: block;
   padding: 11px 17px;
   margin-bottom: 0;
@@ -255,7 +265,113 @@ body, html {
 }
 
 .gLogin {
-  margin-top: 2%
+  margin-top: 5%
+}
+
+@media screen and (max-width: 640px) {
+  .newcard .container {
+    padding: 13px;
+  }
+  .sologo {
+    margin: 17% 20% 4% 25%;
+    width: 122px;
+  }
+  .newcard {
+    top: 15%;
+    left: 31%;
+    border-radius: 5px;
+    width: 38%;
+  }
+  .fbLogin {
+    margin-top: 11%;
+  }
+  .gLogin {
+    padding: 5px 5px 5px 6px;
+  }
+  .fbLogin,
+  .gLogin {
+    padding: 7px 5px 7px 6px;
+    margin-bottom: 0;
+    font-size: 14px;
+  }
+  .fa-facebook-square,
+  .fa-google-plus-official {
+    font-size: 19px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .newcard .container {
+    padding: 13px;
+  }
+  .sologo {
+    margin: 13% 20% 0% 19%;
+    width: 112px;
+  }
+  .newcard {
+    top: 15%;
+    left: 24%;
+    width: 50%;
+  }
+  .fbLogin {
+    margin-top: 11%;
+  }
+  .gLogin {
+    padding: 5px 5px 5px 6px;
+  }
+  .fbLogin,
+  .gLogin {
+    padding: 4px 5px 4px 6px;
+    margin-bottom: 0;
+    font-size: 11px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+  }
+  .fa-facebook-square,
+  .fa-google-plus-official {
+    font-size: 19px;
+  }
+}
+
+@media screen and (max-width: 412px) {
+  .fbLogin,
+  .gLogin {
+    padding: 7px 5px 7px 6px;
+    margin-bottom: 0;
+    font-size: 13px;
+    letter-spacing: 0px;
+  }
+  .newcard {
+    top: 15%;
+    left: 25%;
+    width: 50%;
+  }
+  .sologo {
+    margin: 17% 20% 4% 22%;
+    width: 115px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .newcard {
+    top: 17%;
+    left: 27%;
+    width: 44%;
+    margin-bottom: -16px;
+  }
+  .sologo {
+    margin: 20% 20% 6% 24%;
+    width: 229px;
+  }
+  .fbLogin,
+  .gLogin {
+    padding: 20px 17px;
+    font-size: 31px;
+  }
+  .fa-facebook-square,
+  .fa-google-plus-official {
+    font-size: 41px;
+  }
 }
 
 /*-------------------------------*/
@@ -271,7 +387,8 @@ body, html {
   letter-spacing: 1px;
 }
 
-.container, .table .container {
+.container,
+.table .container {
   width: 100%;
 }
 
@@ -288,7 +405,13 @@ body, html {
   font-size: 14px;
 }
 
-.head1, .head2, .head3, .head4, .head5, .head6, .head7 {
+.head1,
+.head2,
+.head3,
+.head4,
+.head5,
+.head6,
+.head7 {
   font-weight: 700;
   color: black;
   padding: 12px 24px;
@@ -296,7 +419,8 @@ body, html {
   height: 36px;
 }
 
-.head1, .head2 {
+.head1,
+.head2 {
   text-align: left;
 }
 
@@ -312,7 +436,9 @@ body, html {
   text-transform: capitalize;
 }
 
-.publisher, .amp, .delete {
+.publisher,
+.amp,
+.delete {
   padding-left: 2%;
 }
 
@@ -337,18 +463,6 @@ body, html {
   .rowData {
     font-size: 11px;
   }
-  /* .switch {
-    position: relative;
-    display: inline-block;
-    width: 45px;
-    height: 25px;
-  }
-  .slider:before {
-    height: 14px;
-    width: 14px;
-    left: 8px;
-    bottom: 3px;
-  } */
 }
 
 /*-------------------------------*/
@@ -556,7 +670,12 @@ input:checked+.slider:before {
   cursor: pointer;
 }
 
-.sidebar-nav li a:hover, .sidebar-nav li a:active, .sidebar-nav li a:focus, .sidebar-nav li.open a:hover, .sidebar-nav li.open a:active, .sidebar-nav li.open a:focus {
+.sidebar-nav li a:hover,
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus,
+.sidebar-nav li.open a:hover,
+.sidebar-nav li.open a:active,
+.sidebar-nav li.open a:focus {
   color: grey;
   cursor: pointer;
   text-decoration: none;
@@ -625,7 +744,9 @@ h2 {
   padding: 20px;
 }
 
-input[type=text], select, textarea {
+input[type=text],
+select,
+textarea {
   padding: 12px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -636,7 +757,7 @@ input[type=text], select, textarea {
 label {
   padding: 12px 12px 12px 0;
   display: inline-block;
-  font-weight: 500;
+  font-weight: 700;
 }
 
 input[type=submit] {
@@ -656,7 +777,7 @@ input[type=submit]:hover {
 .col-20 {
   float: left;
   width: 20%;
-  font-weight: 500;
+  font-weight: 700;
   margin-top: 2%;
 }
 
@@ -664,19 +785,21 @@ input[type=submit]:hover {
   flex: none;
   float: left;
   width: 10%;
-}
-
-.col-30 {
-  flex: none;
-  float: left;
-  width: 10%;
-  margin-top: 2%;
-  margin-right: 2%;
+  font-size: 18px;
+  font-weight: 700;
 }
 
 .createdBy {
-  font-size: 16px;
-  font-weight: 500;
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.col-30 {
+  -ms-flex: none;
+  flex: none;
+  float: left;
+  margin-top: 3%;
+  margin-right: 1%;
 }
 
 .col-50 input {
@@ -686,6 +809,8 @@ input[type=submit]:hover {
 .col-40 {
   float: left;
   width: 40%;
+  font-size: 18px;
+  font-weight: 700;
   margin-top: 6px;
 }
 
@@ -716,7 +841,7 @@ input[type=submit]:hover {
 }
 
 .cancelArticle {
-  background-color: #0062cc;
+  background-color: #204d74;
   border-radius: 4px;
   color: #fff;
   margin: 2%;
@@ -743,7 +868,12 @@ input[type=submit]:hover {
 /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
 
 @media (max-width: 600px) {
-  .col-50, .col-40, .col-10, .col-60, .col-10, .col-20 input[type=submit] {
+  .col-50,
+  .col-40,
+  .col-10,
+  .col-60,
+  .col-10,
+  .col-20 input[type=submit] {
     width: 100%;
     margin-top: 0;
   }
@@ -751,6 +881,8 @@ input[type=submit]:hover {
 
 .editor {
   width: 100%;
+  border: 1px solid #ece9e9;
+  margin-bottom: 1%;
 }
 
 .submit {
@@ -810,13 +942,18 @@ input[type=submit]:hover {
   padding-bottom: 2%;
 }
 
+.row2 {
+  margin-bottom: 8%;
+  margin-left: 2%;
+}
+
 #select1 {
-  margin-left: 0 37%;
+  margin-left: 37%;
   font-size: 28px;
 }
 
 #select2 {
-  margin-left: 0 39%;
+  margin-left: 39%;
   font-size: 28px;
 }
 
@@ -830,6 +967,11 @@ input[type=submit]:hover {
   margin: 5px;
 }
 
+.dropdown .filterButtons {
+  background-color: white;
+  color: grey;
+}
+
 /*-------------------------------*/
 
 /*           Feed card           */
@@ -838,6 +980,10 @@ input[type=submit]:hover {
 
 /* 
  */
+
+#feedCards {
+  margin-bottom: 1%;
+}
 
 .card {
   background-color: #f5f5f5;
@@ -853,6 +999,34 @@ input[type=submit]:hover {
   margin-top: 3Px;
 }
 
+/* 
+.cardHide {
+  animation: removed-item-animation .8s cubic-bezier(.65, -0.02, .72, .29);
+}
+
+@keyframes removed-item-animation {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  30% {
+    opacity: 1;
+    transform: translateX(50px);
+  }
+  80% {
+    opacity: 1;
+    transform: translateX(-800px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+} */
+
+.cardHide {
+  display: none;
+}
+
 .card .container {
   padding: 5px;
 }
@@ -865,7 +1039,6 @@ input[type=submit]:hover {
 .articleImage {
   height: 150px;
   object-fit: cover;
-  width: 100%;
 }
 
 .middle-part {
@@ -876,6 +1049,7 @@ input[type=submit]:hover {
 
 .icons i {
   padding-right: 3%;
+  color: #273746;
 }
 
 .title {
@@ -899,14 +1073,10 @@ input[type=submit]:hover {
   text-transform: capitalize;
 }
 
-.fa-eye {
-  cursor: pointer;
-  color: #273746;
-  position: relative;
-  opacity: 1;
-}
-
-.fa-eye:hover, .fa-share-alt:hover, .fa-calendar:hover, .fa-location-arrow:hover {
+.fa-eye:hover,
+.fa-share-alt:hover,
+.fa-calendar:hover,
+.fa-location-arrow:hover {
   transform: scale(1.1);
 }
 
@@ -1005,8 +1175,14 @@ input[type=submit]:hover {
   cursor: pointer;
 }
 
-.displayDate, .displayPlace {
+.displayDate,
+.displayPlace {
   display: inline-block;
+}
+
+.right-part li a {
+  color: grey;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 700px) {
@@ -1031,7 +1207,8 @@ li {
   list-style-type: none;
 }
 
-.fa-check-circle-o, .fa-file-text-o {
+.fa-check-circle-o,
+.fa-file-text-o {
   color: green;
 }
 
@@ -1039,12 +1216,22 @@ li {
   color: orange;
 }
 
+.fa-star .grey-star{
+  color: grey;
+}
+
 .fa-bell {
   color: #2471A3;
 }
 
 .fa-trash {
+  cursor: pointer;
   color: #ec4545;
+}
+
+.deleteFeed:hover {
+  cursor: pointer;
+  text-decoration: none;
 }
 
 .fa-times {
@@ -1063,6 +1250,8 @@ li {
   }
   .right-part {
     font-size: 10px;
+    color: #273746;
+    padding-left: 0px
   }
   .articleImage {
     height: 134px;
@@ -1072,17 +1261,71 @@ li {
     width: 40px;
     height: 40px;
   }
+  a {text-decoration: none; }
   .icons {
     font-size: 11px;
+    color: #273746;
   }
-  .displayDate, .displayPlace {
+  .fa-eye {
+    cursor: pointer;
+    color: #273746;
+    position: relative;
+    opacity: 1;
+  }
+  .icons i {
+    color: #273746;
+  }
+  a {
+    color: #273746;
+  }
+  /* Tooltip container */
+  .eyyee,
+  .tooltip {
+    position: relative;
+    display: inline-block;
+    visibility: visible;
+    opacity: 1;
+    border-bottom: 1px dotted black;
+    /* If you want dots under the hoverable text */
+  }
+  /* Tooltip text */
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+  }
+  /* Show the tooltip text when you mouse over the tooltip container */
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
+  .displayDate,
+  .displayPlace {
     font-size: 11px;
+  }
+  .right-part .notifyUsers ,.featureFeed{
+    cursor: pointer;
+    text-decoration: none;
   }
   .middle-part {
     line-height: 2;
     float: left;
     padding-left: 4%;
   }
+}
+
+li .showDateTimePicker {
+  visibility: visible;
+}
+
+li .hideDateTimePicker {
+  display: none;
 }
 
 @media only screen and (max-width: 360px) {
@@ -1097,7 +1340,10 @@ li {
     margin-right: 7px;
     margin-left: 0px;
   }
-  input[type=text], select, textarea, .searchInput {
+  input[type=text],
+  select,
+  textarea,
+  .searchInput {
     padding: 1px 1px 1px 3px;
     font-size: 9px;
     width: 83%;
@@ -1117,6 +1363,7 @@ li {
   }
   .right-part {
     font-size: 8px;
+    color: #273746;
     width: 96%;
     line-height: 0px;
     margin-top: -8px;
@@ -1133,7 +1380,8 @@ li {
   .icons {
     font-size: 8px;
   }
-  .displayDate, .displayPlace {
+  .displayDate,
+  .displayPlace {
     font-size: 8px;
   }
   .middle-part {
@@ -1206,7 +1454,8 @@ li {
   margin: 0;
 }
 
-.rdtPicker td, .rdtPicker th {
+.rdtPicker td,
+.rdtPicker th {
   text-align: center;
   height: 28px;
 }
@@ -1215,12 +1464,17 @@ li {
   cursor: pointer;
 }
 
-.rdtPicker td.rdtToday:hover, .rdtPicker td.rdtHour:hover, .rdtPicker td.rdtMinute:hover, .rdtPicker td.rdtSecond:hover, .rdtPicker .rdtTimeToggle:hover {
+.rdtPicker td.rdtToday:hover,
+.rdtPicker td.rdtHour:hover,
+.rdtPicker td.rdtMinute:hover,
+.rdtPicker td.rdtSecond:hover,
+.rdtPicker .rdtTimeToggle:hover {
   background: #eeeeee;
   cursor: pointer;
 }
 
-.rdtPicker td.rdtOld, .rdtPicker td.rdtNew {
+.rdtPicker td.rdtOld,
+.rdtPicker td.rdtNew {
   color: #999999;
 }
 
@@ -1239,7 +1493,8 @@ li {
   right: 4px;
 }
 
-.rdtPicker td.rdtActive, .rdtPicker td.rdtActive:hover {
+.rdtPicker td.rdtActive,
+.rdtPicker td.rdtActive:hover {
   background-color: #428bca;
   color: #fff;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
@@ -1249,7 +1504,8 @@ li {
   border-bottom-color: #fff;
 }
 
-.rdtPicker td.rdtDisabled, .rdtPicker td.rdtDisabled:hover {
+.rdtPicker td.rdtDisabled,
+.rdtPicker td.rdtDisabled:hover {
   background: none;
   color: #999999;
   cursor: not-allowed;
@@ -1259,7 +1515,8 @@ li {
   color: #999999;
 }
 
-.rdtPicker td span.rdtDisabled, .rdtPicker td span.rdtDisabled:hover {
+.rdtPicker td span.rdtDisabled,
+.rdtPicker td span.rdtDisabled:hover {
   background: none;
   color: #999999;
   cursor: not-allowed;
@@ -1278,12 +1535,14 @@ li {
   width: 100px;
 }
 
-.rdtPicker th.rdtNext, .rdtPicker th.rdtPrev {
+.rdtPicker th.rdtNext,
+.rdtPicker th.rdtPrev {
   font-size: 21px;
   vertical-align: top;
 }
 
-.rdtPrev span, .rdtNext span {
+.rdtPrev span,
+.rdtNext span {
   display: block;
   -webkit-touch-callout: none;
   /* iOS Safari */
@@ -1298,7 +1557,8 @@ li {
   user-select: none;
 }
 
-.rdtPicker th.rdtDisabled, .rdtPicker th.rdtDisabled:hover {
+.rdtPicker th.rdtDisabled,
+.rdtPicker th.rdtDisabled:hover {
   background: none;
   color: #999999;
   cursor: not-allowed;
@@ -1331,13 +1591,15 @@ li {
   height: 100%;
 }
 
-td.rdtMonth, td.rdtYear {
+td.rdtMonth,
+td.rdtYear {
   height: 50px;
   width: 25%;
   cursor: pointer;
 }
 
-td.rdtMonth:hover, td.rdtYear:hover {
+td.rdtMonth:hover,
+td.rdtYear:hover {
   background: #eee;
 }
 
@@ -1451,7 +1713,8 @@ td.rdtMonth:hover, td.rdtYear:hover {
   border-radius: 50%;
 }
 
-.titleContainer, .sideContainer {
+.titleContainer,
+.sideContainer {
   padding-left: 0%;
 }
 

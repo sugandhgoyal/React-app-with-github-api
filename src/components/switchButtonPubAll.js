@@ -5,14 +5,7 @@ class SwitchButtonPubAll extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            number: false,
         }
-    }
-    componentWillReceiveProps(nextProps) {
-        this.setState({
-            number: nextProps.checkedProp
-        })
-
     }
     render() {
         return (

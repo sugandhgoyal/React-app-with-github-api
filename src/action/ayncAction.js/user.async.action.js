@@ -129,7 +129,6 @@ export const asyncFacebookLogin = (userData) => {
                 if (data.picture) {
                     userDataToBeSent['profilePicture'] = data.picture.data.url;
                 }
-                console.log("user data", userDataToBeSent)
                 return new Promise((resolve, reject) => {
                     postCallApi(SIGN_IN_API('facebook'), userDataToBeSent)
                         .then((data) => {

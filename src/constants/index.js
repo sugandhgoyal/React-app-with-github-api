@@ -22,6 +22,15 @@ export const ARTICLE_SEARCH_ERROR = 'ARTICLE_SEARCH_ERROR';
 export const HEADER_DATA = 'HEADER_DATA';
 export const HEADER_DATA_SUCCESS = 'HEADER_DATA_SUCCESS';
 export const HEADER_DATA_ERROR = 'HEADER_DATA_ERROR';
+export const FEED_DELETE_REQUESTED = 'FEED_DELETE_REQUESTED';
+export const FEED_DELETE_SUCCESS = 'FEED_DELETE_SUCCESS';
+export const FEED_DELETE_ERROR = 'FEED_DELETE_ERROR';
+export const FEED_UPDATE_REQUESTED = 'FEED_UPDATE_REQUESTED';
+export const FEED_UPDATE_SUCCESS = 'FEED_UPDATE_SUCCESS';
+export const FEED_UPDATE_ERROR = 'FEED_UPDATE_ERROR';
+// export const FEED_UPDATE_NOTIFY_REQUESTED = 'FEED_UPDATE_NOTIFY_REQUESTED';
+// export const FEED_UPDATE_NOTIFY_SUCCESS = 'FEED_UPDATE_NOTIFY_SUCCESS';
+// export const FEED_UPDATE_NOTIFY_ERROR = 'FEED_UPDATE_NOTIFY_ERROR';
 
 /**
  * API URL DYNAMIC
@@ -30,7 +39,7 @@ export const HEADER_DATA_ERROR = 'HEADER_DATA_ERROR';
  * dev = 'for Local apis connecting with local server'
  * staging = 'for staging apis connecting with staging server'
  */
-export const apiUrl = 'prod';
+export const apiUrl = 'stag';
 
 export let API_URL;
 
@@ -40,4 +49,6 @@ if (apiUrl === 'prod') {
 if (apiUrl === "dev") {
     API_URL = 'http://localhost:3002';
 }
-
+if (apiUrl === 'stag') {
+    API_URL = 'http://139.59.87.56:3002';
+}

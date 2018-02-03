@@ -16,7 +16,7 @@ class Searchbox extends React.Component {
     search(e) {
         console.log("search");
         console.log(e.keyCode);
-        if (e.keyCode == 13) {
+        if (e.keyCode === 13) {
             this.handleChange(e, true);
         }
         this.handleChange(e, false);

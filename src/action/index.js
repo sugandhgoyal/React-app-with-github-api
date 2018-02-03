@@ -9,6 +9,9 @@ export { loadArticleDataApi } from './ayncAction.js/article.async.action';
 
 export { _feedAction as feedAction };
 export { loadFeedDataApi } from './ayncAction.js/feed.async.action';
+export { deleteFeedApi } from './ayncAction.js/feed.async.action';
+export { updateFeedApi } from './ayncAction.js/feed.async.action';
+// export {updateNotifyFeedApi }from './ayncAction.js/feed.async.action';
 
 export { _userAction as userAction };
 export { searchArticleDataApi } from './ayncAction.js/article.async.action';

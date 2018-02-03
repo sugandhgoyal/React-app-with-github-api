@@ -10,23 +10,14 @@ class Article extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            article_items: [],
         }
     }
     componentWillMount() {
         this.props.dispatch(loadArticleDataApi(0));
     }
-
-    componentWillReceiveProps(nextProps) {
-        this.setState({
-            article_items: nextProps.articleReducer.article_data
-        })
-    }
     render() {
-        console.log("article container");
-        console.log(this.props);
         return (
-            <ArticleHome data={this.state.article_items} />
+            <ArticleHome data={this.props.articleReducer.article_data} />
         )
     }
 }

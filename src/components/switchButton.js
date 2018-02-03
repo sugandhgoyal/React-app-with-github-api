@@ -5,14 +5,7 @@ class SwitchButton extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            number: 0,
         }
-    }
-    componentWillReceiveProps(nextProps) {
-        this.setState({
-            number: nextProps.checkedProp
-        })
-
     }
     render() {
         return (

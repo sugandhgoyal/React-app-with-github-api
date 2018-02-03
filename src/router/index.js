@@ -10,7 +10,6 @@ import Newarticle from '../containers/article/addNewArticle.container';
 import Listing from '../containers/listing/listing.container';
 import Mapp from '../components/mapComponent';
 import Article from '../containers/article/article.container';
-import Appp from '../components/dt';
 
 export default (
     <Router>
@@ -22,7 +21,6 @@ export default (
             <Route path="/addarticle" component={Newarticle} />
             <Route path="/listing" component={Listing} />
             <Route path="/bb" component={Mapp} />
-            <Route path="/cc" component={Appp} />
         </div>
 
     </Router>

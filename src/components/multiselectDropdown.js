@@ -16,7 +16,7 @@ class Multidropdown extends React.Component {
                 <div className="row row1" >
                     <span id="select1">Choose Interest</span>
                 </div>
-                <div className="row">
+                <div className="row row2">
                     <button className="interests btn btn-default">Art & Culture</button>
                     <button className="interests btn btn-default">City Life</button>
                     <button className="interests btn btn-default">Events</button>
@@ -33,10 +33,10 @@ class Multidropdown extends React.Component {
                     <button className="interests btn btn-default">Sports</button>
                     <button className="interests btn btn-default">Travel</button>
                 </div>
-                <div className="row">
+                <div className="row row1">
                     <span id="select2">Choose City</span>
                 </div>
-                <div className="row">
+                <div className="row row2">
                     <button className="city btn btn-default">Andaman</button>
                     <button className="city btn btn-default">Amritsar</button>
                     <button className="city btn btn-default">Agra</button>

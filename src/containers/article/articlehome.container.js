@@ -14,7 +14,8 @@ class ArticleHome extends React.Component {
 
     render() {
         return (
-            <div className={this.state.moveaside ? "mainMove" : "main"}>
+            <div className={this.props.headerReducer.header_data ? "mainMove" : "main"}>
+            <h3>Articles</h3>
                 <Table products={this.props.data} />
             </div>
         );

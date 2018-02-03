@@ -35,8 +35,8 @@ export const searchArticleDataApi = (searchString) => {
         dispatch(articleAction.article_search_requested());
         return searchArticleApi(ARTICLE_SEARCH_API(searchString))
             .then((data) => {
-                dispatch(articleAction.article_search_success(data));
-                return Promise.resolve(data);
+                dispatch(articleAction.article_search_success(data.data));
+                return Promise.resolve(data.data);
             })
             .catch((error) => {
                 dispatch(articleAction.article_search_error(error));

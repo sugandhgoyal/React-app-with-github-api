@@ -35,4 +35,7 @@ export default {
     load_article_data,
     load_article_data_error,
     load_article_data_success,
+    article_search_requested,
+    article_search_success,
+    article_search_error
 }

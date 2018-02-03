@@ -19,8 +19,6 @@ class Header extends React.Component {
     openNav() {
         let currentState = this.state.moveaside;
         this.setState({ moveaside: !currentState });
-        console.log("curr", currentState);
-        console.log("open", this.state.moveaside);
         setTimeout(() => {
             this.props.dispatch(getPropsFromHeader(this.state.moveaside));
         }, 200);

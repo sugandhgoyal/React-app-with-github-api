@@ -1,6 +1,6 @@
 import React from 'react';
-import firebase from 'firebase';
-import { auth, provider } from 'firebase';
+//import firebase from 'firebase';
+import { auth} from 'firebase';
 import logo from '../../images/socitybg.svg';
 import { googleProvider, facebookProvider } from '../../utils/firebase';
 
@@ -9,26 +9,26 @@ class Loginform extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            user: null,
+           // user: null,
         }
         this.Firebase = this.Firebase.bind(this);
         this.facebook = this.facebook.bind(this);
     }
     componentWillMount() {
-        this.member = <a href="#" className="btn btn-primary loginbutton fbLogin" onClick={() => this.Firebase('facebook')}><i class="fa fa-facebook-square" aria-hidden="true"></i>&nbsp;&nbsp;Login with facebook</a>
+        this.member = <a href="#" className="btn btn-primary loginbutton fbLogin" onClick={() => this.Firebase('facebook')}><i className="fa fa-facebook-square" aria-hidden="true"></i>&nbsp;&nbsp;Login with facebook</a>
     }
     facebook(result) {
         console.log("fb", result.operationType);
-        if (result.operationType == 'signIn') {
+        if (result.operationType === 'signIn') {
             this.member = <button>logout</button>;
         }
         else {
-            this.member = <a href="#" className="btn btn-primary loginbutton fbLogin" onClick={() => this.Firebase('facebook')}><i class="fa fa-facebook-square" aria-hidden="true"></i>&nbsp;&nbsp;Login with facebook</a>
+            this.member = <a href="#" className="btn btn-primary loginbutton fbLogin" onClick={() => this.Firebase('facebook')}><i className="fa fa-facebook-square" aria-hidden="true"></i>&nbsp;&nbsp;Login with facebook</a>
         }
     }
     Firebase = (mode) => {
         let provider
-        if (provider == 'google') {
+        if (provider === 'google') {
             provider = googleProvider;
         }
         else {
@@ -50,14 +50,14 @@ class Loginform extends React.Component {
     }
 
     render() {
-        const { user } = this.state;
+        //const { user } = this.state;
         return (
             <div>
-                <div class="newcard">
+                <div className="newcard">
                     <img src={logo} alt="Avatar" className="sologo" />
-                    <div class="container">
+                    <div className="container">
                         {this.member}
-                        <a href="#" className="btn btn-danger loginbutton gLogin" onClick={() => this.Firebase('google')}><i class="fa fa-google-plus-official" aria-hidden="true"></i>&nbsp;&nbsp;Login with google</a>
+                        <a href="#" className="btn btn-danger loginbutton gLogin" onClick={() => this.Firebase('google')}><i className="fa fa-google-plus-official" aria-hidden="true"></i>&nbsp;&nbsp;Login with google</a>
                     </div>
                 </div>
             </div>
