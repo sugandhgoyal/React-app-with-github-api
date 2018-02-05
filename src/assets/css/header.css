@@ -1,0 +1,53 @@
+/*-------------------------------*/
+
+/*           Shift Body          */
+
+/*-------------------------------*/
+
+.main {
+    margin-left: 0px;
+    position: relative;
+    padding: 16px;
+    transition: margin-left .5s;
+}
+
+.mainMove {
+    margin-left: 220px;
+    transition: margin-left .5s;
+    padding: 16px;
+}
+
+#mainId {
+    background-color: white;
+    margin-bottom: 2%;
+    margin-top: 2%;
+}
+
+#mainFeed {
+    background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+}
+
+.openButton {
+    color: white;
+    margin-left: 2%;
+    margin-right: 2%;
+    font-size: 26px;
+    cursor: pointer;
+}
+
+.user {
+    margin-left: 2%;
+    margin-top: 8px;
+    font-size: 25px;
+}
+
+.searchInput {
+    width: 100%;
+    border: 1px solid #b9b3b3;
+    border-radius: 2px;
+    padding: 0px;
+    line-height: 16px;
+    border-radius: 2px;
+    background-color: transparent;
+    box-shadow: none;
+}

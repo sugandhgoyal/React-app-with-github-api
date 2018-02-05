@@ -1,7 +1,6 @@
 import React from 'react';
-import '../App.css';
+import '../assets/css/feedCard.css';
 import {connect} from 'react-redux';
-import {withRouter} from 'react-router-dom';
 import DateTime from 'react-datetime';
 import {getImageUrl} from '../utils/utils';
 import MapWithASearchBox from './mapComponent';
@@ -16,15 +15,9 @@ class Feedcard extends React.Component {
         super(props);
         this.state = {
             show: false,
-            newDate: '',
             deletedFeed: true,
             display: false
         };
-    }
-    componentWillMount() {
-        this.setState({
-            newDate: new Date(this.props.eachFeed.publishDate).toUTCString()
-        })
     }
     getPlace = (place) => {
         this.setState({newPlace: place})
@@ -59,9 +52,7 @@ class Feedcard extends React.Component {
     }
     updateNotifyState = (date) => {
         console.log(date._d);
-        let notifydate = date
-            ._d
-            .getTime();
+        let notifydate = date._d.getTime();
         const updatedData = {
             NotifyDate: notifydate,
             notified: 1
@@ -76,17 +67,17 @@ class Feedcard extends React.Component {
         this.props.dispatch(updateFeedApi(this.props.eachFeed._id, this.props.eachFeed.city, updatedData));   
     }
     render() {
-        console.log(this.props.eachFeed);
+    //    console.log(this.props.eachFeed);
         let hreff = `https://so.city/delhi/article/${this.props.eachFeed.feedEntity.entityId}`;
         let fbid = `https://www.facebook.com/share.php?u=https://so.city/delhi/article/${this.props.eachFeed.feedEntity.entityId}`;
         return (
             <div id="feedCards">
-                {this.props.eachFeed.published == 1 && 
+                {this.props.eachFeed.published === 1 && 
                 <div
                     className={this.state.deletedFeed
                     ? "card6 card"
                     : "cardHide"}>
-                    <div className="container">
+                    <div className="container-fluid">
                         <div className="col-xs-2 left-part">
                             <img
                                 alt="article"
@@ -98,10 +89,7 @@ class Feedcard extends React.Component {
                                 {this.props.eachFeed.title}</div>
                             <div>
                                 <img alt="user" className="image-user" src={getImageUrl(this.props.imageLink)}/>
-                                <span className="subtitle">&nbsp; {this
-                                        .props
-                                        .getDisplayName(this.props.eachFeed.createdBy)
-                                        .displayName}
+                                <span className="subtitle">&nbsp; {this.props.getDisplayName(this.props.eachFeed.createdBy).displayName}
                                 </span>
                             </div>
                             <div className="icons">
@@ -120,11 +108,7 @@ class Feedcard extends React.Component {
                                 <a className="button" href="#popup2">
                                     <i className="fa fa-location-arrow" aria-hidden="true"></i>
                                 </a >
-                                <DateTime
-                                    className={this.state.show
-                                    ? 'rdt'
-                                    : 'hide'}
-                                    onBlur={this.updatePublishDate}/>
+                                <DateTime className={this.state.show ? 'rdt' : 'hide'} onBlur={this.updatePublishDate}/>
                                 <div id="popup1" className="overlay">
                                     <div className="popup">
                                         <a className="close" href="#">&times;</a>
@@ -153,9 +137,7 @@ class Feedcard extends React.Component {
                                     </div>}
                                 </div>
                             </div>
-                            <div className="displayDate">
-                            Scheduledfor:{new Date(this.props.eachFeed.publishDate).toUTCString()}
-                                &nbsp;</div>
+                            <div className="displayDate">Scheduled For:&nbsp;{new Date(this.props.eachFeed.publishDate).toString()}&nbsp;</div>
                             <div className="displayPlace">
                                 {this.state.newPlace}
                             </div>
@@ -163,40 +145,31 @@ class Feedcard extends React.Component {
                         <div className="col-xs-2 right-part">
                             <ul >
                                 <li >
-                                    <i
-                                        className={this.props.eachFeed.published === 1
-                                        ? "fa fa-check-circle-o"
-                                        : "fa fa-file-text-o"}
+                                    <i className={this.props.eachFeed.published === 1 ? "fa fa-check-circle-o": "fa fa-file-text-o"}
                                         aria-hidden="true"></i>
                                     {this.props.eachFeed.published === 1 && <span>
-                                        &nbsp;Published</span>}
+                                        &nbsp;Published &nbsp;</span>}
                                     {this.props.eachFeed.published === 0 && < span > &nbsp;
-                                    Draft </span>}
+                                    Draft&nbsp;</span>}
                                 </li>
                                 <li>
                                 <a className="featureFeed" onClick={this.updateFeature}>
-                                    <i className={this.props.eachFeed.sponsored == 1 && this.props.eachFeed.ourPicks==1 ? "fa fa-star":"fa fa-star grey-star"} aria-hidden="true"></i>
-                                    &nbsp;Featured
+                                    <i className={this.props.eachFeed.sponsored === 1 && this.props.eachFeed.ourPicks === 1 ? "fa fa-star":"fa fa-star grey-star"} aria-hidden="true"></i>
+                                    &nbsp;Featured&nbsp; &nbsp;
                                     </a>
                                 </li>
                                 <li>
-                                    <a
-                                        className="notifyUsers"
-                                        onClick=
-                                        {() => { this.setState({ display: !this.state.display }) }}>
-                                        <i className="fa fa-bell" aria-hidden="true"></i>
-                                        &nbsp;Notify Users
+                                    <a className="notifyUsers" onClick={() => { this.setState({ display: !this.state.display }) }}>
+                                        <i className="fa fa-bell" aria-hidden="true"></i>&nbsp;Notify Users &nbsp; &nbsp;
                                     </a>
-                                    <DateTime
-                                        className={this.state.display
-                                        ? 'rdt'
-                                        : 'hide'}
-                                        onBlur={this.updateNotifyState}/>
-                                    <p>{this.props.feedReducer.notifyDate}</p>
+                                    <DateTime className={this.state.display ? 'rdt': 'hide'} onBlur={this.updateNotifyState}/>
                                 </li>
                                 <li>
-                                    <a onClick={this.deleteFeed} className="deleteFeed">
-                                        <i className="fa fa-trash" aria-hidden="true"></i>&nbsp; Delete Feed</a>
+                                    <p>{(new Date(this.props.eachFeed.NotifyDate)).toDateString()}</p>
+                                </li>
+                                <li>
+                                    <a onClick={this.deleteFeed} className="deleteFeed"> &nbsp;
+                                        <i className="fa fa-trash" aria-hidden="true"></i>&nbsp; Delete Feed &nbsp;</a>
                                 </li>
                             </ul>
                         </div>

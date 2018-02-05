@@ -45,11 +45,9 @@ export const deleteFeedApi = (feedId, city, articleId) => {
  */
 
 export const updateFeedApi = (feedId, city, data, dateTime, action) => {
-    console.log('executed');    
     return (dispatch) => {
         dispatch(feedAction.feed_update_requested());
         return feedUpdate(FEED_UPDATE_API(feedId, city), {data}).then((data) => {
-            console.log(data);
             dispatch(feedAction.feed_update_success(feedId, city, data, dateTime, action));
             return Promise.resolve(data.data);
         }).catch((error) => {

@@ -35,7 +35,7 @@ class Searchbox extends React.Component {
     }
 
     render() {
-        return (<input className="searchInput" value={this.state.searchString} type="text" placeholder="Search Items"
+        return (<input className="col-sm-10 searchInput" value={this.state.searchString} type="text" placeholder="Search Items"
             onChange={this.handleChange} onKeyDown={this.search} />)
     }
 }

@@ -13,7 +13,6 @@ import {
     // FEED_UPDATE_NOTIFY_ERROR
 } from '../../constants/index';
 import _ from 'lodash';
-//import { start } from 'repl';
 
 const initialState = {
     state: [],
@@ -70,7 +69,6 @@ export const feedReducer = (state = initialState, action) => {
             }
         case FEED_UPDATE_SUCCESS:
             const tempFeedData = state.feed_data;
-            console.log("updated",action.updated_feed.NotifyDate);
             tempFeedData[_.findIndex(tempFeedData, {_id: action.feedId})] = action.updated_feed;
             console.log(tempFeedData[_.findIndex(tempFeedData, {_id: action.feedId})]);
             return {

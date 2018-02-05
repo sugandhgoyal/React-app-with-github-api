@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import '../../App.css';
+import '../../assets/css/login.css';
 import Particles from 'react-particles-js';
 import Loginform from './loginform.container';
 
@@ -19,7 +19,7 @@ class Login extends React.Component {
                 <Particles className="particles" params={{
                     particles: {
                         number: {
-                            value: 80,
+                            value: 60,
                             density: {
                                 enable: true,
                                 value_area: 800

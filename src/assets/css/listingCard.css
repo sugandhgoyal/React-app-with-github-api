@@ -1,0 +1,68 @@
+
+/*-------------------------------*/
+
+/*           Listing Card        */
+
+/*-------------------------------*/
+ 
+.card1 {
+  background-color: white;
+  margin-top: 5%;
+  margin-left: 3%;
+  width: 40%;
+  border: 0px;
+  border-radius: 0px;
+  box-shadow: 3px 3px 20px rgba(0, 0, 0, .5);
+  float: left;
+}
+
+.card .container {
+  width: 100%;
+}
+
+.row {
+  color: black;
+}
+
+.firstRow {
+  padding: 1%;
+}
+
+.secondRow {
+  border: 1px solid rgb(207, 203, 203);
+  padding: 1%;
+  margin-top: 0px;
+  margin-bottom: -5px;
+  margin-left: -6px;
+  margin-right: -5px;
+  background-color: #f5f5f5;
+}
+
+.listImage {
+  height: 90px;
+  width: 100%;
+  object-fit: contain;
+  padding-right: 32%;
+  border-radius: 50%;
+}
+
+.titleContainer,
+.sideContainer {
+  padding-left: 0%;
+}
+
+li {
+  list-style-type: none;
+}
+
+.listTitle {
+  color: black;
+  font-size: 26px;
+  font-weight: 500;
+}
+
+.fa-paperclip {
+  font-size: 22px;
+  color: grey;
+  padding-left: 19%;
+} 

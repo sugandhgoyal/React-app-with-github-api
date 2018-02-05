@@ -1,5 +1,5 @@
 import React from 'react';
-import '../App.css';
+import '../assets/css/articleForm.css';
 import Example from './example';
 import Addcard from './addCard';
 import Multidropdown from './multiselectDropdown';

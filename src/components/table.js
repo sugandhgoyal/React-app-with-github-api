@@ -1,6 +1,7 @@
 import React from 'react';
 import SwitchButton from './switchButton';
 import SwitchButtonPubAll from './switchButtonPubAll';
+import '../assets/css/table.css';
 
 class Table extends React.Component {
     constructor(props) {

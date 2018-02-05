@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import '../../App.css';
+import '../../assets/css/header.css';
 import Navigationbar from '../../components/navbar';
 import Searchbox from '../../components/searchbox';
 import { getPropsFromHeader } from '../../action/index';
@@ -35,10 +35,10 @@ class Header extends React.Component {
             <div>
                 <div>
                     <div className={this.state.moveaside ? "mainMove" : "main"} id="mainFeed">
-                        <div className="container no-pd">
+                        <div className="row">
                             <span className="openButton" onClick={this.openNav}>&#9776; </span>
-                            <Searchbox />
-                            <div id="floatRight">
+                            <Searchbox/>
+                            <div className="col-sm-1">
                                 <i className="fa fa-user-circle-o user" aria-hidden="true"></i>
                             </div>
                         </div>

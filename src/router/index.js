@@ -8,8 +8,8 @@ import Loginpage from '../containers/login/login.container';
 import Feed from '../containers/feed/feed.container';
 import Newarticle from '../containers/article/addNewArticle.container';
 import Listing from '../containers/listing/listing.container';
-import Mapp from '../components/mapComponent';
 import Article from '../containers/article/article.container';
+import Images from '../containers/image/image.container';
 
 export default (
     <Router>
@@ -20,7 +20,7 @@ export default (
             <Route path="/feed" component={Feed} />
             <Route path="/addarticle" component={Newarticle} />
             <Route path="/listing" component={Listing} />
-            <Route path="/bb" component={Mapp} />
+            <Route path="/imageupload" component={Images} />
         </div>
 
     </Router>

@@ -1,0 +1,809 @@
+/*-------------------------------*/
+
+/*           Feed card           */
+
+/*-------------------------------*/
+
+/* 
+ */
+
+#feedCards {
+    margin-bottom: 1%;
+}
+
+.card {
+    background-color: #f5f5f5;
+    width: 95%;
+    border-radius: 10px;
+}
+
+.card6 {
+    margin: 0 auto;
+    border-radius: 7px;
+    color: #273746;
+    background-color: #f5f5f5;
+    margin-top: 3Px;
+}
+
+.cardHide {
+    display: none;
+}
+
+.card .container {
+    padding: 5px;
+}
+
+.left-part {
+    float: left;
+    padding: 1%;
+}
+
+.articleImage {
+    height: 150px;
+    object-fit: cover;
+}
+
+.middle-part {
+    line-height: 2;
+    float: left;
+    padding: 1%;
+}
+
+.icons i {
+    padding-right: 3%;
+    color: #273746;
+    font-size: 14px;
+}
+
+.title {
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.image-brand {
+    margin-left: -13px;
+}
+
+.image-user {
+    height: 60px;
+    object-fit: cover;
+    width: 60px;
+    margin-right: 1%;
+    border-radius: 50%;
+}
+
+.subtitle {
+    text-transform: capitalize;
+}
+
+.fa-eye:hover, .fa-share-alt:hover, .fa-calendar:hover, .fa-location-arrow:hover {
+    transform: scale(1.1);
+}
+
+.fa-share-alt {
+    cursor: pointer;
+    color: #273746;
+}
+
+.fa-calendar {
+    cursor: pointer;
+    color: #273746;
+}
+
+.fa-location-arrow {
+    cursor: pointer;
+    color: #273746;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.overlay:target {
+    visibility: visible;
+    opacity: 1;
+    z-index: 100000;
+}
+
+.popup {
+    left: 40%;
+    top: 40%;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    width: 30%;
+    position: relative;
+    transition: all 5s ease-in-out;
+}
+
+#popup2 .popup {
+    left: 35%;
+    top: 35%;
+    padding: 28px;
+    background: #fff;
+    border-radius: 5px;
+    width: 30%;
+    position: relative;
+    transition: all 5s ease-in-out;
+}
+
+.popup h2 {
+    margin-top: 0;
+    color: #333;
+}
+
+.popup .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+}
+
+#popup2 .popup .close {
+    position: absolute;
+    top: 2px;
+    right: 14px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+}
+
+.popup .close:hover {
+    color: #06D85F;
+}
+
+.popup .content {
+    max-height: 30%;
+    overflow: auto;
+}
+
+.content a {
+    cursor: pointer;
+}
+
+.displayDate, .displayPlace {
+    display: inline-block;
+    font-size: 15px;
+}
+
+.right-part li a {
+    color: grey;
+    cursor: pointer;
+}
+
+li .showDateTimePicker {
+    visibility: visible;
+}
+
+li .hideDateTimePicker {
+    display: none;
+}
+
+.right-part {
+    line-height: 2;
+    color: grey;
+    font-size: 13px;
+    float: right;
+    padding-right: 1%;
+    padding-top: 1%;
+}
+
+li {
+    list-style-type: none;
+}
+
+.fa-check-circle-o, .fa-file-text-o {
+    color: green;
+}
+
+.fa-star {
+    color: orange;
+}
+
+.fa-star .grey-star {
+    color: grey;
+}
+
+.fa-bell {
+    color: #2471A3;
+}
+
+.fa-trash {
+    cursor: pointer;
+    color: #ec4545;
+}
+
+.deleteFeed:hover {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.fa-times {
+    color: #797373;
+    float: right;
+    margin-right: -11%;
+    margin-top: 5px;
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1280px) {
+    h3 {
+        font-size: 21px;
+    }
+    .dropdown button {
+        font-size: 16px;
+    }
+    .container-fluid {
+        margin: 0px;
+        padding: 0px;
+    }
+    .title {
+        font-size: 11px;
+        margin-bottom: 1%;
+    }
+    .subtitle {
+        font-size: 11px;
+    }
+    .left-part {
+        padding: 1%;
+    }
+    .middle-part {
+        line-height: 1.5;
+        float: left;
+    }
+    .right-part {
+        height: 16px;
+        line-height: 0;
+        width: 85%;
+        padding: 0px;
+        font-size: 10px;
+        color: #273746;
+        margin-top: 0%;
+    }
+    .articleImage {
+        height: 70px;
+        object-fit: cover;
+    }
+    .image-user {
+        width: 37px;
+        height: 37px;
+    }
+    a {
+        text-decoration: none;
+    }
+    .icons i {
+        font-size: 10px;
+        color: #273746;
+    }
+    .fa-eye {
+        cursor: pointer;
+        color: #273746;
+        position: relative;
+        opacity: 1;
+    }
+    .icons i {
+        color: #273746;
+    }
+    a {
+        color: #273746;
+    }
+    .displayDate, .displayPlace {
+        font-size: 10px;
+    }
+    .right-part .notifyUsers, .featureFeed {
+        cursor: pointer;
+        text-decoration: none;
+    }
+    ul li {
+        display: inline-block;
+    }
+}
+
+@media only screen and (min-width: 640px) and (max-width: 1024px) {
+    h3 {
+        font-size: 21px;
+    }
+    .dropdown button {
+        font-size: 16px;
+    }
+    .container-fluid {
+        margin: 0px;
+        padding: 0px;
+    }
+    .title {
+        font-size: 11px;
+        margin-bottom: 1%;
+    }
+    .subtitle {
+        font-size: 11px;
+    }
+    .left-part {
+        padding: 1%;
+    }
+    .middle-part {
+        line-height: 1.5;
+        float: left;
+    }
+    .right-part {
+        height: 16px;
+        line-height: 0;
+        width: 85%;
+        padding: 0px;
+        font-size: 10px;
+        color: #273746;
+        margin-top: 0%;
+    }
+    .articleImage {
+        height: 70px;
+        object-fit: cover;
+    }
+    .image-user {
+        width: 37px;
+        height: 37px;
+    }
+    a {
+        text-decoration: none;
+    }
+    .icons i {
+        font-size: 10px;
+        color: #273746;
+    }
+    .fa-eye {
+        cursor: pointer;
+        color: #273746;
+        position: relative;
+        opacity: 1;
+    }
+    .icons i {
+        color: #273746;
+    }
+    a {
+        color: #273746;
+    }
+    .displayDate, .displayPlace {
+        font-size: 10px;
+    }
+    .right-part .notifyUsers, .featureFeed {
+        cursor: pointer;
+        text-decoration: none;
+    }
+    ul li {
+        display: inline-block;
+    }
+}
+
+@media only screen and (min-width: 412px)and (max-width: 416px) {
+    .openButton {
+        font-size: 16px;
+    }
+    .searchInput {
+        padding: 2px;
+        font-size: 10px;
+        width: 78%;
+    }
+    .col-sm-1 {
+        position: relative;
+        padding-left: 10px;
+        width: 10%;
+        font-size: 16px;
+    }
+    h3 {
+        font-size: 13px;
+    }
+    .container-fluid {
+        margin: 0px;
+        padding: 0px;
+    }
+    .left-part {
+        padding: 1%;
+    }
+    .middle-part {
+        line-height: 1;
+        float: left;
+    }
+    .title {
+        font-size: 7px;
+        font-weight: 700;
+        margin-bottom: 1%;
+    }
+    .subtitle {
+        font-size: 7px;
+    }
+    .right-part {
+        line-height: 0;
+        padding: 0px;
+        font-size: 7px;
+        color: #273746;
+        margin-top: 0%;
+        width: 95%;
+        height: 11px;
+    }
+    .articleImage {
+        height: 30px;
+        object-fit: cover;
+    }
+    .image-user {
+        width: 15px;
+        height: 15px;
+    }
+    a {
+        text-decoration: none;
+    }
+    .icons i {
+        font-size: 6px;
+        color: #273746;
+    }
+    .fa-eye {
+        cursor: pointer;
+        color: #273746;
+        position: relative;
+        opacity: 1;
+    }
+    a {
+        color: #273746;
+    }
+    .displayDate, .displayPlace {
+        font-size: 6px;
+    }
+    .right-part .notifyUsers, .featureFeed {
+        cursor: pointer;
+        text-decoration: none;
+    }
+    ul li {
+        display: inline-block;
+    }
+    .dropdown button {
+        font-size: 11px;
+        margin-bottom: 0%;
+    }
+}
+
+@media only screen and (min-width: 360px)and (max-width: 411px) {
+    .openButton {
+        font-size: 16px;
+    }
+    .searchInput {
+        padding: 2px;
+        font-size: 10px;
+        width: 78%;
+    }
+    .col-sm-1 {
+        position: relative;
+        padding-left: 10px;
+        width: 10%;
+        font-size: 16px;
+    }
+    h3 {
+        font-size: 13px;
+    }
+    .container-fluid {
+        margin: 0px;
+        padding: 0px;
+    }
+    .left-part {
+        padding: 1%;
+    }
+    .middle-part {
+        line-height: 1;
+        float: left;
+    }
+    .title {
+        font-size: 6px;
+        font-weight: 700;
+        margin-bottom: 1%;
+    }
+    .subtitle {
+        font-size: 7px;
+    }
+    .right-part {
+        line-height: 0;
+        padding: 0px;
+        font-size: 7px;
+        color: #273746;
+        margin-top: 0%;
+        width: 97%;
+        height: 11px;
+    }
+    .articleImage {
+        height: 26px;
+        object-fit: cover;
+    }
+    .image-user {
+        width: 15px;
+        height: 15px;
+    }
+    a {
+        text-decoration: none;
+    }
+    .icons i {
+        font-size: 6px;
+        color: #273746;
+    }
+    .fa-eye {
+        cursor: pointer;
+        color: #273746;
+        position: relative;
+        opacity: 1;
+    }
+    a {
+        color: #273746;
+    }
+    .displayDate, .displayPlace {
+        font-size: 6px;
+    }
+    .right-part .notifyUsers, .featureFeed {
+        cursor: pointer;
+        text-decoration: none;
+    }
+    ul li {
+        display: inline-block;
+    }
+    .dropdown button {
+        font-size: 11px;
+        margin-bottom: 0%;
+    }
+}
+
+/*-------------------------------*/
+
+/*           Datetime picker      */
+
+/*-------------------------------*/
+
+.hide {
+    display: none;
+}
+
+.rdt .hide {
+    display: none;
+}
+
+.rdt {
+    position: relative;
+    width: 20%;
+}
+
+.rdt>input {
+    border: 1px solid #000;
+}
+
+.rdtPicker {
+    display: none;
+    position: absolute;
+    width: 250px;
+    padding: 4px;
+    margin-top: 1px;
+    z-index: 99999 !important;
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .1);
+    border: 1px solid #f9f9f9;
+}
+
+.rdtOpen .rdtPicker {
+    display: block;
+}
+
+.rdtStatic .rdtPicker {
+    box-shadow: none;
+    position: static;
+}
+
+.rdtPicker .rdtTimeToggle {
+    text-align: center;
+}
+
+.rdtPicker table {
+    width: 100%;
+    margin: 0;
+}
+
+.rdtPicker td, .rdtPicker th {
+    text-align: center;
+    height: 28px;
+}
+
+.rdtPicker td {
+    cursor: pointer;
+}
+
+.rdtPicker td.rdtToday:hover, .rdtPicker td.rdtHour:hover, .rdtPicker td.rdtMinute:hover, .rdtPicker td.rdtSecond:hover, .rdtPicker .rdtTimeToggle:hover {
+    background: #eeeeee;
+    cursor: pointer;
+}
+
+.rdtPicker td.rdtOld, .rdtPicker td.rdtNew {
+    color: #999999;
+}
+
+.rdtPicker td.rdtToday {
+    position: relative;
+}
+
+.rdtPicker td.rdtToday:before {
+    content: '';
+    display: inline-block;
+    border-left: 7px solid transparent;
+    border-bottom: 7px solid #428bca;
+    border-top-color: rgba(0, 0, 0, 0.2);
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+}
+
+.rdtPicker td.rdtActive, .rdtPicker td.rdtActive:hover {
+    background-color: #428bca;
+    color: #fff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+
+.rdtPicker td.rdtActive.rdtToday:before {
+    border-bottom-color: #fff;
+}
+
+.rdtPicker td.rdtDisabled, .rdtPicker td.rdtDisabled:hover {
+    background: none;
+    color: #999999;
+    cursor: not-allowed;
+}
+
+.rdtPicker td span.rdtOld {
+    color: #999999;
+}
+
+.rdtPicker td span.rdtDisabled, .rdtPicker td span.rdtDisabled:hover {
+    background: none;
+    color: #999999;
+    cursor: not-allowed;
+}
+
+.rdtPicker th {
+    border-bottom: 1px solid #f9f9f9;
+}
+
+.rdtPicker .dow {
+    width: 14.2857%;
+    border-bottom: none;
+}
+
+.rdtPicker th.rdtSwitch {
+    width: 100px;
+}
+
+.rdtPicker th.rdtNext, .rdtPicker th.rdtPrev {
+    font-size: 21px;
+    vertical-align: top;
+}
+
+.rdtPrev span, .rdtNext span {
+    display: block;
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Chrome/Safari/Opera */
+    -khtml-user-select: none;
+    /* Konqueror */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+}
+
+.rdtPicker th.rdtDisabled, .rdtPicker th.rdtDisabled:hover {
+    background: none;
+    color: #999999;
+    cursor: not-allowed;
+}
+
+.rdtPicker thead tr:first-child th {
+    cursor: pointer;
+}
+
+.rdtPicker thead tr:first-child th:hover {
+    background: #eeeeee;
+}
+
+.rdtPicker tfoot {
+    border-top: 1px solid #f9f9f9;
+}
+
+.rdtPicker button {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.rdtPicker button:hover {
+    background-color: #eee;
+}
+
+.rdtPicker thead button {
+    width: 100%;
+    height: 100%;
+}
+
+td.rdtMonth, td.rdtYear {
+    height: 50px;
+    width: 25%;
+    cursor: pointer;
+}
+
+td.rdtMonth:hover, td.rdtYear:hover {
+    background: #eee;
+}
+
+.rdtCounters {
+    display: inline-block;
+}
+
+.rdtCounters>div {
+    float: left;
+}
+
+.rdtCounter {
+    height: 100px;
+}
+
+.rdtCounter {
+    width: 40px;
+}
+
+.rdtCounterSeparator {
+    line-height: 100px;
+}
+
+.rdtCounter .rdtBtn {
+    height: 40%;
+    line-height: 40px;
+    cursor: pointer;
+    display: block;
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Chrome/Safari/Opera */
+    -khtml-user-select: none;
+    /* Konqueror */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+}
+
+.rdtCounter .rdtBtn:hover {
+    background: #eee;
+}
+
+.rdtCounter .rdtCount {
+    height: 20%;
+    font-size: 1.2em;
+}
+
+.rdtMilli {
+    vertical-align: middle;
+    padding-left: 8px;
+    width: 48px;
+}
+
+.rdtMilli input {
+    width: 100%;
+    font-size: 1.2em;
+    margin-top: 37px;
+}
+
+.rdtDayPart {
+    margin-top: 43px;
+}
