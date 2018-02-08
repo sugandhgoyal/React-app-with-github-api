@@ -7,12 +7,12 @@
  
 .card1 {
   background-color: white;
-  margin-top: 5%;
-  margin-left: 3%;
+  margin-top: 1%;
+  margin-left: 6%;
   width: 40%;
   border: 0px;
   border-radius: 0px;
-  box-shadow: 3px 3px 20px rgba(0, 0, 0, .5);
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, .5);
   float: left;
 }
 
@@ -27,7 +27,15 @@
 .firstRow {
   padding: 1%;
 }
-
+.firstRow .col-xs-1{
+  width: 37%;
+}
+.firstRow .col-xs-8{
+  width: 60%;
+}
+.firstRow .col-xs-1{
+  width: 8%;
+}
 .secondRow {
   border: 1px solid rgb(207, 203, 203);
   padding: 1%;
@@ -37,32 +45,31 @@
   margin-right: -5px;
   background-color: #f5f5f5;
 }
-
+.secondRow .col-xs-6{
+  width: 50%;
+}
 .listImage {
   height: 90px;
   width: 100%;
   object-fit: contain;
-  padding-right: 32%;
   border-radius: 50%;
 }
-
-.titleContainer,
-.sideContainer {
-  padding-left: 0%;
+.fa-check-circle-o{
+  padding-left: 2%;
 }
-
 li {
   list-style-type: none;
 }
 
 .listTitle {
+  text-align: center;
   color: black;
   font-size: 26px;
   font-weight: 500;
 }
 
 .fa-paperclip {
+  float: right;
   font-size: 22px;
   color: grey;
-  padding-left: 19%;
 } 

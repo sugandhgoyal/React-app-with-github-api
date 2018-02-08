@@ -11,43 +11,49 @@ const initialState = {
     state: [],
     article_data: [],
     more_data: [],
+    has_more_items: false,
     error: null
 };
 
 export const articleReducer = (state = initialState, action) => {
     switch (action.type) {
-
         case LOAD_ARTICLE_DATA:
             return {
-                ...state
+                ...state,
+                has_more_items: false
             }
         case LOAD_ARTICLE_DATA_SUCCESS:
+        console.log("datalen",action.article_data.length);
             return {
                 ...state,
                 article_data: action.article_data,
+                has_more_items: false,
                 error: false
             }
         case LOAD_ARTICLE_DATA_ERROR:
             return {
                 ...state,
+                has_more_items: false,
                 error: true
             }
         case LAZY_LOADER_ACTIVATED:
             return {
-                ...state
+                ...state,
+                has_more_items: true
             }
         case LAZY_LOADER_SUCCESS:
-            
-            console.log("comafter",action);
             return {
                 ...state,
                 more_data: action.more_data,
                 article_data: _.union(state.article_data, action.more_data),
+                has_more_items: false,
                 error: false
             }
+
         case LAZY_LOADER_ERROR:
             return {
                 ...state,
+                has_more_items: false,
                 error: true
             }
         default:

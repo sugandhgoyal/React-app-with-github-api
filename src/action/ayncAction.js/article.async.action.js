@@ -13,6 +13,7 @@ export const loadArticleDataApi = (num,loadingType) => {
         return (dispatch) => {
             dispatch(articleAction.load_article_data());
             return getCallApi(ARTICLE_FETCH_API(num)).then((data) => {
+                console.log("api",ARTICLE_FETCH_API(num))
                 dispatch(articleAction.load_article_data_success(data.data));
                 return Promise.resolve(data.data);
             }).catch((error) => {
@@ -26,7 +27,8 @@ export const loadArticleDataApi = (num,loadingType) => {
         return (dispatch) => {
             dispatch(articleAction.async_lazy_loading_activated());
             return getCallApi(ARTICLE_FETCH_API(num)).then((data) => {
-                dispatch(articleAction.async_lazy_loading_activated(data.data));
+                console.log("lazyapi",ARTICLE_FETCH_API(num))
+                dispatch(articleAction.async_lazy_loading_success(data.data));
                 return Promise.resolve(data.data);
             }).catch((error) => {
                 dispatch(articleAction.async_lazy_loading_error(error));

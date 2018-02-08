@@ -92,10 +92,10 @@ export const feedReducer = (state = initialState, action) => {
         case FEED_FILTER_SUCCESS:
         const tempData = action.feed_data.feed;
         if(action.feature === true){
-            _.find(tempData, function(o) { action.feed_data.feed.sponsored == 1 && action.feed_data.feed.ourPicks == 1});
+            _.find(tempData, function(o) { action.feed_data.feed.sponsored === 1 && action.feed_data.feed.ourPicks === 1});
         }
         else if(action.feature === false){
-            _.find(tempData, function(o) { action.feed_data.feed.sponsored == 0 || action.feed_data.feed.ourPicks == 0});
+            _.find(tempData, function(o) { action.feed_data.feed.sponsored === 0 || action.feed_data.feed.ourPicks === 0});
             console.log(tempData);
         }
             return {

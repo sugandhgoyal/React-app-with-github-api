@@ -2,7 +2,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import '../../App.css';
-import {loadFeedDataApi, filterFeedApi,filterCityFeedApi} from "../../action/index";
+import {loadFeedDataApi, filterFeedApi, filterCityFeedApi} from "../../action/index";
 import Feedcard from '../../components/feedCard';
 import _ from 'lodash';
 
@@ -16,19 +16,27 @@ class Feed extends React.Component {
     featureFilter = (action) => {
         console.log("action", action);
         if (action === "notfeatured") {
-            this.props.dispatch(filterFeedApi('delhi', 50, Date.now(), false));
+            this
+                .props
+                .dispatch(filterFeedApi('delhi', 50, Date.now(), false));
         } else {
-            this.props.dispatch(filterFeedApi('delhi', 50, Date.now(), true));
+            this
+                .props
+                .dispatch(filterFeedApi('delhi', 50, Date.now(), true));
         }
     }
 
     cityFilter = (city) => {
         console.log("city", city);
-        this.props.dispatch(filterCityFeedApi(city, 50, Date.now(), true));
+        this
+            .props
+            .dispatch(filterCityFeedApi(city, 50, Date.now(), true));
     }
 
     componentWillMount() {
-        this.props.dispatch(loadFeedDataApi('delhi', 50, Date.now()));
+        this
+            .props
+            .dispatch(loadFeedDataApi('delhi', 50, Date.now()));
     }
 
     getPublisherImage = (username) => {
@@ -73,22 +81,24 @@ class Feed extends React.Component {
                         <div className="dropdown">
                             <button className="filterButtons">City</button>
                             <div className="dropdown-content">
-                                {cities.map((city,index) => {
+                                {cities.map((city, index) => {
                                     if (city === "Delhi") 
                                         return (
-                                            <div key={index}><input
-                                                type="checkbox"
-                                                defaultChecked={true}
-                                                onClick={() => this.cityFilter('Delhi')}
-                                                className="city btn btn-default"/>{city}</div>
+                                            <div key={index}>
+                                                <div
+                                                    defaultChecked={true}
+                                                    onClick={() => this.cityFilter('Delhi')}
+                                                    className="city btn btn-default">{city}</div>
+                                            </div>
                                         )
                                     else 
                                         return (
-                                            <div key={index}><input
-                                                type="checkbox"
-                                                defaultChecked={false}
-                                                onClick={() => this.cityFilter(city)}
-                                                className="city btn btn-default"/>{city}</div>
+                                            <div key={index}>
+                                                <div
+                                                    defaultChecked={false}
+                                                    onClick={() => this.cityFilter(city)}
+                                                    className="city btn btn-default">{city}</div>
+                                            </div>
                                         )
                                 })}
                             </div>
@@ -101,16 +111,21 @@ class Feed extends React.Component {
                             </div>
 
                         </div>
-                        {this.props.feedReducer.feed_data.map((ele) => {
+                        {this
+                            .props
+                            .feedReducer
+                            .feed_data
+                            .map((ele) => {
                                 const imageUrl = this.getPublisherImage(ele.createdBy);
                                 if (imageUrl) {
-                                    return (
-                                      <Feedcard key={ele._id} eachFeed={ele}
-                                        imageLink={imageUrl.profilePicture} getDisplayName={this.getDisplayName}/>
-                                    );
+                                    return (<Feedcard
+                                        key={ele._id}
+                                        eachFeed={ele}
+                                        imageLink={imageUrl.profilePicture}
+                                        getDisplayName={this.getDisplayName}/>);
                                 }
                             })
-                        }
+}
                     </div>
                 </div>
             );

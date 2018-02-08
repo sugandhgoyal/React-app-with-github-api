@@ -17,7 +17,7 @@ export const listingReducer = (state = initialState, action) => {
         case LOAD_LISTING_DATA_SUCCESS:
             return {
                 ...state,
-                listing_data: action.listing_data.listingData,
+                listing_data: action.listing_data,
                 error: false
             }
         case LOAD_LISTING_DATA_ERROR:

@@ -81,7 +81,7 @@
 
 .sidebar-nav li {
     position: relative;
-    line-height: 22px;
+    line-height: 21px;
     display: inline-block;
     width: 100%;
     font-size: 15px;
@@ -126,7 +126,7 @@
 }
 
 .dashboard {
-    padding: 26px 10px 26px 30px;
+    padding: 26px 10px 26px 6px;
     word-spacing: 8px;
     font-weight: 700;
     font-size: 16px;

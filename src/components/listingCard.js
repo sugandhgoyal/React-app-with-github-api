@@ -11,45 +11,50 @@ class Listingcard extends React.Component {
         };
     }
     componentWillMount() {
-        this.props.dispatch(loadlistingDataApi(10,0));
+        this
+            .props
+            .dispatch(loadlistingDataApi(10, 0));
     }
 
     render() {
         console.log(this.props.listingReducer.listing_data);
-        // {this.props.listingReducer.listing_data.map((list)=>{
         return (
-            <div className="card1 card text-white">
-                <div className="container">
-                    <div className="row firstRow">
-                        <div className="col-xs-4">
-                            <img alt="list" className="listImage" src={require('../images/article.jpg')}/>
+            <div  className={this.props.headerReducer.header_data
+                ? "mainMove"
+                : "main"}>
+                {this.props.listingReducer.listing_data.map((ele) => 
+                    <div className="card1 card text-white">
+                    <div className="container">
+                        <div className="row firstRow">
+                            <div className="col-xs-3">
+                                <img alt="list" className="listImage" src={require('../images/article.jpg')}/>
+                            </div>
+                            <div className="col-xs-8 titleContainer">
+                                <div className="listTitle">{ele.primaryNameOfListing}</div>
+                            </div>
+                            <div className="col-xs-1">
+                                <i className="fa-lg fa fa-paperclip" aria-hidden="true"></i>
+                            </div>
                         </div>
-                        <div className="col-xs-7 titleContainer">
-                            <div className="listTitle">
-                                Saints N Sinners</div>
-                        </div>
-                        <div className="col-xs-1">
-                            <i className="fa-lg fa fa-paperclip" aria-hidden="true"></i>
-                        </div>
-                    </div>
-                    <div className="row secondRow">
-                        <div className="col-xs-6">
-                            <i className="fa fa-check-circle-o" aria-hidden="true"></i>
-                            <span>&nbsp;Published</span>
-                        </div>
-                        <div className="col-xs-6">
-                            <i className="fa fa-trash" aria-hidden="true"></i>
-                            &nbsp;Delete Feed
+                        <div className="row secondRow">
+                            <div className="col-xs-6">
+                                <i className="fa fa-check-circle-o" aria-hidden="true"></i>
+                                <span>&nbsp;Published</span>
+                            </div>
+                            <div className="col-xs-6">
+                                <i className="fa fa-trash" aria-hidden="true"></i>
+                                &nbsp;Delete Feed
+                            </div>
                         </div>
                     </div>
                 </div>
+                    )}
             </div>
-        );           
-    //    })}
+        )
     }
 }
-const mapDispatchToProps = (dispatch) => {
-    return {dispatch};
-}
+    const mapDispatchToProps = (dispatch) => {
+        return {dispatch};
+    }
 
-export default connect(state => state, mapDispatchToProps)(Listingcard);
+    export default connect(state => state, mapDispatchToProps)(Listingcard);

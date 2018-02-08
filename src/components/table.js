@@ -15,15 +15,24 @@ class Table extends React.Component {
     }
 
     loadMore = () => {
-        if (this.props.articleReducer.article_data.length > 0) {
-            this.props.dispatch(loadArticleDataApi(2, 'lazyLoad'));
+        let length = this.props.articleReducer.article_data.length;
+        console.log("length",this.props.articleReducer.article_data.length);
+        if(!this.props.articleReducer.has_more_items) {
+            this.props.dispatch(loadArticleDataApi(length, 'lazyLoad'));
         }
     }
+
     render() {
         return (
             <div>
-                <InfiniteScroll pageStart={1} loadMore={this.loadMore} initialLoad={true}
-                    hasMore={true} loader={<div className="loader" key = {0}> Loading ...</div>}>
+                <InfiniteScroll
+                    pageStart={1}
+                    loadMore={this.loadMore}
+                    // initialLoad={true}
+                    hasMore={true}
+                    loader={< div className = "loader" key = {
+                    0
+                } > Loading ...</div>}>
                     <div className="table">
                         <div className="container ">
                             <div className="show-grid row">
