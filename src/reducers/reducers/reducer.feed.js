@@ -8,9 +8,9 @@ import {
     FEED_UPDATE_REQUESTED,
     FEED_UPDATE_SUCCESS,
     FEED_UPDATE_ERROR,
-    // FEED_UPDATE_NOTIFY_REQUESTED,
-    // FEED_UPDATE_NOTIFY_SUCCESS,
-    // FEED_UPDATE_NOTIFY_ERROR
+    FEED_FILTER_REQUESTED,
+    FEED_FILTER_SUCCESS,
+    FEED_FILTER_ERROR
 } from '../../constants/index';
 import _ from 'lodash';
 
@@ -85,22 +85,31 @@ export const feedReducer = (state = initialState, action) => {
                 ...state,
                 error: true
             }
-        // case FEED_UPDATE_NOTIFY_REQUESTED:
-        //     return {
-        //         ...state
-        //     }
-        // case FEED_UPDATE_NOTIFY_SUCCESS:
-        //     console.log("nfdt", action.notifyDate);
-        //     return {
-        //         ...state,
-        //         feedId: action.feedId,
-        //         notifyDate: action.notifyDate
-        //     }
-        // case FEED_UPDATE_NOTIFY_ERROR:
-        //     return {
-        //         ...state,
-        //         error: true
-        //     }
+        case FEED_FILTER_REQUESTED:
+            return {
+                ...state
+            }
+        case FEED_FILTER_SUCCESS:
+        const tempData = action.feed_data.feed;
+        if(action.feature === true){
+            _.find(tempData, function(o) { action.feed_data.feed.sponsored == 1 && action.feed_data.feed.ourPicks == 1});
+        }
+        else if(action.feature === false){
+            _.find(tempData, function(o) { action.feed_data.feed.sponsored == 0 || action.feed_data.feed.ourPicks == 0});
+            console.log(tempData);
+        }
+            return {
+                ...state,
+                article_data: action.feed_data.articles,
+                feed_data:tempData,
+                publisher_data: action.feed_data.publishers,
+                error: false
+            }
+        case FEED_FILTER_ERROR:
+            return {
+                ...state,
+                error: true
+            }
         default:
             return {
                 ...state

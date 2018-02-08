@@ -19,3 +19,5 @@ export const FEED_DELETE_API = (feedId, city, articleId) => {
 export const FEED_UPDATE_API = (feedId, city) => {
     return `${API_URL}/dashboard/feed/updatefeed/${feedId}/${city}`
 }
+
+export const LISTING_FETCH_API = `https://soapi.in:3001/dashboard/listings/fetchListings`;

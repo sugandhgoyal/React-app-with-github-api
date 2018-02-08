@@ -2,7 +2,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import '../../App.css';
-import {loadFeedDataApi} from "../../action/index";
+import {loadFeedDataApi, filterFeedApi,filterCityFeedApi} from "../../action/index";
 import Feedcard from '../../components/feedCard';
 import _ from 'lodash';
 
@@ -13,14 +13,22 @@ class Feed extends React.Component {
             defaultSelected: 'Featured'
         };
     }
-    selected = () => {
-        console.log("selected");
+    featureFilter = (action) => {
+        console.log("action", action);
+        if (action === "notfeatured") {
+            this.props.dispatch(filterFeedApi('delhi', 50, Date.now(), false));
+        } else {
+            this.props.dispatch(filterFeedApi('delhi', 50, Date.now(), true));
+        }
+    }
+
+    cityFilter = (city) => {
+        console.log("city", city);
+        this.props.dispatch(filterCityFeedApi(city, 50, Date.now(), true));
     }
 
     componentWillMount() {
-        this
-            .props
-            .dispatch(loadFeedDataApi('delhi', 50, Date.now()));
+        this.props.dispatch(loadFeedDataApi('delhi', 50, Date.now()));
     }
 
     getPublisherImage = (username) => {
@@ -31,6 +39,29 @@ class Feed extends React.Component {
         return _.find(this.props.feedReducer.publisher_data, {'username': username});
     }
     render() {
+        const cities = [
+            "Andaman",
+            "Amritsar",
+            "Agra",
+            "Coorg",
+            "Delhi",
+            "Darjeeling",
+            "Jaisalmer",
+            "Kasol",
+            "Leh Ladakh",
+            "Mussoorie",
+            "Mcleodganj & Dharamshala",
+            "Nasik",
+            "Nainital",
+            "Ooty",
+            "Pondicherry",
+            "Rishikesh",
+            "Srinagar",
+            "shimla",
+            "Shillong",
+            "Udaipur",
+            "Varanasi"
+        ];
         if (this.props.feedReducer.feed_data.length > 0) {
             return (
                 <div>
@@ -42,56 +73,44 @@ class Feed extends React.Component {
                         <div className="dropdown">
                             <button className="filterButtons">City</button>
                             <div className="dropdown-content">
-                                <p>Delhi</p>
-                                <p>Andaman</p>
-                                <p>Amritsar</p>
-                                <p>Agra</p>
-                                <p>Coorg</p>
-                                <p>Delhi</p>
-                                <p>Darjeeling</p>
-                                <p>Jaisalmer</p>
-                                <p>Kasol</p>
-                                <p>Leh Ladakh</p>
-                                <p>Musoorie</p>
-                                <p>Mcleodganj & Dharamshala</p>
-                                <p>Nasik</p>
-                                <p>Nainital</p>
-                                <p>Ooty</p>
-                                <p>Pondicherry</p>
-                                <p>Rishikesh</p>
-                                <p>Srinagar</p>
-                                <p>Shimla</p>
-                                <p>Shillong</p>
-                                <p>Udaipur</p>
-                                <p>Varanasi</p>
+                                {cities.map((city,index) => {
+                                    if (city === "Delhi") 
+                                        return (
+                                            <div key={index}><input
+                                                type="checkbox"
+                                                defaultChecked={true}
+                                                onClick={() => this.cityFilter('Delhi')}
+                                                className="city btn btn-default"/>{city}</div>
+                                        )
+                                    else 
+                                        return (
+                                            <div key={index}><input
+                                                type="checkbox"
+                                                defaultChecked={false}
+                                                onClick={() => this.cityFilter(city)}
+                                                className="city btn btn-default"/>{city}</div>
+                                        )
+                                })}
                             </div>
-
                         </div>
                         <div className="dropdown">
                             <button className="filterButtons">{this.state.defaultSelected}</button>
                             <div className="dropdown-content">
-                                <p onClick={this.state.selected}>Featured</p>
-                                <p>Not Featured</p>
+                                <div><input type="checkbox" onClick={() => this.featureFilter('featured')}/>Featured</div>
+                                <div><input type="checkbox" onClick={() => this.featureFilter('notfeatured')}/>Not Featured</div>
                             </div>
 
                         </div>
-                        {this
-                            .props
-                            .feedReducer
-                            .feed_data
-                            .map((ele) => {
+                        {this.props.feedReducer.feed_data.map((ele) => {
                                 const imageUrl = this.getPublisherImage(ele.createdBy);
                                 if (imageUrl) {
-                                    return (<Feedcard
-                                        key={ele._id}
-                                        data={this.props.feedReducer.feed_data}
-                                        publisherData={this.props.feedReducer.publisher_data}
-                                        eachFeed={ele}
-                                        imageLink={imageUrl.profilePicture}
-                                        getDisplayName={this.getDisplayName}/>);
+                                    return (
+                                      <Feedcard key={ele._id} eachFeed={ele}
+                                        imageLink={imageUrl.profilePicture} getDisplayName={this.getDisplayName}/>
+                                    );
                                 }
-                            })}
-
+                            })
+                        }
                     </div>
                 </div>
             );

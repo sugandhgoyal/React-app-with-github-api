@@ -58,23 +58,40 @@ export const updateFeedApi = (feedId, city, data, dateTime, action) => {
 }
 
 /**
- * Function to update notify date in feed data
+ * Function to filter feed data according to featured and non-featured
  * @param {String} feedId
  * @param {String} city
  */
 
-// export const updateNotifyFeedApi = (feedId, city, data, dateTime) => {
-//     console.log("executed notify");
-//     console.log(feedId, city, data, dateTime);
-//     return (dispatch) => {
-//         dispatch(feedAction.feed_update_requested());
-//         return feedUpdate(FEED_UPDATE_API(feedId, city), {data}).then((data) => {
-//             console.log(data.data);
-//             dispatch(feedAction.feed_update_notify_success(feedId, city, data, dateTime));
-//             return Promise.resolve(data.data);
-//         }).catch((error) => {
-//             dispatch(feedAction.feed_update_notify_error(error));
-//             return Promise.reject(error);
-//         })
-//     }
-// }
+export const filterFeedApi = (city, batchSize, publishedDate,feature) => {
+    return (dispatch) => {
+        dispatch(feedAction.feed_filter_requested());
+        return feedCallApi(FEED_FETCH_API, {city, batchSize, publishedDate,feature}).then((data) => {
+            dispatch(feedAction.feed_filter_success(data.data,feature));
+            return Promise.resolve(data.data);
+        }).catch((error) => {
+            dispatch(feedAction.feed_filter_error(error));
+            return Promise.reject(error);
+        })
+    }
+}
+
+/**
+ * Function to filter feed data according to city
+ * @param {String} feedId
+ * @param {String} city
+ */
+
+export const filterCityFeedApi = (city, batchSize, publishedDate,feature) => {
+    console.log(city, batchSize, publishedDate,feature);
+    return (dispatch) => {
+        dispatch(feedAction.feed_filter_requested());
+        return feedCallApi(FEED_FETCH_API, {city, batchSize, publishedDate,feature}).then((data) => {
+            dispatch(feedAction.feed_filter_success(data.data,feature));
+            return Promise.resolve(data.data);
+        }).catch((error) => {
+            dispatch(feedAction.feed_filter_error(error));
+            return Promise.reject(error);
+        })
+    }
+}

@@ -1,31 +1,33 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 import '../../App.css';
-import {
-    loadArticleDataApi
-} from "../../action/index";
-import ArticleHome from './articlehome.container';
+import {loadArticleDataApi} from "../../action/index";
+import Table from '../../components/table';
 
 class Article extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            moveaside: false,
+            displayItems: [],
+            articles: [],
+            hasMoreItems: true
         }
     }
     componentWillMount() {
-        this.props.dispatch(loadArticleDataApi(0));
+        this.props.dispatch(loadArticleDataApi(0, 'firstLoad'));
     }
     render() {
         return (
-            <ArticleHome data={this.props.articleReducer.article_data} />
+            <div className={this.props.headerReducer.header_data ? "mainMove" : "main"}>
+            <h3>Articles</h3>
+                <Table />
+            </div>
         )
     }
 }
 const mapDispatchToProps = (dispatch) => {
-    return {
-        dispatch
-    };
+    return {dispatch};
 }
-
 
 export default connect(state => state, mapDispatchToProps)(Article);

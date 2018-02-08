@@ -6,8 +6,7 @@ import '../../assets/css/imageCard.css';
 // '../../components/feedCard';
 import Imagecard from '../../components/imageCard';
 import axios from 'axios';
-import {cloudinary,CloudinaryContext, Transformation, Image }from 'cloudinary-react'; 
-
+import {CloudinaryContext, Transformation, Image} from 'cloudinary-react';
 
 class Images extends React.Component {
     constructor(props) {
@@ -17,65 +16,62 @@ class Images extends React.Component {
         }
     }
     componentDidMount() {
-        // Request for images tagged xmas       
-        axios.get('https://res.cloudinary.com/christekh/image/list/xmas.json')
+        // Request for images tagged xmas
+        //https://res.cloudinary.com/<your_cloud_name>/<resource_type>/list/<tag>.json
+        axios
+            .get('https://res.cloudinary.com/dashboardui/image/upload/list/xmas.json')
             .then(res => {
-                console.log(res.data.resources);
-                this.setState({gallery: res.data.resources});
+                console.log("res",res);
+                this.setState({gallery: res});
             });
     }
-    uploadWidget=()=> {
-        cloudinary.openUploadWidget({ cloud_name: 'dashboardui', upload_preset: 'fszoi1n9', tags:['xmas']},
-            function(error, result) {
+    uploadWidget = () => {
+        window.cloudinary
+            .openUploadWidget({
+                cloud_name: 'dashboardUI',
+                upload_preset: 'fszoi1n9',
+                tags: ['xmas']
+            }, function (error, result) {
                 console.log(result);
             });
     }
-    render(){
+    render() {
         return (
+            <div>
             <div className="main">
-            <h1>Galleria</h1>
-            <div className="upload">
-                <button onClick={this.uploadWidget.bind(this)} className="upload-button">
-                    Add Image
-                </button>
+                <h1>Galleria</h1>
+                <div className="upload">
+                    <button onClick={this.uploadWidget.bind(this)} className="upload-button">Add Image</button>
+                </div>
+                <Imagecard/>
             </div>
-            <Imagecard/>
+        <div className="main">     
+        <h1>Galleria</h1>     
+        <div className="gallery">
+             <CloudinaryContext cloudName="dashboardUI">  
+             {/* <img src="http://res.cloudinary.com/dashboardui/image/upload/sample.jpg"/>       */}
+             {
+            this.state.gallery.map(data => {                     
+            return (
+                <div className="responsive" key={data.public_id}>
+                <div className="img">                                 
+                <a target="_blank" href={`https://res.cloudinary.com/dashboardUI/image/upload/${data.public_id}.jpg`}>                                     <Image publicId={data.public_id}>
+                <Transformation crop="scale" width="300" height="200" dpr="auto" responsive_placeholder="blank"/>  
+                </Image>
+               </a><div className="desc">Created at{data.created_at}</div>                             
+               </div>
+             </div>                     
+            )                 
+        })             
+        }
+        </CloudinaryContext>         
+        <div className="clearfix"></div>     
         </div>
-            // <div className="main">
-            //     <h1>Galleria</h1>
-            //     <div className="gallery">
-            //         <CloudinaryContext cloudName="CLOUDNAME">
-            //             {
-            //                 this.state.gallery.map(data => {
-            //                     return (
-            //                         <div className="responsive" key={data.public_id}>
-            //                             <div className="img">
-            //                                 <a target="_blank" href={`https://res.cloudinary.com/christekh/image/upload/${data.public_id}.jpg`}>
-            //                                     <Image publicId={data.public_id}>
-            //                                         <Transformation
-            //                                             crop="scale"
-            //                                             width="300"
-            //                                             height="200"
-            //                                             dpr="auto"
-            //                                             responsive_placeholder="blank"
-            //                                         />
-            //                                     </Image>
-            //                                 </a>
-            //                                 <div className="desc">Created at {data.created_at}</div>
-            //                             </div>
-            //                         </div>
-            //                     )
-            //                 })
-            //             }
-            //         </CloudinaryContext>
-            //         <div className="clearfix"></div>
-            //     </div>
-            // </div>
-
+        </div>
+        </div>
         );
-    }   
+    }
 }
-
 
 const mapDispatchToProps = (dispatch) => {
     return {dispatch};

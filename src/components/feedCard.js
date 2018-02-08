@@ -67,7 +67,6 @@ class Feedcard extends React.Component {
         this.props.dispatch(updateFeedApi(this.props.eachFeed._id, this.props.eachFeed.city, updatedData));   
     }
     render() {
-    //    console.log(this.props.eachFeed);
         let hreff = `https://so.city/delhi/article/${this.props.eachFeed.feedEntity.entityId}`;
         let fbid = `https://www.facebook.com/share.php?u=https://so.city/delhi/article/${this.props.eachFeed.feedEntity.entityId}`;
         return (
@@ -118,6 +117,9 @@ class Feedcard extends React.Component {
                                             <img alt="google" src={require('../images/google.png')}/>
                                             <img alt="instagram" src={require('../images/insta.png')}/>
                                             <img alt="slack" src={require('../images/slack.png')}/>
+                                            <img id="cloudinary" alt="slack" src={require('../images/cloudinary.svg')}/>
+                                            <img id="digiOcean" alt="slack" src={require('../images/digitalocean.svg')}/>
+                                            <img id="mailChimp" alt="slack" src={require('../images/mailchimp.svg')}/>
                                         </div>
                                     </div>
                                 </div>
@@ -154,7 +156,7 @@ class Feedcard extends React.Component {
                                 </li>
                                 <li>
                                 <a className="featureFeed" onClick={this.updateFeature}>
-                                    <i className={this.props.eachFeed.sponsored === 1 && this.props.eachFeed.ourPicks === 1 ? "fa fa-star":"fa fa-star grey-star"} aria-hidden="true"></i>
+                                    <i className={this.props.eachFeed.sponsored === 1 && this.props.eachFeed.ourPicks === 1 ? "fa fa-star":"fa fa-eye"} aria-hidden="true"></i>
                                     &nbsp;Featured&nbsp; &nbsp;
                                     </a>
                                 </li>
@@ -175,7 +177,7 @@ class Feedcard extends React.Component {
                         </div>
                     </div>
                 </div>
-}
+            }
             </div >
         )
     }
