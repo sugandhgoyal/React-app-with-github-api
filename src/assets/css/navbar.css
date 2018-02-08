@@ -16,7 +16,7 @@
     width: 0;
     height: 100%;
     left: 0px;
-    top: 0 px;
+    top: 0px;
     overflow-y: auto;
     overflow-x: hidden;
     background: white;
@@ -42,7 +42,7 @@
     width: 220px;
     height: 100%;
     left: 0px;
-    top: 0 px;
+    top: 0px;
     overflow-y: auto;
     overflow-x: hidden;
     background: white;
@@ -75,10 +75,13 @@
     padding: 0;
     list-style: none;
 }
+.sidebar-nav .dropdown{
+    line-height: 48px;
+}
 
 .sidebar-nav li {
     position: relative;
-    line-height: 29px;
+    line-height: 22px;
     display: inline-block;
     width: 100%;
     font-size: 15px;
@@ -166,6 +169,7 @@
 
 .sidebar-nav .dropdown-menu li {
     cursor: pointer;
+    line-height: 47px;
     background-color: #dad6d6;
 }
 
