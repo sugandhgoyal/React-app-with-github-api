@@ -125,8 +125,7 @@ class Feedcard extends React.Component {
                                 </div>
                                 <div id="popup2" className="overlay">
                                     {this.state.showMap && <div className="popup">
-                                        <a className="close" href="#">
-                                            &times;
+                                        <a className="close" href="#">&times;
                                         </a>
                                         <div className="content">
                                             <MapWithASearchBox

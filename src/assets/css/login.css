@@ -43,7 +43,7 @@
   position: absolute;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
   transition: 0.3s;
-  width: 22%;
+  width: 19%;
   background-color: white;
   margin-bottom: -16px;
 }
@@ -53,8 +53,8 @@
 }
 
 .sologo {
-  margin: 22% 22% 4% 22%;
-  width: 200px;
+  margin: 23% 33% 4%;
+  width: 100px;
 }
 
 .fa-facebook-square, .fa-google-plus-official {
@@ -64,10 +64,9 @@
 .fbLogin, .gLogin {
   letter-spacing: 1px;
   display: block;
-  padding: 11px 17px;
   margin-bottom: 0;
   font-size: 20px;
-  font-weight: 400;
+  font-weight: 300;
   line-height: 1.42857143;
   text-align: center;
   white-space: nowrap;
@@ -84,10 +83,18 @@
 }
 
 .fbLogin {
+  padding: 11px 17px;
+  background-color: #0069d9;
+  border-color: #0062cc;
   margin-top: 22%;
 }
 
 .gLogin {
+  padding-top: 11px;
+  padding-bottom: 11px;
+  padding-right: 31px;
+  background-color: #c82333;
+  border-color: #bd2130;
   margin-top: 5%;
   margin-bottom: 5%;
 }
@@ -183,7 +190,8 @@
     font-size: 26px;
   }
 }
-  /* 
+
+/* 
 @media screen and (min-width: 1280px) {
   .container {
     padding: 2px 43px;

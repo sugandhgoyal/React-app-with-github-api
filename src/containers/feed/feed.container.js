@@ -1,7 +1,7 @@
 //import LazyLoad from 'react-lazyload';
 import React from 'react';
 import {connect} from 'react-redux';
-import '../../App.css';
+import '../../assets/css/feedCard.css';
 import {loadFeedDataApi, filterFeedApi, filterCityFeedApi} from "../../action/index";
 import Feedcard from '../../components/feedCard';
 import _ from 'lodash';
@@ -73,12 +73,9 @@ class Feed extends React.Component {
         if (this.props.feedReducer.feed_data.length > 0) {
             return (
                 <div>
-                    <div
-                        className={this.props.headerReducer.header_data
-                        ? "mainMove"
-                        : "main"}>
+                    <div>
                         <h3>Feed</h3>
-                        <div className="dropdown">
+                        <div className="feedDropdown">
                             <button className="filterButtons">City</button>
                             <div className="dropdown-content">
                                 {cities.map((city, index) => {
@@ -103,11 +100,11 @@ class Feed extends React.Component {
                                 })}
                             </div>
                         </div>
-                        <div className="dropdown">
+                        <div className="feedDropdown">
                             <button className="filterButtons">{this.state.defaultSelected}</button>
-                            <div className="dropdown-content">
-                                <div><input type="checkbox" onClick={() => this.featureFilter('featured')}/>Featured</div>
-                                <div><input type="checkbox" onClick={() => this.featureFilter('notfeatured')}/>Not Featured</div>
+                            <div className="dropdown-content2">
+                                <div onClick={() => this.featureFilter('featured')}>Featured</div>
+                                <div onClick={() => this.featureFilter('notfeatured')}>Not Featured</div>
                             </div>
 
                         </div>

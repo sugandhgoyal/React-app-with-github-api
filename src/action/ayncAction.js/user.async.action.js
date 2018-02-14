@@ -1,19 +1,10 @@
 import {
-    asyncGoogleSigningError,
-    asyncGoogleSigningLoadingStarted,
-    asyncGoogleSigningSuccess,
-    asyncFacebookLoggingLoaderStarted,
-    asyncFacebookLoggingSuccess,
-    asyncFacebookLoggingError,
-    asyncCheckTokenLoadingStarted,
-    asyncCheckTokenError,
-    asyncCheckTokenSuccess,
-    asyncFeedActionSuccess,
-    asyncFeedActionError,
-    asyncLoadingStarted,
-    asyncFollowUnfollowLoaderStarted,
-    asyncFollowUnfollowSuccess,
-    asyncFollowUnfollowError
+    google_login_request,
+    google_login_success,
+    google_login_error,
+    facebook_login_request,
+    facebook_login_success,
+    facebook_login_error
 } from '../action/user.action';
 
 
@@ -21,8 +12,6 @@ import {
     GOOGLE_SIGN_IN_API,
     SIGN_IN_API,
     CHECKING_TOKEN_API,
-    FEED_ACTION_API,
-    FOLLOW_UNFOLLOW_API,
     FACEBOOK_COVER_PROFILE_API
 } from '../../constants/api';
 
@@ -54,7 +43,7 @@ export const asyncGoogleSignin = (userData, id) => {
         }
     }
     return (dispatch) => {
-        dispatch(asyncGoogleSigningLoadingStarted());
+        dispatch(google_login_request());
         return getCallApi(GOOGLE_SIGN_IN_API(userDataToBeSent.id))
             .then((data) => {
                 if (data.coverPhotos) {
@@ -79,23 +68,23 @@ export const asyncGoogleSignin = (userData, id) => {
                                     },
                                     accessToken: savedUserData.accessToken
                                 };
-                                dispatch(asyncGoogleSigningSuccess(dataToBeSentToReducers));
+                                dispatch(google_login_success(dataToBeSentToReducers));
                                 return resolve(dataToBeSentToReducers);
                             }
                             if (!savedUserData.success) {
-                                dispatch(asyncGoogleSigningError(savedUserData));
+                                dispatch(google_login_error(savedUserData));
                                 return reject(savedUserData);
                             }
 
                         })
                         .catch(loginError => {
-                            dispatch(asyncGoogleSigningError(loginError));
+                            dispatch(google_login_error(loginError));
                             return reject(loginError);
                         });
                 });
             })
             .catch((error) => {
-                dispatch(asyncGoogleSigningError(error));
+                dispatch(google_login_error(error));
                 return Promise.reject(error);
             })
     }
@@ -108,6 +97,7 @@ export const asyncGoogleSignin = (userData, id) => {
  * @returns {function(*)}
  */
 export const asyncFacebookLogin = (userData) => {
+    console.log("userData",userData);
     let userDataToBeSent = {};
     if (userData.additionalUserInfo) {
         const data = userData.additionalUserInfo.profile;
@@ -117,9 +107,12 @@ export const asyncFacebookLogin = (userData) => {
             id: data.id,
             email: data.email
         }
+        console.log("datasent",userDataToBeSent);
     }
     return (dispatch) => {
-        dispatch(asyncFacebookLoggingLoaderStarted());
+        console.log("here");
+        dispatch(facebook_login_request());
+        console.log("api",getCallApi(FACEBOOK_COVER_PROFILE_API(userData.credential.accessToken)));
         return getCallApi(FACEBOOK_COVER_PROFILE_API(userData.credential.accessToken))
             .then((data) => {
                 console.log("data", data);
@@ -144,47 +137,48 @@ export const asyncFacebookLogin = (userData) => {
                                 },
                                 accessToken: data.accessToken
                             };
-                            dispatch(asyncFacebookLoggingSuccess(dataToBeSentToReducers));
+                            dispatch(facebook_login_success(dataToBeSentToReducers));
                             return resolve(dataToBeSentToReducers);
                         })
                         .catch(error => {
-                            dispatch(asyncFacebookLoggingError(error));
+                            dispatch(facebook_login_error(error));
                             return resolve(error);
                         })
                 });
             })
             .catch((error) => {
-                dispatch(asyncGoogleSigningError(error));
+                dispatch(facebook_login_error(error));
                 return Promise.reject(error);
             })
     }
-    // return (dispatch) => {
-    //     dispatch(asyncFacebookLoggingLoaderStarted());
-    //     return postCallApi(SIGN_IN_API('facebook'), userDataToBeSent )
-    //         .then((data) => {
-    //             let dataToBeSentToReducers = {
-    //                 success:true,
-    //                 user:{
-    //                     displayName:data.user.displayName,
-    //                     email: data.user.email,
-    //                     profilePicture: data.user.profilePicture,
-    //                     coverPicture: data.user.coverPicture,
-    //                     username: data.user.username,
-    //                     interests: data.user.interests,
-    //                 },
-    //                 accessToken:data.accessToken
-    //             };
-    //             console.log(data);
-    //             dispatch(asyncFacebookLoggingSuccess(dataToBeSentToReducers));
-    //             return Promise.resolve(dataToBeSentToReducers);
-    //         })
-    //         .catch(error => {
-    //             dispatch(asyncFacebookLoggingError(error));
-    //             return Promise.resolve(error);
-    //         })
-    // }
+    return (dispatch) => {
+        console.log("there");
+        dispatch(facebook_login_request());
+        return postCallApi(SIGN_IN_API('facebook'), userDataToBeSent )
+            .then((data) => {
+                let dataToBeSentToReducers = {
+                    success:true,
+                    user:{
+                        displayName:data.user.displayName,
+                        email: data.user.email,
+                        profilePicture: data.user.profilePicture,
+                        coverPicture: data.user.coverPicture,
+                        username: data.user.username,
+                        interests: data.user.interests,
+                    },
+                    accessToken:data.accessToken
+                };
+                console.log(data);
+                dispatch(facebook_login_success(dataToBeSentToReducers));
+                return Promise.resolve(dataToBeSentToReducers);
+            })
+            .catch(error => {
+                dispatch(facebook_login_error(error));
+                return Promise.resolve(error);
+            })
+    }
 
-//}
+}
 
 
 // /**

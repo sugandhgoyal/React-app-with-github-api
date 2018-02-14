@@ -23,13 +23,14 @@ class Navigationbar extends React.Component {
                         <li className="dropdown">
                             <a className="dropdown-toggle" data-toggle="dropdown">
                                 <i className="fa fa-building-o" aria-hidden="true"></i>&nbsp;City
+                                <img alt="twitter"className="dropdownArrow1" src={require('../images/arrow.png')}/>
                             </a>
                             <ul className="dropdown-menu" role="menu">
                                 <li className="feed">
                                     <a onClick={() => { this.props.changeUrl('feed'); }}> <i className="fa fa-bars"></i>&nbsp;Feeds</a>
                                 </li>
                                 <li>
-                                    <a > <i className="fa fa-database"></i>&nbsp;Listings
+                                    <a> <i className="fa fa-database"></i>&nbsp;Listings
                                     </a>
                                 </li>
                             </ul>
@@ -37,6 +38,7 @@ class Navigationbar extends React.Component {
                         <li className="dropdown">
                             <a className="dropdown-toggle" data-toggle="dropdown">
                                 <i className="fa fa-newspaper-o"></i>&nbsp;Articles
+                                <img alt="twitter"className="dropdownArrow2" src={require('../images/arrow.png')}/>
                             </a>
                             <ul className="dropdown-menu" role="menu">
                                 <li>
@@ -50,6 +52,7 @@ class Navigationbar extends React.Component {
                         <li className="dropdown">
                             <a className="dropdown-toggle" data-toggle="dropdown">
                                 <i className="fa fa-camera-retro" aria-hidden="true"></i>&nbsp;Media
+                                <img alt="twitter"className="dropdownArrow3" src={require('../images/arrow.png')}/>
                             </a>
                             <ul className="dropdown-menu" role="menu">
                                 <li>
@@ -66,6 +69,7 @@ class Navigationbar extends React.Component {
                         <li className="dropdown">
                             <a className="dropdown-toggle" data-toggle="dropdown">
                                 <i className="fa fa-users"></i>&nbsp;Users
+                                <img alt="twitter"className="dropdownArrow4" src={require('../images/arrow.png')}/>
                             </a>
                             <ul className="dropdown-menu" role="menu">
                                 <li>
@@ -79,6 +83,7 @@ class Navigationbar extends React.Component {
                         <li className="dropdown">
                             <a className="dropdown-toggle" data-toggle="dropdown">
                                 <i className="fa fa-window-maximize" aria-hidden="true"></i>&nbsp;Apps
+                                <img alt="twitter"className="dropdownArrow5" src={require('../images/arrow.png')}/>
                             </a>
                             <ul className="dropdown-menu" role="menu">
                                 <li>
@@ -114,6 +119,7 @@ class Navigationbar extends React.Component {
                         <li className="dropdown">
                             <a className="dropdown-toggle" data-toggle="dropdown">
                                 <i className="fa fa-users"></i>&nbsp;Monitoring
+                                <img alt="twitter"className="dropdownArrow6" src={require('../images/arrow.png')}/>
                             </a>
                             <ul className="dropdown-menu" role="menu">
                                 <li>
@@ -127,6 +133,7 @@ class Navigationbar extends React.Component {
                         <li className="dropdown">
                             <a className="dropdown-toggle" data-toggle="dropdown">
                                 <i className="fa fa-search" aria-hidden="true"></i>&nbsp;Search
+                                <img alt="twitter"className="dropdownArrow7" src={require('../images/arrow.png')}/>
                             </a>
                             <ul className="dropdown-menu" role="menu">
                                 <li>

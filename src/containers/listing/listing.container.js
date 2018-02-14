@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 import '../../App.css';
 import Listingcard from '../../components/listingCard';
 
@@ -8,21 +8,20 @@ class Listing extends React.Component {
         super(props);
         this.state = {
             moveaside: false,
-            feed_items: [],
+            feed_items: []
         };
     }
     render() {
         return (
             <div>
-                <Listingcard />
+                <h3>Listing</h3>
+                <Listingcard/>
             </div>
         )
     }
 }
 const mapDispatchToProps = (dispatch) => {
-    return {
-        dispatch
-    };
+    return {dispatch};
 }
 
 export default connect(state => state, mapDispatchToProps)(Listing);
