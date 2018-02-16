@@ -15,6 +15,12 @@ class Images extends React.Component {
             gallery: []
         }
     }
+    componentWillMount() {
+        if (!this.props.userReducer.isLoggedIn) {
+            console.log('Not logged in!');
+            this.props.history.push({pathname: '/login'})
+        }
+    }
     componentDidMount() {
         // Request for images tagged xmas
         //https://res.cloudinary.com/<your_cloud_name>/<resource_type>/list/<tag>.json

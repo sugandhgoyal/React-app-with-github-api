@@ -120,7 +120,6 @@
 .sidebar-nav li a {
     color: grey;
     padding: 14px 10px 11px 17px;
-    word-spacing: 27px;
     font-weight: 900;
     font-size: 16px;
 }
@@ -212,33 +211,31 @@
 }
 
 .dropdownArrow1 {
-    padding-left: 46%;
-    /* font-size: 25px; */
+    padding-left: 57%;
     height: 17px;
 }
 .dropdownArrow2 {
-    padding-left: 31%;
-    /* font-size: 25px; */
+    padding-left: 42%;
     height: 17px;
 }
 .dropdownArrow3{
-    padding-left: 37%;
+    padding-left: 48%;
     height: 17px;
 }
 .dropdownArrow4{
-    margin-left: 39%;
+    margin-left: 50%;
     height: 17px;
 }
 .dropdownArrow5{
-    padding-left: 41%;
+    padding-left: 52%;
     height: 17px;
 }
 .dropdownArrow6{
-    margin-left: 20%;
+    margin-left: 31%;
     height: 17px;
 }
 .dropdownArrow7{
-    margin-left: 36%;
+    margin-left: 47%;
     height: 17px;
 }
 .dropdown-content {

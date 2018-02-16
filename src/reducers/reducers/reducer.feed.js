@@ -12,7 +12,10 @@ import {
     FEED_FILTER_SUCCESS,
     FEED_FILTER_ERROR
 } from '../../constants/index';
-import _ from 'lodash';
+import {findIndex} from 'lodash/findIndex';
+const _ = {
+    findIndex: findIndex
+}
 
 const initialState = {
     state: [],

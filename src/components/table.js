@@ -4,7 +4,6 @@ import SwitchButtonPubAll from './switchButtonPubAll';
 import '../assets/css/table.css';
 import {connect} from 'react-redux';
 import {loadArticleDataApi} from "../action/index";
-import Lazyload from 'react-lazyload';
 import InfiniteScroll from 'react-infinite-scroller';
 
 class Table extends React.Component {
@@ -16,7 +15,6 @@ class Table extends React.Component {
 
     loadMore = () => {
         let length = this.props.articleReducer.article_data.length;
-        console.log("length",this.props.articleReducer.article_data.length);
         if(!this.props.articleReducer.has_more_items) {
             this.props.dispatch(loadArticleDataApi(length, 'lazyLoad'));
         }

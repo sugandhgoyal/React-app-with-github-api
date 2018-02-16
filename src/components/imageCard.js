@@ -13,8 +13,8 @@ class Imagecard extends React.Component {
                         <b>Caption:</b> John Doe
                     </h4>
                     <h4 className="imageAlt"><b>Image Alt: </b>Architect & Engineer</h4>
-                    <i class="fa fa-edit"></i>
-                    <button className="copyButton"><i class="fa fa-clone"></i>&nbsp;Copy Image URL</button>
+                    <i className="fa fa-edit"></i>
+                    <button className="copyButton"><i className="fa fa-clone"></i>&nbsp;Copy Image URL</button>
                         <a><i className="fa fa-trash deleteImage" aria-hidden="true"></i></a>
                 </div>
             </div>

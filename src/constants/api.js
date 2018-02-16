@@ -1,10 +1,5 @@
-import {
-    API_URL
-} from './index';
-import {
-    GOOGLE_API_KEY,
-    
-} from './keys';
+import {API_URL} from './index';
+import {GOOGLE_API_KEY} from './keys';
 
 export const ARTICLE_FETCH_API = (num) => {
     return `https://soapi.in:3001/articles/getarticlebackend/${num}`
@@ -25,7 +20,6 @@ export const FEED_UPDATE_API = (feedId, city) => {
 }
 
 export const LISTING_FETCH_API = `https://soapi.in:3001/dashboard/listings/fetchListings`;
-
 
 /**
  * GOOGLE GET API for fetching cover photo and gender.
@@ -51,9 +45,10 @@ export const SIGN_IN_API = (mode) => {
     return `${API_URL}/users/registerNew/${mode}`;
 };
 
-
 /**
  * POST Api for checking if jsontoken is valid and returning the userdata
  * @type {string}
  */
-export const CHECKING_TOKEN_API = `${API_URL}/users/checkUserToken`;
+export const CHECKING_TOKEN_API = (accessToken) => {
+   return `https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=${accessToken}`;
+}

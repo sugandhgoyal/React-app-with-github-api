@@ -5,10 +5,12 @@ import DateTime from 'react-datetime';
 import {getImageUrl} from '../utils/utils';
 import MapWithASearchBox from './mapComponent';
 import {deleteFeedApi} from '../action/index';
-import _ from 'lodash';
 import {updateFeedApi} from '../action/index';
 import {confirmAlert} from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css' // Import css
+var _ = {
+    find: require('lodash/find'),
+  };
 
 class Feedcard extends React.Component {
     constructor(props) {
@@ -31,9 +33,7 @@ class Feedcard extends React.Component {
             confirmLabel: 'Confirm',
             cancelLabel: 'Cancel',
             onConfirm: () => {
-                this
-                    .props
-                    .dispatch(deleteFeedApi(this.props.eachFeed._id, this.props.eachFeed.city, this.getArticleId(this.props.eachFeed.createdBy)._id));
+                this.props.dispatch(deleteFeedApi(this.props.eachFeed._id, this.props.eachFeed.city, this.getArticleId(this.props.eachFeed.createdBy)._id));
                 this.setState({
                     deletedFeed: !this.state.deletedFeed
                 })
@@ -51,7 +51,6 @@ class Feedcard extends React.Component {
         this.props.dispatch(updateFeedApi(this.props.eachFeed._id, this.props.eachFeed.city, updatedData, date._d.toUTCString(), "updateDateTime"));
     }
     updateNotifyState = (date) => {
-        console.log(date._d);
         let notifydate = date._d.getTime();
         const updatedData = {
             NotifyDate: notifydate,
@@ -110,7 +109,7 @@ class Feedcard extends React.Component {
                                 <DateTime className={this.state.show ? 'rdt' : 'hide'} onBlur={this.updatePublishDate}/>
                                 <div id="popup1" className="overlay">
                                     <div className="popup">
-                                        <a className="close" href="#">&times;</a>
+                                        <a className="close">&times;</a>
                                         <div className="content">
                                             <a href={fbid}>< img alt="fb" src={require('../images/fb.png')}/></a>
                                             <img alt="twitter" src={require('../images/twitter.png')}/>
@@ -125,7 +124,7 @@ class Feedcard extends React.Component {
                                 </div>
                                 <div id="popup2" className="overlay">
                                     {this.state.showMap && <div className="popup">
-                                        <a className="close" href="#">&times;
+                                        <a className="close">&times;
                                         </a>
                                         <div className="content">
                                             <MapWithASearchBox

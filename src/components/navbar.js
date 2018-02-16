@@ -22,67 +22,67 @@ class Navigationbar extends React.Component {
                         </li>
                         <li className="dropdown">
                             <a className="dropdown-toggle" data-toggle="dropdown">
-                                <i className="fa fa-building-o" aria-hidden="true"></i>&nbsp;City
+                                <i className="fa fa-building-o" aria-hidden="true"></i>&nbsp;&nbsp;City
                                 <img alt="twitter"className="dropdownArrow1" src={require('../images/arrow.png')}/>
                             </a>
                             <ul className="dropdown-menu" role="menu">
                                 <li className="feed">
-                                    <a onClick={() => { this.props.changeUrl('feed'); }}> <i className="fa fa-bars"></i>&nbsp;Feeds</a>
+                                    <a onClick={() => { this.props.changeUrl('feed'); }}> <i className="fa fa-bars"></i>&nbsp;&nbsp;Feeds</a>
                                 </li>
                                 <li>
-                                    <a> <i className="fa fa-database"></i>&nbsp;Listings
+                                    <a onClick={() => { this.props.changeUrl('listing'); }}> <i className="fa fa-database"></i>&nbsp;&nbsp;Listings
                                     </a>
                                 </li>
                             </ul>
                         </li>
                         <li className="dropdown">
                             <a className="dropdown-toggle" data-toggle="dropdown">
-                                <i className="fa fa-newspaper-o"></i>&nbsp;Articles
+                                <i className="fa fa-newspaper-o"></i>&nbsp;&nbsp;Articles
                                 <img alt="twitter"className="dropdownArrow2" src={require('../images/arrow.png')}/>
                             </a>
                             <ul className="dropdown-menu" role="menu">
                                 <li>
-                                    <a onClick={() => { this.props.changeUrl('articlehome'); }}><i className="fa fa-home"></i>&nbsp;Articles Home</a>
+                                    <a onClick={() => { this.props.changeUrl('articlehome'); }}><i className="fa fa-home"></i>&nbsp;&nbsp;Articles Home</a>
                                 </li>
                                 <li>
-                                    <a onClick={() => { this.props.changeUrl('addarticle'); }}><i className="fa fa-plus-square"></i>&nbsp;Add New Article</a>
+                                    <a onClick={() => { this.props.changeUrl('addarticle'); }}><i className="fa fa-plus-square"></i>&nbsp;&nbsp;Add New Article</a>
                                 </li>
                             </ul>
                         </li>
                         <li className="dropdown">
                             <a className="dropdown-toggle" data-toggle="dropdown">
-                                <i className="fa fa-camera-retro" aria-hidden="true"></i>&nbsp;Media
+                                <i className="fa fa-camera-retro" aria-hidden="true"></i>&nbsp;&nbsp;Media
                                 <img alt="twitter"className="dropdownArrow3" src={require('../images/arrow.png')}/>
                             </a>
                             <ul className="dropdown-menu" role="menu">
                                 <li>
-                                    <a><i className="fa fa-picture-o" aria-hidden="true"></i>&nbsp;Images</a>
+                                    <a><i className="fa fa-picture-o" aria-hidden="true"></i>&nbsp;&nbsp;Images</a>
                                 </li>
                                 <li>
-                                    <a><i className="fa fa-video-camera" aria-hidden="true"></i>&nbsp;Videos</a>
+                                    <a><i className="fa fa-video-camera" aria-hidden="true"></i>&nbsp;&nbsp;Videos</a>
                                 </li>
                                 <li>
-                                    <a ><i className="fa fa-file-video-o" aria-hidden="true"></i>&nbsp;Gifs</a>
+                                    <a ><i className="fa fa-file-video-o" aria-hidden="true"></i>&nbsp;&nbsp;Gifs</a>
                                 </li>
                             </ul>
                         </li>
                         <li className="dropdown">
                             <a className="dropdown-toggle" data-toggle="dropdown">
-                                <i className="fa fa-users"></i>&nbsp;Users
+                                <i className="fa fa-users"></i>&nbsp;&nbsp;Users
                                 <img alt="twitter"className="dropdownArrow4" src={require('../images/arrow.png')}/>
                             </a>
                             <ul className="dropdown-menu" role="menu">
                                 <li>
-                                    <a ><i className="fa fa-home"></i>&nbsp;Users Home</a>
+                                    <a ><i className="fa fa-home"></i>&nbsp;&nbsp;Users Home</a>
                                 </li>
                                 <li>
-                                    <a ><i className="fa fa-plus-square"></i>&nbsp;Add New Users</a>
+                                    <a ><i className="fa fa-plus-square"></i>&nbsp;&nbsp;Add New Users</a>
                                 </li>
                             </ul>
                         </li>
                         <li className="dropdown">
                             <a className="dropdown-toggle" data-toggle="dropdown">
-                                <i className="fa fa-window-maximize" aria-hidden="true"></i>&nbsp;Apps
+                                <i className="fa fa-window-maximize" aria-hidden="true"></i>&nbsp;&nbsp;Apps
                                 <img alt="twitter"className="dropdownArrow5" src={require('../images/arrow.png')}/>
                             </a>
                             <ul className="dropdown-menu" role="menu">
@@ -118,32 +118,32 @@ class Navigationbar extends React.Component {
                         </li>
                         <li className="dropdown">
                             <a className="dropdown-toggle" data-toggle="dropdown">
-                                <i className="fa fa-users"></i>&nbsp;Monitoring
+                                <i className="fa fa-users"></i>&nbsp;&nbsp;Monitoring
                                 <img alt="twitter"className="dropdownArrow6" src={require('../images/arrow.png')}/>
                             </a>
                             <ul className="dropdown-menu" role="menu">
                                 <li>
-                                    <a ><i className="fa fa-home"></i>&nbsp;page 1</a>
+                                    <a ><i className="fa fa-home"></i>&nbsp;&nbsp;page 1</a>
                                 </li>
                                 <li>
-                                    <a ><i className="fa fa-plus-square"></i>&nbsp;Page 2</a>
+                                    <a ><i className="fa fa-plus-square"></i>&nbsp;&nbsp;Page 2</a>
                                 </li>
                             </ul>
                         </li>
                         <li className="dropdown">
                             <a className="dropdown-toggle" data-toggle="dropdown">
-                                <i className="fa fa-search" aria-hidden="true"></i>&nbsp;Search
+                                <i className="fa fa-search" aria-hidden="true"></i>&nbsp;&nbsp;Search
                                 <img alt="twitter"className="dropdownArrow7" src={require('../images/arrow.png')}/>
                             </a>
                             <ul className="dropdown-menu" role="menu">
                                 <li>
-                                    <a ><i className="fa fa-home"></i>&nbsp;Manual Scheduler</a>
+                                    <a ><i className="fa fa-home"></i>&nbsp;&nbsp;Manual Scheduler</a>
                                 </li>
                                 <li>
-                                    <a ><i className="fa fa-plus-square"></i>&nbsp;Search analytics</a>
+                                    <a ><i className="fa fa-plus-square"></i>&nbsp;&nbsp;Search analytics</a>
                                 </li>
                                 <li>
-                                    <a ><i className="fa fa-plus-square"></i>&nbsp;Search Server Health</a>
+                                    <a ><i className="fa fa-plus-square"></i>&nbsp;&nbsp;Search Server Health</a>
                                 </li>
                             </ul>
                         </li>

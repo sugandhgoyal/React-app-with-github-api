@@ -2,7 +2,6 @@ import React from 'react';
 import '../assets/css/listingCard.css';
 import {connect} from 'react-redux';
 import {loadlistingDataApi} from '../action/index';
-import {getImageUrl} from '../utils/utils';
 
 class Listingcard extends React.Component {
     constructor(props) {
@@ -18,19 +17,14 @@ class Listingcard extends React.Component {
     }
 
     render() {
-        console.log(this.props.listingReducer.listing_data);
         return (
             <div>
-                {this
-                    .props
-                    .listingReducer
-                    .listing_data
-                    .map((ele) => {
+                {this.props.listingReducer.listing_data
+                    .map((ele,index) => {
                         let hreff = `https://so.city/delhi/article/${ele._id}`;
                         let imageHref = ele.cities[0];
-                        console.log("city",ele.cities[0]);
                         return (
-                            <div className="card1 card text-white">
+                            <div key = {index} className="card1 card">
                                 <div className="container">
                                     <div className="row firstRow">
                                         <div className="col-xs-2">
@@ -53,11 +47,11 @@ class Listingcard extends React.Component {
                                             <span>{ele.cities[0]}</span>
                                         </div>
                                         <div className="col-xs-3">
-                                        <span class="dot1">
+                                        <span className="dot1">
                                             <span className="shares">Shares</span>
                                             <span className="shareNum">{ele.numberOfShares}</span>
                                         </span>
-                                        <span class="dot2">
+                                        <span className="dot2">
                                             <span className="likes">Likes</span>
                                             <span className="likesNum">{ele.numberOfLikes}</span>
                                         </span>

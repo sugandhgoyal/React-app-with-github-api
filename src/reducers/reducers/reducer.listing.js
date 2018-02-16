@@ -1,5 +1,4 @@
 import {LOAD_LISTING_DATA, LOAD_LISTING_DATA_SUCCESS, LOAD_LISTING_DATA_ERROR} from '../../constants/index';
-import _ from 'lodash';
 
 const initialState = {
     state: [],

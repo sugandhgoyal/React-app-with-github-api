@@ -4,7 +4,10 @@ import {connect} from 'react-redux';
 import '../../assets/css/feedCard.css';
 import {loadFeedDataApi, filterFeedApi, filterCityFeedApi} from "../../action/index";
 import Feedcard from '../../components/feedCard';
-import _ from 'lodash';
+
+var _ = {
+    find: require('lodash/find'),
+  };
 
 class Feed extends React.Component {
     constructor(props) {
@@ -34,9 +37,13 @@ class Feed extends React.Component {
     }
 
     componentWillMount() {
-        this
-            .props
-            .dispatch(loadFeedDataApi('delhi', 50, Date.now()));
+        if (this.props.userReducer.isLoggedIn === true) {
+            this.props.dispatch(loadFeedDataApi('delhi', 50, Date.now()));
+        } 
+        else {
+            console.log('Not logged in!');
+            this.props.history.push({pathname: '/login'})
+        }
     }
 
     getPublisherImage = (username) => {
@@ -72,7 +79,7 @@ class Feed extends React.Component {
         ];
         if (this.props.feedReducer.feed_data.length > 0) {
             return (
-                <div>
+                <div className="feedBackground">
                     <div>
                         <h3>Feed</h3>
                         <div className="feedDropdown">

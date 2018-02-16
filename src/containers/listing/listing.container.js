@@ -11,9 +11,15 @@ class Listing extends React.Component {
             feed_items: []
         };
     }
+    componentWillMount() {
+        if (!this.props.userReducer.isLoggedIn) {
+            console.log('Not logged in!');
+            this.props.history.push({pathname: '/login'})
+        }
+    }
     render() {
         return (
-            <div>
+            <div className="listingBackground">
                 <h3>Listing</h3>
                 <Listingcard/>
             </div>

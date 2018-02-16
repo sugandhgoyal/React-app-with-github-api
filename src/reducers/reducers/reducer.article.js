@@ -6,7 +6,11 @@ import {
     LAZY_LOADER_ERROR,
     LAZY_LOADER_ACTIVATED
 } from '../../constants/index';
-import _ from 'lodash';
+
+var _ = {
+    union: require('lodash/union'),
+  };
+
 const initialState = {
     state: [],
     article_data: [],

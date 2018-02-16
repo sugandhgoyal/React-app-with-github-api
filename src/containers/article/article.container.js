@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import '../../App.css';
+import '../../assets/css/articleForm.css';
 import {loadArticleDataApi} from "../../action/index";
 import Table from '../../components/table';
 
@@ -15,7 +15,13 @@ class Article extends React.Component {
         }
     }
     componentWillMount() {
-        this.props.dispatch(loadArticleDataApi(0, 'firstLoad'));
+        if (this.props.userReducer.isLoggedIn === true) {
+            this.props.dispatch(loadArticleDataApi(0, 'firstLoad'));
+        } 
+        else {
+            console.log('Not logged in!');
+            this.props.history.push({pathname: '/login'})
+        }
     }
     render() {
         return (

@@ -8,7 +8,14 @@ import {
     Marker,
 } from "react-google-maps";
 import { connect } from 'react-redux';
-const _ = require("lodash");
+
+var _ = {
+    get: require('lodash/get'),
+  };
+// // const _ = require("lodash");
+// const _ = {
+//     get: get
+// }
 const { SearchBox } = require("react-google-maps/lib/components/places/SearchBox");
 
 const MapWithASearchBox = compose(
@@ -20,7 +27,6 @@ const MapWithASearchBox = compose(
     }),
     lifecycle({
         componentWillMount() {
-            // console.log("map", this.props);
             const refs = {}
             this.setState({
                 bounds: null,
@@ -42,7 +48,6 @@ const MapWithASearchBox = compose(
                     refs.searchBox = ref;
                 },
                 onPlacesChanged: () => {
-                    //  console.log("data", refs.searchBox.getPlaces()[0].name);
                     const places = refs.searchBox.getPlaces();
                     const bounds = new google.maps.LatLngBounds();
 

@@ -6,13 +6,15 @@
 
 /* 
  */
-
+.feedBackground{
+    background-color: #f1f1f1;
+}
 #feedCards {
-    margin-bottom: 1%;
+    margin-bottom: 5px;
 }
 
 .card {
-    background-color: #f5f5f5;
+    background-color:white;
     width: 75%;
     border-radius: 10px;
 }
@@ -21,7 +23,7 @@
     margin: 0 auto;
     border-radius: 7px;
     color: #273746;
-    background-color: #f5f5f5;
+    background-color: white;
     margin-top: 3Px;
     margin-left: 16%;
 }
@@ -35,7 +37,7 @@
 }
 
 .feedDropdown .filterButtons {
-    background-color: white;
+    background-color: #f1f1f1;;
     color: grey;
 }
 

@@ -38,7 +38,6 @@ export const searchArticleApi = (api_url) => {
  */
 
 export const feedCallApi = (api_url, body) => {
-    console.log("body",body);
     return fetch(api_url, {
         method: 'POST',
         headers: {

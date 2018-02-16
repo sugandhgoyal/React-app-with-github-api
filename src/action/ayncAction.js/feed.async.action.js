@@ -83,7 +83,6 @@ export const filterFeedApi = (city, batchSize, publishedDate,feature) => {
  */
 
 export const filterCityFeedApi = (city, batchSize, publishedDate,feature) => {
-    console.log(city, batchSize, publishedDate,feature);
     return (dispatch) => {
         dispatch(feedAction.feed_filter_requested());
         return feedCallApi(FEED_FETCH_API, {city, batchSize, publishedDate,feature}).then((data) => {
