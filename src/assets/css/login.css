@@ -6,7 +6,7 @@
 
 .loginBackground {
   background-color: #608199;
-  height: -webkit-fill-available;
+  height: stretch;
   width: unset;
 }
 
@@ -190,27 +190,3 @@
     font-size: 26px;
   }
 }
-
-/* 
-@media screen and (min-width: 1280px) {
-  .container {
-    padding: 2px 43px;
-  }
-  .newcard {
-    top: 17%;
-    left: 27%;
-    width: 44%;
-    margin-bottom: -16px;
-  }
-  .sologo {
-    margin: 20% 20% 6% 25%;
-    width: 400px;
-  }
-  .fbLogin, .gLogin {
-    padding: 20px 0px;
-    font-size: 44px;
-  }
-  .fa-facebook-square, .fa-google-plus-official {
-    font-size: 41px;
-  }
-} */

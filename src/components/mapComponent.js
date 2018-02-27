@@ -12,10 +12,7 @@ import { connect } from 'react-redux';
 var _ = {
     get: require('lodash/get'),
   };
-// // const _ = require("lodash");
-// const _ = {
-//     get: get
-// }
+
 const { SearchBox } = require("react-google-maps/lib/components/places/SearchBox");
 
 const MapWithASearchBox = compose(

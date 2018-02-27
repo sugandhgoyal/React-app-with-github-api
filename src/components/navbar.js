@@ -12,7 +12,7 @@ class Navigationbar extends React.Component {
     render() {
         return (
             <div>
-                <nav id={this.props.moveasideProp ? "openNavbar" : "sidebar-wrapper"} className="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                <div id={this.props.moveasideProp ? "openNavbar" : "sidebar-wrapper"} className="navbar navbar-inverse navbar-fixed-top" role="navigation">
                     <ul className="nav sidebar-nav">
                         <li className="dashboard">
                             <span id="title">Dashboard</span>
@@ -23,7 +23,7 @@ class Navigationbar extends React.Component {
                         <li className="dropdown">
                             <a className="dropdown-toggle" data-toggle="dropdown">
                                 <i className="fa fa-building-o" aria-hidden="true"></i>&nbsp;&nbsp;City
-                                <img alt="twitter"className="dropdownArrow1" src={require('../images/arrow.png')}/>
+                                <i className="fa fa-angle-down dropdownArrow1"></i>
                             </a>
                             <ul className="dropdown-menu" role="menu">
                                 <li className="feed">
@@ -38,7 +38,7 @@ class Navigationbar extends React.Component {
                         <li className="dropdown">
                             <a className="dropdown-toggle" data-toggle="dropdown">
                                 <i className="fa fa-newspaper-o"></i>&nbsp;&nbsp;Articles
-                                <img alt="twitter"className="dropdownArrow2" src={require('../images/arrow.png')}/>
+                                <i className="fa fa-angle-down dropdownArrow2"></i>
                             </a>
                             <ul className="dropdown-menu" role="menu">
                                 <li>
@@ -52,7 +52,7 @@ class Navigationbar extends React.Component {
                         <li className="dropdown">
                             <a className="dropdown-toggle" data-toggle="dropdown">
                                 <i className="fa fa-camera-retro" aria-hidden="true"></i>&nbsp;&nbsp;Media
-                                <img alt="twitter"className="dropdownArrow3" src={require('../images/arrow.png')}/>
+                                <i className="fa fa-angle-down dropdownArrow3"></i>
                             </a>
                             <ul className="dropdown-menu" role="menu">
                                 <li>
@@ -69,7 +69,7 @@ class Navigationbar extends React.Component {
                         <li className="dropdown">
                             <a className="dropdown-toggle" data-toggle="dropdown">
                                 <i className="fa fa-users"></i>&nbsp;&nbsp;Users
-                                <img alt="twitter"className="dropdownArrow4" src={require('../images/arrow.png')}/>
+                                <i className="fa fa-angle-down dropdownArrow4"></i>
                             </a>
                             <ul className="dropdown-menu" role="menu">
                                 <li>
@@ -83,7 +83,7 @@ class Navigationbar extends React.Component {
                         <li className="dropdown">
                             <a className="dropdown-toggle" data-toggle="dropdown">
                                 <i className="fa fa-window-maximize" aria-hidden="true"></i>&nbsp;&nbsp;Apps
-                                <img alt="twitter"className="dropdownArrow5" src={require('../images/arrow.png')}/>
+                                <i className="fa fa-angle-down dropdownArrow5"></i>
                             </a>
                             <ul className="dropdown-menu" role="menu">
                                 <li>
@@ -119,7 +119,7 @@ class Navigationbar extends React.Component {
                         <li className="dropdown">
                             <a className="dropdown-toggle" data-toggle="dropdown">
                                 <i className="fa fa-users"></i>&nbsp;&nbsp;Monitoring
-                                <img alt="twitter"className="dropdownArrow6" src={require('../images/arrow.png')}/>
+                                <i className="fa fa-angle-down dropdownArrow6"></i>
                             </a>
                             <ul className="dropdown-menu" role="menu">
                                 <li>
@@ -133,7 +133,7 @@ class Navigationbar extends React.Component {
                         <li className="dropdown">
                             <a className="dropdown-toggle" data-toggle="dropdown">
                                 <i className="fa fa-search" aria-hidden="true"></i>&nbsp;&nbsp;Search
-                                <img alt="twitter"className="dropdownArrow7" src={require('../images/arrow.png')}/>
+                                <i className="fa fa-angle-down dropdownArrow7"></i>
                             </a>
                             <ul className="dropdown-menu" role="menu">
                                 <li>
@@ -148,7 +148,7 @@ class Navigationbar extends React.Component {
                             </ul>
                         </li>
                     </ul>
-                </nav>
+                </div>
             </div >)
     }
 }

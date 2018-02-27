@@ -45,13 +45,18 @@ class Header extends React.Component {
         cookies.remove('token');
         this.props.dispatch(asyncLogout());
         console.log(this.props.history);
-        // this.props.context.history.push({
-        //     pathname: '/login'
-        // });
+        this.props.history.push({
+            pathname: '/login'
+        });
+    };
+
+    goToLogin = () => {
+        this.props.history.push({
+            pathname: '/login'
+        });
     };
 
     render() {
-        console.log(this.props.userReducer);
         return (
             <div>
                 {this.props.userReducer.isLoggedIn === true && 
@@ -61,17 +66,19 @@ class Header extends React.Component {
                             <span className="openButton" onClick={this.openNav}>&#9776;
                             </span>
                             <Searchbox/>
-                            <div className="userDataColumn col-sm-1">
-                            <img className="loginUserImage" src={this.props.userReducer.userData.photoURL}/>
-                            <button className="logout" onClick={this.logout}>Logout</button>
-                                 {/* {this.props.userReducer.userData.displayName} */}
-                                {/* <i className="fa fa-user-circle-o user" aria-hidden="true"></i> */}
+                            <div className="userDataColumn col-sm-2">
+                            <img className="loginUserImage" alt="login user"src={this.props.userReducer.userData.photoURL}/>
+                            <div className="displayName">{this.props.userReducer.userData.displayName}</div>
+                            <span className="logout tooltip-top" onClick={this.logout}>Logout</span>
                             </div>
                         </div>
                     </div>
                     <Navigationbar moveasideProp={this.state.moveaside} changeUrl={this.changeUrl}/>
                 </div>
                 }
+                {/* {!this.props.userReducer.isLoggedIn &&
+                    this.goToLogin()
+                } */}
             </div>
         )
     }

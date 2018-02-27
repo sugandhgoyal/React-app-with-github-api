@@ -7,15 +7,15 @@ class Dashboard extends React.Component {
         super(props);
         this.state = {}
     }
-    // componentWillMount() {
-    //     if (!this.props.userReducer.isLoggedIn) {
-    //         console.log('Not logged in!');
-    //         this.props.history.push({pathname: '/login'})
-    //     }
-    // }
+    componentWillMount() {
+        if (!this.props.userReducer.isLoggedIn) {
+            console.log('Not logged in!');
+            this.props.history.push({pathname: '/login'})
+        }
+    }
     render() {
         return (
-            <div className={this.props.headerReducer.header_data ? "mainMove" : "main"}>
+            <div>
             <h3>Dashboard</h3>
             </div>
         )

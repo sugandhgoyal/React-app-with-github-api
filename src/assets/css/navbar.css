@@ -81,7 +81,7 @@
 
 .sidebar-nav li {
     position: relative;
-    line-height: 21px;
+    line-height: 16px;
     display: inline-block;
     width: 100%;
     font-size: 15px;
@@ -89,7 +89,8 @@
 
 .logo {
     width: 80px;
-    padding-top: 3%;
+    padding-top: 4%;
+    padding-bottom: 4%;
     width: -webkit-stretch;
     margin-left: 33%;
 }
@@ -139,7 +140,12 @@
     cursor: pointer;
 }
 
-.sidebar-nav li a:hover, .sidebar-nav li a:active, .sidebar-nav li a:focus, .sidebar-nav li.open a:hover, .sidebar-nav li.open a:active, .sidebar-nav li.open a:focus {
+.sidebar-nav li a:hover,
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus,
+.sidebar-nav li.open a:hover,
+.sidebar-nav li.open a:active,
+.sidebar-nav li.open a:focus {
     color: grey;
     cursor: pointer;
     text-decoration: none;
@@ -172,6 +178,7 @@
     color: grey;
     background-color: white;
 }
+
 .sidebar-nav .dropdown-menu li:hover {
     cursor: pointer;
     line-height: 47px;
@@ -191,7 +198,10 @@
 .dropdown {
     position: relative;
     display: inline-block;
-    border-bottom: 0.5px solid #e9e6e6;
+}
+
+.dropdown {
+    border-top: 0.7px solid #e9e6e6;
 }
 
 .dropdown button {
@@ -212,32 +222,39 @@
 
 .dropdownArrow1 {
     padding-left: 57%;
-    height: 17px;
+    font-size: 22px;
 }
+
 .dropdownArrow2 {
     padding-left: 42%;
-    height: 17px;
+    font-size: 22px;
 }
-.dropdownArrow3{
+
+.dropdownArrow3 {
     padding-left: 48%;
-    height: 17px;
+    font-size: 22px;
 }
-.dropdownArrow4{
+
+.dropdownArrow4 {
     margin-left: 50%;
-    height: 17px;
+    font-size: 22px;
 }
-.dropdownArrow5{
+
+.dropdownArrow5 {
     padding-left: 52%;
-    height: 17px;
+    font-size: 22px;
 }
-.dropdownArrow6{
+
+.dropdownArrow6 {
     margin-left: 31%;
-    height: 17px;
+    font-size: 22px;
 }
-.dropdownArrow7{
+
+.dropdownArrow7 {
     margin-left: 47%;
-    height: 17px;
+    font-size: 22px;
 }
+
 .dropdown-content {
     top: 64px;
     left: 34px;
@@ -281,6 +298,7 @@
     border-left: .3em solid transparent;
 }
 
-.fa-building-o, .fa-newspaper-o {
+.fa-building-o,
+.fa-newspaper-o {
     font-weight: 600;
 }

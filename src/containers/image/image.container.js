@@ -1,9 +1,7 @@
-//import LazyLoad from 'react-lazyload';
+
 import React from 'react';
 import {connect} from 'react-redux';
 import '../../assets/css/imageCard.css';
-// import {loadFeedDataApi} from "../../action/index"; import Feedcard from
-// '../../components/feedCard';
 import Imagecard from '../../components/imageCard';
 import axios from 'axios';
 import {CloudinaryContext, Transformation, Image} from 'cloudinary-react';

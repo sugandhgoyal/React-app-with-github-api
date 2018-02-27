@@ -1,5 +1,5 @@
 import React from 'react';
-import CKEditor from "react-ckeditor-component";
+import {Editor} from 'react-draft-wysiwyg';
 import '../App.css';
 
 class Addcard extends React.Component {
@@ -40,34 +40,26 @@ class Addcard extends React.Component {
                 <div className="container">
                     <div className="row">
                         <div className="col-50">
-                            <input type="text" id="fname" name="Card Subtitle" placeholder="Card Subtitle" />
+                            <input className="form-control title-control" type="text" id="fname" name="Card Subtitle" placeholder="Card Subtitle" />
                         </div>
                         <div className="col-50">
-                            <input type="text" id="fname" name="Card Image Url" placeholder="Card Image Url" />
+                            <input className="form-control title-control" type="text" id="fname" name="Card Image Url" placeholder="Card Image Url" />
                         </div>
                     </div>
                     <div className="row">
                         <div className="col-50">
-                            <input type="text" id="lname" name="Card Associated Listing" placeholder="Card Associated Listing" />
+                            <input className="form-control title-control" type="text" id="lname" name="Card Associated Listing" placeholder="Card Associated Listing" />
                         </div>
                         <div className="col-50">
-                            <input type="text" id="lname" name="Card Phone Number" placeholder="Card Phone Number" />
+                            <input className="form-control title-control" type="text" id="lname" name="Card Phone Number" placeholder="Card Phone Number" />
                         </div>
                     </div>
                     <div className="editor">
-                        <CKEditor
-                            activeclass="p10"
-                            content={this.state.content}
-                            events={{
-                                "blur": this.onBlur,
-                                "afterPaste": this.afterPaste,
-                                "change": this.onChange
-                            }}
-                        />
+                <Editor/>
+            </div>
                         <button className="submit" type="submit">SAVE</button>
                         <button className="cancel" type="submit">CANCEL</button>
                     </div>
-                </div>
             </div>
         )
     }

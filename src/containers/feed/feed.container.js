@@ -1,4 +1,4 @@
-//import LazyLoad from 'react-lazyload';
+
 import React from 'react';
 import {connect} from 'react-redux';
 import '../../assets/css/feedCard.css';
@@ -115,11 +115,7 @@ class Feed extends React.Component {
                             </div>
 
                         </div>
-                        {this
-                            .props
-                            .feedReducer
-                            .feed_data
-                            .map((ele) => {
+                        {this.props.feedReducer.feed_data.map((ele) => {
                                 const imageUrl = this.getPublisherImage(ele.createdBy);
                                 if (imageUrl) {
                                     return (<Feedcard
@@ -129,13 +125,19 @@ class Feed extends React.Component {
                                         getDisplayName={this.getDisplayName}/>);
                                 }
                             })
-}
+                        }
                     </div>
                 </div>
             );
         } else {
             return (
-                <div>Loading</div>
+                <div className="loadingPage">
+                <div className="loader-container">
+                <div className="progress float shadow">
+                  <div className="progress__item"></div>
+                </div>
+                </div>    
+                </div>          
             )
         }
     }

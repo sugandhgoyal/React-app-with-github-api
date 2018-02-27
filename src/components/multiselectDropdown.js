@@ -1,5 +1,5 @@
 import React from 'react';
-import '../assets/css/feedCard.css';
+import '../assets/css/articleForm.css';
 
 class Multidropdown extends React.Component {
     constructor(props) {
@@ -55,17 +55,29 @@ class Multidropdown extends React.Component {
         ];
         return (
             <div>
-                <div className="row row1">
-                    <span id="select1">Choose Interest</span>
+                <div className="dropdown">
+                    <button
+                        className="btn btn-primary dropdown-toggle"
+                        type="button"
+                        data-toggle="dropdown">Interest</button>
+                    <div className="dropdown-menu">
+                        {interests.map((interest, index) => <div className="categories">
+                            <input key={index} type="checkbox" className="city btn btn-default"/>{interest}
+                        </div>)}
+                        <div/>
+                    </div>
                 </div>
-                <div className="row row2">
-                {interests.map((interest) => <button type="checkbox" className="city btn btn-default">{interest}</button>)}
-                </div>
-                <div className="row row1">
-                    <span id="select2">Choose City</span>
-                </div>
-                <div className="row row2">
-                    {cities.map((city) => <button className = "city btn btn-default">{city}</button>)}
+                <div className="dropdown">
+                    <button
+                        className="btn btn-primary dropdown-toggle"
+                        type="button"
+                        data-toggle="dropdown">City</button>
+                    <div className="dropdown-menu">
+                        {cities.map((city, index) => <div className="categories">
+                            <button key={index} className="city btn btn-default">{city}</button>
+                        </div>)}
+                        <div/>
+                    </div>
                 </div>
             </div>
         )

@@ -8,7 +8,8 @@ const load_listing_data = () => ({type: LOAD_LISTING_DATA});
 
 const load_listing_data_success = (data) => ({
     type: LOAD_LISTING_DATA_SUCCESS, 
-    listing_data: data
+    listing_data: data.basicListingData,
+    address_data: data.listings
 })
 
 const load_listing_data_error = (err) => ({type: LOAD_LISTING_DATA_ERROR, err})

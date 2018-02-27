@@ -8,6 +8,7 @@ import {deleteFeedApi} from '../action/index';
 import {updateFeedApi} from '../action/index';
 import {confirmAlert} from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css' // Import css
+
 var _ = {
     find: require('lodash/find'),
   };
@@ -144,13 +145,9 @@ class Feedcard extends React.Component {
                         </div>
                         <div className="col-xs-2 right-part">
                             <ul >
-                                <li >
-                                    <i className={this.props.eachFeed.published === 1 ? "fa fa-check-circle-o": "fa fa-file-text-o"}
-                                        aria-hidden="true"></i>
-                                    {this.props.eachFeed.published === 1 && <span>
-                                        &nbsp;Published &nbsp;</span>}
-                                    {this.props.eachFeed.published === 0 && < span > &nbsp;
-                                    Draft&nbsp;</span>}
+                                <li  style={{ overflow: 'hidden' }}>
+                                    <i className="fa fa-check-circle-o"aria-hidden="true"></i>
+                                    &nbsp;Published &nbsp;
                                 </li>
                                 <li>
                                 <a className="featureFeed" onClick={this.updateFeature}>

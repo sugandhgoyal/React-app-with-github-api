@@ -26,11 +26,10 @@ class Table extends React.Component {
                 <InfiniteScroll
                     pageStart={1}
                     loadMore={this.loadMore}
-                    // initialLoad={true}
                     hasMore={true}
-                    loader={< div className = "loader" key = {
-                    0
-                } > Loading ...</div>}>
+                    loader={
+                < div className = "loader" key = {0} >Loading...........
+                    </div>}>
                     <div className="table">
                         <div className="container ">
                             <div className="show-grid row">

@@ -78,7 +78,7 @@ class Login extends React.Component {
                     "retina_detect": true
                 }}
                 />
-                <Loginform facebook={this.facebook} google={this.google} />
+                <Loginform facebook={this.facebook} history={this.props.history} google={this.google} />
             </div>
         )
     }

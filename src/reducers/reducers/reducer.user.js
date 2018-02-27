@@ -10,7 +10,7 @@ import {
     CHECK_USER_TOKEN_LOADER_STARTED,
     CHECK_USER_TOKEN_SUCCESS
 } from '../../constants/index';
-import { stat } from 'fs';
+//import { stat } from 'fs';
 
 const initialState = {
     googleLoading: false,
