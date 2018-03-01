@@ -61,7 +61,14 @@
   font-size: 26px;
 }
 
+/* 
+a:not([href]):not([tabindex]) {
+  color: white;
+  text-decoration: none;
+} */
+
 .fbLogin, .gLogin {
+  color: white;
   letter-spacing: 1px;
   display: block;
   margin-bottom: 0;

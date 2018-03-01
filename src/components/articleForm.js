@@ -1,18 +1,19 @@
 import React from 'react';
 import '../assets/css/articleForm.css';
-//import Example from './example';
+import Example from './example';
 import {connect} from 'react-redux';
-//import Addcard from './addCard';
 import Modal from 'react-responsive-modal';
-import Test from './newEditor';
-import Test1 from './editorPopus';
+import Addcard from './addCard';
+import Addcarddisplay from './addCardDisplay';
+import Advancedtab from './advancedTab';
+import cloudinary from 'cloudinary';
+import {CLOUDINARY_CLOUD_NAME, CLOUDINARY_UPLOAD_PRESET, CLOUDINARY_API_SECRET, CLOUDINARY_API_KEY} from "../constants/keys";
 
+cloudinary.config({cloud_name: CLOUDINARY_CLOUD_NAME, api_key: CLOUDINARY_API_KEY, api_secret: CLOUDINARY_API_SECRET});
 
-var _ = {
-    merge: require('lodash/merge'),
-  };
-var  addNewCardDetails = {};
+var addNewCardDetails = {};
 var newCardDataJson = [];
+var addNewFieldInJson = {};
 const customStyles = {
     content: {
         top: '50%',
@@ -33,14 +34,16 @@ class Addarticleform extends React.Component {
             showEditor: [],
             open: false,
             openSecond: false,
-            showList: 3,
+            showList: 1,
             showAnyList: false,
             closePopupState: false,
-            parentEditorData:'',
+            parentEditorData: '',
             newData: '',
-            newInput1:'',
-            newCardData:{},
-            newCardDataJson:''
+            newInput1: '',
+            newCardData: {},
+            newCardDataJson: '',
+            finalJsonObject: {},
+            showDropdown: false
         }
     }
 
@@ -48,11 +51,8 @@ class Addarticleform extends React.Component {
         return {__html: this.state.newData};
     }
     onOpenModal = () => {
-        addNewCardDetails= {};
-        this.setState({
-            open: true,
-        });
-        console.log(" open modal",addNewCardDetails);
+        addNewCardDetails = {};
+        this.setState({open: true});
     };
 
     onCloseModal = () => {
@@ -71,40 +71,79 @@ class Addarticleform extends React.Component {
     closePopup = () => {
         this.setState({closePopupState: true})
     }
-    handleStateOfOuterEditor = (e)=>{
+    handleStateOfOuterEditor = (e) => {
         this.setState({parentEditorData: e});
-        console.log("outer editor data", this.state.parentEditorData);
+        this.updateDataForWholeJson("introduction", this.state.parentEditorData)
+        // console.log("outer editor data", this.state.parentEditorData);
     }
-    updateData = (key,input) =>{
-        console.log("add new in update",addNewCardDetails);
+    updateData = (key, input) => {
         addNewCardDetails[key] = input;
-        console.log("after",addNewCardDetails);
-        this.setState({
-            newCardData: addNewCardDetails
-        })
+        this.setState({newCardData: addNewCardDetails})
     }
-    saveDataAsJson = () =>{
+    saveDataAsJson = () => {
+        this.onCloseModal();
         newCardDataJson.push(this.state.newCardData);
-        console.log(newCardDataJson);
-        this.setState({ newCardDataJson:newCardDataJson },() => {
-            this.saveDataOnParenteditor();
-        })
+        this.setState({newCardDataJson: newCardDataJson});
+        if (this.state.newCardDataJson.length > 0) {
+            this
+                .state
+                .newCardDataJson
+                .map((element, index) => {
+                    console.log(element);
+                    console.log(index);
+                    element.cardorder = index;
+                })
+        }
+        //    for(var key in this.state.newCardDataJson){
+        // this.state.newCardDataJson.map((element)=>{         console.log(element);
+        // console.log(key);         element.cardorder = key;     })    }
+        console.log("final json of new card", this.state.newCardDataJson);
+        // this.setState({ newCardDataJson:newCardDataJson },() => {
+        // this.saveDataOnParenteditor(); })
     }
 
-    saveDataOnParenteditor = () => {
-        console.log("parent",this.state.parentEditorData);
-        console.log("popup",this.state.newCardDataJson);
-        let combinedData = '';
-        this.state.newCardDataJson.map((ele)=>{
-          for(var prop in ele){
-              combinedData = combinedData.concat(ele[prop]);
-              console.log(combinedData);
-              this.setState({ parentEditorData: combinedData})
-          }
+    // saveDataOnParenteditor = () => {     let combinedData =
+    // this.state.parentEditorData;     this.state.newCardDataJson.map((ele)=>{
+    // for(var prop in ele){           combinedData =
+    // combinedData.concat(ele[prop]);          // console.log(combinedData);
+    // this.setState({ parentEditorData: combinedData})       }     }) }
+
+    myFunction = () => {
+        console.log("show");
+        this.setState({
+            showDropdown: !this.state.showDropdown
         })
     }
+    filterFunction = () => {
+        console.log("filter");
+        // var input, filter, ul, li, a, i; input = document.getElementById("myInput");
+        // filter = input.value.toUpperCase(); div =
+        // document.getElementById("myDropdown"); a = div.getElementsByTagName("a"); for
+        // (i = 0; i < a.length; i++) {     if
+        // (a[i].innerHTML.toUpperCase().indexOf(filter) > -1) { a[i].style.display =
+        // "";     } else {         a[i].style.display = "none";  } }
+    }
+
+    ///func for advanced tab and outer editor
+    updateDataForWholeJson = (key, input) => {
+        addNewFieldInJson[key] = input;
+        this.setState({finalJsonObject: addNewFieldInJson})
+        console.log("final json", this.state.finalJsonObject);
+    }
+
+    openCloudinaryWidget = () => {
+        cloudinary
+            .openUploadWidget({
+                cloud_name: CLOUDINARY_CLOUD_NAME,
+                upload_preset: CLOUDINARY_UPLOAD_PRESET,
+                api_key: CLOUDINARY_API_KEY,
+                api_secret: CLOUDINARY_API_SECRET
+            }, function (error, result) {
+                console.log(error, result)
+            });
+    }
+
     render() {
-        console.log(this.state.newCardDataJson);
         const {open} = this.state;
         const cities = [
             "Andaman",
@@ -149,7 +188,12 @@ class Addarticleform extends React.Component {
         return (
             <div>
                 <div className="leftPart">
-                    <Test handleStateOfOuterEditor={this.handleStateOfOuterEditor} parentEditorData={this.state.parentEditorData}/>
+                    <div className="mainEditor">
+                        <Example
+                            handleStateOfOuterEditor={this.handleStateOfOuterEditor}
+                            parentEditorData={this.state.parentEditorData}/>
+                    </div>
+                    <Addcarddisplay newCardDataJson={this.state.newCardDataJson}/>
                 </div>
                 <div id="rightSideBar">
                     <div className="saveContainer">
@@ -185,7 +229,8 @@ class Addarticleform extends React.Component {
                             ? "showCityDiv"
                             : "hideCityDiv"}>
                             {cities.map((city, index) => <div key={index}>
-                                <input type="checkbox" className="city btn btn-default"/>&nbsp;&nbsp;{city}
+                                <input type="checkbox" id={index} className="city btn btn-default"/>
+                                <label htmlFor={index}>{city}</label>
                             </div>)}
                             <div/>
                         </div>
@@ -193,8 +238,9 @@ class Addarticleform extends React.Component {
                             className={this.state.showList === 2
                             ? "showCategoryDiv"
                             : "hideCategoryDiv"}>
-                            {interests.map((interest, index) => <div key={index}>
-                                <input type="checkbox" className="city btn btn-default"/>&nbsp;&nbsp;{interest}
+                            {interests.map((interest, index2) => <div key={index2}>
+                                <input type="checkbox" id={index2} className="city btn btn-default"/>
+                                <label htmlFor={index2}>{interest}</label>
                             </div>)}
                             <div/>
                         </div>
@@ -202,66 +248,18 @@ class Addarticleform extends React.Component {
                     <span className="advance" onClick={this.props.openNav}>Advanced<i className="fa fa-arrow-right"></i>
                     </span>
                 </div>
-                <div
-                    className={this.props.moveaside
-                    ? "moveSidenav"
-                    : "sidenav"}
-                    id="mySidenav">
-                    <a href="javascript:void(0)" className="closebtn" onClick={this.props.openNav}>x</a>
-                    <div className="sideWidgetHeading">
-                        <h2>Advanced</h2>
-                    </div>
-                    <input className="form-control title-control" type="text" placeholder="Title"/>
-                    <input className="form-control title-control" type="text" placeholder="Id"/>
-                    <input
-                        className="form-control title-control"
-                        type="text"
-                        placeholder="Meta Title"/>
-                    <input
-                        className="form-control title-control"
-                        type="text"
-                        placeholder="Meta Description"/>
-                    <input
-                        className="form-control title-control"
-                        type="text"
-                        placeholder="Meta Keywords"/>
-                    <input
-                        className="form-control title-control"
-                        type="text"
-                        placeholder="Meta Image"/>
-                    <div className="footer">Preview on Google</div>
-                </div>
-                <Modal open={open} onClose={this.onCloseModal} little>
-                    <div className="content">
-                        <input
-                            className="form-control title-control"
-                            type="text"
-                            placeholder="card subtitle" onBlur={() => this.updateData("subtitle",this.state.newInput)}
-                            onChange={(e) => {this.setState({newInput: '<p>'+ e.target.value +'</p>'})}} />
-                        <input
-                            className="form-control title-control"
-                            type="text"
-                            onChange={(e) => {this.setState({newInput: '<p>'+ e.target.value +'</p>'})}}
-                            onBlur={() => this.updateData("imageurl",this.state.newInput)}
-                            placeholder="Card Image Url"/>
-                        <input
-                            className="form-control title-control"
-                            type="text"
-                            onChange={(e) => {this.setState({newInput: '<p>'+ e.target.value +'</p>'})}}
-                             onBlur={() => this.updateData("listing",this.state.newInput)}
-                            placeholder="Card Associated Listing"/>
-                        <input
-                            className="form-control title-control"
-                            type="text"
-                            onChange={(e) => {this.setState({newInput: '<p>'+ e.target.value +'</p>'})}} 
-                            onBlur={() => this.updateData("phonenumber",this.state.newInput)}
-                            placeholder="Card Phone Number"/>
-                        <div className="editor">
-                            <Test1 updateData={this.updateData}/>
-                            <button onClick={this.saveDataAsJson}>Add To Page</button>
-                        </div>
-                    </div>
-                </Modal>
+                <Advancedtab
+                    moveaside={this.props.moveaside}
+                    openNav={this.props.openNav}
+                    updateDataForWholeJson={this.updateDataForWholeJson}/>
+                <Addcard
+                    onCloseModal
+                    ={this.onCloseModal}
+                    open={open}
+                    onClose={this.onCloseModal}
+                    updateData={this.updateData}
+                    saveDataAsJson={this.saveDataAsJson}
+                    openCloudinaryWidget={this.openCloudinaryWidget}/>
                 <Modal
                     className="previewModal"
                     style={customStyles}

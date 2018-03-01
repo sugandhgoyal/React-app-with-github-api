@@ -1,66 +1,54 @@
 import React from 'react';
-import {Editor} from 'react-draft-wysiwyg';
-import '../App.css';
+import '../assets/css/articleForm.css';
+import Modal from 'react-responsive-modal';
+import Example1 from './editorPopup';
 
 class Addcard extends React.Component {
     constructor(props) {
         super(props);
-        this.updateContent = this.updateContent.bind(this);
         this.state = {
             content: '',
         }
-        this.onChange = this.onBlur.bind(this);
-        this.onBlur = this.onBlur.bind(this);
     }
-
-    updateContent(newContent) {
-        this.setState({
-            content: newContent
-        })
-    }
-
-    onChange(evt) {
-        var newContent = evt.editor.getData();
-        this.setState({
-            content: newContent,
-        });
-    }
-
-    onBlur(evt) {
-        console.log("onBlur event called with event info: ", evt);
-    }
-
-    afterPaste(evt) {
-        console.log("afterPaste event called with event info: ", evt);
-    }
-
     render() {
         return (
-            <div>
-                <div className="container">
-                    <div className="row">
-                        <div className="col-50">
-                            <input className="form-control title-control" type="text" id="fname" name="Card Subtitle" placeholder="Card Subtitle" />
-                        </div>
-                        <div className="col-50">
-                            <input className="form-control title-control" type="text" id="fname" name="Card Image Url" placeholder="Card Image Url" />
+            <Modal open={this.props.open} onClose={this.props.onCloseModal} little>
+                    <div className="content">
+                        <input
+                            className="form-control title-control"
+                            type="text"
+                            placeholder="card title" onBlur={() => this.props.updateData("cardTitle",this.state.newInput)}
+                            onChange={(e) => {this.setState({newInput:e.target.value})}} />
+                        <input
+                            className="form-control title-control"
+                            type="text"
+                            placeholder="card subtitle" onBlur={() => this.props.updateData("cardSubtitle",this.state.newInput)}
+                            onChange={(e) => {this.setState({newInput:e.target.value})}} />
+                        <input
+                            className="form-control title-control"
+                            type="text" placeholder="Card Image Url" onClick={this.props.openCloudinaryWidget}/>
+                            {/* // onChange={(e) => {this.setState({newInput:e.target.value})}}
+                            // onBlur={() => this.props.updateData("cardImageUrl",this.state.newInput)}
+                            //  /> */}
+                        <input
+                            className="form-control title-control"
+                            type="text"
+                            onChange={(e) => {this.setState({newInput: e.target.value })}}
+                             onBlur={() => this.props.updateData("cardAssociatedListing",this.state.newInput)}
+                            placeholder="Card Associated Listing"/>
+                        <input
+                            className="form-control title-control"
+                            type="text"
+                            onChange={(e) => {this.setState({newInput: e.target.value })}} 
+                            onBlur={() => this.props.updateData("cardPhoneNumber",this.state.newInput)}
+                            placeholder="Card Phone Number"/>
+                        <div className="editor">
+                            <Example1 updateData={this.props.updateData}/>
+                            <button className="addToPage" onClick={this.props.saveDataAsJson}>Add To Page</button>
+                            <button className="cancelAddToPage" onClick={this.props.saveDataAsJson}>Cancel</button>
                         </div>
                     </div>
-                    <div className="row">
-                        <div className="col-50">
-                            <input className="form-control title-control" type="text" id="lname" name="Card Associated Listing" placeholder="Card Associated Listing" />
-                        </div>
-                        <div className="col-50">
-                            <input className="form-control title-control" type="text" id="lname" name="Card Phone Number" placeholder="Card Phone Number" />
-                        </div>
-                    </div>
-                    <div className="editor">
-                <Editor/>
-            </div>
-                        <button className="submit" type="submit">SAVE</button>
-                        <button className="cancel" type="submit">CANCEL</button>
-                    </div>
-            </div>
+                </Modal>
         )
     }
 }

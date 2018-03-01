@@ -573,7 +573,7 @@ li {
     }
     ul {
         padding: 0px 0px 0px 10px;
-        font-size: 8px;
+        font-size: 7px;
     }
     ul li {
         display: inline-block;
@@ -585,13 +585,13 @@ li {
 }
 
 @media only screen and (max-width: 770px) and (min-width: 767px) {
-   .right-part ul {
+    .right-part ul {
         padding: 2px 0px 0px 25px;
         font-size: 13px;
     }
 }
 
-@media only screen and (min-width: 360360px)and (max-width: 411px) {
+@media only screen and (min-width: 360px)and (max-width: 411px) {
     .openButton {
         font-size: 16px;
     }

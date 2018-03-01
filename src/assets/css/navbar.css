@@ -140,12 +140,7 @@
     cursor: pointer;
 }
 
-.sidebar-nav li a:hover,
-.sidebar-nav li a:active,
-.sidebar-nav li a:focus,
-.sidebar-nav li.open a:hover,
-.sidebar-nav li.open a:active,
-.sidebar-nav li.open a:focus {
+.sidebar-nav li a:hover, .sidebar-nav li a:active, .sidebar-nav li a:focus, .sidebar-nav li.open a:hover, .sidebar-nav li.open a:active, .sidebar-nav li.open a:focus {
     color: grey;
     cursor: pointer;
     text-decoration: none;
@@ -204,6 +199,11 @@
     border-top: 0.7px solid #e9e6e6;
 }
 
+.dropdown a:not([href]):not([tabindex]) {
+    color: grey;
+    text-decoration: none;
+}
+
 .dropdown button {
     margin-left: 37%;
     margin-bottom: 10%;
@@ -218,6 +218,10 @@
     color: white;
     border: 1px solid transparent;
     border-radius: 4px;
+}
+
+.dropdown-toggle {
+    color: grey;
 }
 
 .dropdownArrow1 {
@@ -298,7 +302,6 @@
     border-left: .3em solid transparent;
 }
 
-.fa-building-o,
-.fa-newspaper-o {
+.fa-building-o, .fa-newspaper-o {
     font-weight: 600;
 }

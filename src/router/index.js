@@ -12,7 +12,6 @@ import Listing from '../containers/listing/listing.container';
 import Article from '../containers/article/article.container';
 import Images from '../containers/image/image.container';
 import Dashboard from '../containers/dashboard/dashboard.container';
-import Test from '../components/newEditor';
 import Previewpage from '../components/previewPage';
 
 export default (
@@ -27,7 +26,6 @@ export default (
             <Route path="/addarticle" component={Newarticle} />
             <Route path="/listing" component={Listing} />
             <Route path="/imageupload" component={Images} />
-            <Route path="/m" component={Test} />
         </div>
     </Router>
 )

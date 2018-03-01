@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import Cookies from 'universal-cookie';
 import {auth} from 'firebase';
+import '../../assets/css/login.css';
 import logo from '../../images/socitybg.svg';
 import {googleProvider, facebookProvider} from '../../utils/firebase';
 import {asyncFacebookLogin, asyncGoogleSignin, asyncCheckUserToken} from '../../action/ayncAction.js/user.async.action';
@@ -70,14 +71,14 @@ class Loginform extends React.Component {
         } else {
             return (
                 <div className="container">
-                    <a className="btn btn-primary loginbutton fbLogin">
+                    <span className="btn loginbutton fbLogin">
                         <i className="fa fa-facebook-square" aria-hidden="true"></i>&nbsp;&nbsp;Login with facebook
-                    </a>
-                    <a
+                    </span>
+                    <span
                         className="btn btn-danger loginbutton gLogin"
                         onClick={() => this.Firebase('google')}>
                         <i className="fa fa-google" aria-hidden="true"></i>&nbsp;&nbsp;Login with google
-                    </a>
+                    </span>
                 </div>
             );
         }

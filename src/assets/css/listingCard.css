@@ -325,26 +325,32 @@ ul {
     left: 1%;
   }
   .dot3 {
+    border: 0px;
+    background-color: transparent;
     height: 42px;
     width: 42px;
     margin-left: 2%;
   }
   .dot1 {
+    border: 0px;
+    background-color: transparent;
     height: 42px;
     width: 42px;
     margin-left: 2%;
   }
   .dot2 {
+    border: 0px;
+    background-color: transparent;
     height: 42px;
     width: 42px;
     margin-left: 2%;
   }
   .firstRow .col-xs-6 {
     width: 25%;
-    margin-top: 2%;
-    margin-left: 15px;
+    margin-left: 10px;
   }
   .firstRow .col-xs-4 {
+    margin-left: 1%;
     width: 50%;
     text-transform: capitalize;
     padding: 1% 0% 2% 6%;
@@ -370,9 +376,9 @@ ul {
   }
   .cityName {
     font-size: 10px;
-    top: -7%;
+    top: 40%;
     right: 0%;
-    left: 21%;
+    left: -19%;
   }
   .shares {
     top: 7%;
@@ -427,16 +433,22 @@ ul {
     left: 1%;
   }
   .dot3 {
+    border: 0px;
+    background-color: transparent;
     height: 42px;
     width: 42px;
     margin-left: 2%;
   }
   .dot1 {
+    border: 0px;
+    background-color: transparent;
     height: 42px;
     width: 42px;
     margin-left: 2%;
   }
   .dot2 {
+    border: 0px;
+    background-color: transparent;
     height: 42px;
     width: 42px;
     margin-left: 2%;
@@ -472,9 +484,9 @@ ul {
   }
   .cityName {
     font-size: 10px;
-    top: -7%;
+    top: 40%;
     right: 0%;
-    left: 21%;
+    left: -18%;
   }
   .shares {
     top: 7%;
